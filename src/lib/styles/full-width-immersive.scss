@@ -1,3 +1,7 @@
+div#maincontent:focus {
+    box-shadow: none !important;
+}
+
 .content__main-column--interactive .element-immersive {
     position: relative;
     width: calc( 100vw - var(--scrollbar-width));
@@ -53,4 +57,10 @@
 
 .ios .element--immersive, .android .element--immersive {
     margin: 0 -12px;
+}
+
+.element-atom, .interactive-atom {
+    @media (prefers-color-scheme: dark) {
+        background-color: transparent !important;
+    }
 }

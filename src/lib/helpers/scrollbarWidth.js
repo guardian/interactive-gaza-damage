@@ -12,7 +12,7 @@ function updateScrollbarWidth() {
     if (!document.body.classList.contains("android")) {
         scrollBarWidth = window.innerWidth - documentWidth;
     }
-    
+
     document.documentElement.style.setProperty('--scrollbar-width', scrollBarWidth + "px");
     document.documentElement.style.setProperty('--half-scrollbar-width', (scrollBarWidth / 2) + "px");
 }
