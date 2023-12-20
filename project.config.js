@@ -1,6 +1,6 @@
 export default {
-  title: "Svelte atom template",
-  path: "2022/06/svelte-atom-template",
+  title: "Gaza damage",
+  path: "2023/12/gaza-damage",
   placeholders: {
     headline: "Visualised: the scale of destruction in Gaza",
     standfirst:
