@@ -15,11 +15,7 @@ div#maincontent:focus {
     }
 
     @include mq(leftCol) {
-        margin-left: calc(-50vw - 80px + var(--half-scrollbar-width)) !important;
-    }
-    
-    @include mq($from: wide) {
-        margin-left: calc(-50vw - 120px + var(--half-scrollbar-width)) !important;
+        margin-left: calc(-50vw + 45px + var(--half-scrollbar-width)) !important;
     }
 }
 
