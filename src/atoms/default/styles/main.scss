@@ -7,7 +7,7 @@
 // @import "$lib/styles/enhanced_fonts.scss"; // when you need special font features such as lining figures
 
 // Hide lower part of top navigation bar
-#react-root + div > aside, #react-root + div > div:last-child {
+body > div:first-of-type > aside, body > div:first-of-type > section {
     display: none;
 }
 
