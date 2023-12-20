@@ -19,16 +19,29 @@
 [data-component="meta-byline"] {
   grid-area: byline;
 
-  ::before {
-    content: "by "
-  }
-
-  div {
+  span, a {
     @include f-headline();
     font-size: 24px;
-    line-height: 28px;
-    font-weight: 300;
+    line-height: 32px;
+    font-weight: 300 !important;
+    font-style: normal !important;
   }
+
+  span {
+    color: #121212 !important;
+  }
+
+  a, a:visited {
+    color: #C70000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+  }
+
+  a:hover {
+    color: #AB0613;
+  }
+
 }
 
 article.content--interactive > div:last-child {
@@ -90,4 +103,3 @@ div.content--interactive > div {
         font-weight: 300;
     }
 }
-
