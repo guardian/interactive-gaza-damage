@@ -1,0 +1,34 @@
+{
+  "version": 8,
+  "name": "Gaza strip",
+  "center": [0, 0],
+  "zoom": 4,
+  "bearing": -41,
+  "pitch": 0,
+  "sources": {
+    "raster-tiles": {
+      "type": "raster",
+      "maxzoom": 15,
+      "tileSize": 256,
+      "tiles": ["https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-med-res/{z}/{x}/{y}.jpg"]
+    }
+  },
+  "sprite": "",
+  "glyphs": "https://interactive.guim.co.uk/maptiles/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "simple-tiles",
+      "type": "raster",
+      "source": "raster-tiles",
+      "minzoom": 9,
+      "maxzoom": 15
+    }
+  ],
+  "light": {
+    "anchor": "map",
+    "color": "white",
+    "intensity": 0.2,
+    "position": [1.15, 210, 30]
+  },
+  "id": "pin5r6wsk"
+}

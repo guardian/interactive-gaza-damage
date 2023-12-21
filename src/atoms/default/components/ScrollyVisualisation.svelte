@@ -1,10 +1,5 @@
 <script>
     import Map from "$lib/components/map/Map.svelte";
-    import LineLayer from "$lib/components/map/map-layers/LineLayer.svelte";
-    import CircleLayer from "$lib/components/map/map-layers/CircleLayer.svelte";
-    import PolygonLayer from "$lib/components/map/map-layers/PolygonLayer.svelte";
-    import SymbolLayer from "$lib/components/map/map-layers/SymbolLayer.svelte";
-    import RasterLayer from "$lib/components/map/map-layers/RasterLayer.svelte";
     import AnnotationsLayer from "$lib/components/map/AnnotationsLayer.svelte"
     import Annotation from "$lib/components/map/Annotation.svelte";
     import TextAnnotation from "$lib/components/map/TextAnnotation.svelte";
@@ -30,36 +25,21 @@
     let cameraPosition;
     $: currentCamera = $isMobile ? cameraMobile : camera;
     $: {
+        console.log('change camera', step)
         let view;
         switch (step) {
-        case 5:
-            view = currentCamera.thamesRiverBasin;
-            if (!$isMobile) {
-                view.padding.right = 0.2 * Math.max(0, mapWidth - 1000)
-            }
+        case 1:
+            view = currentCamera.gazaCity;
             cameraPosition = view
             break;
-        case 6:
-            cameraPosition = currentCamera.mogden
-            break;
-        case 7:
-            cameraPosition = currentCamera.mogdenCloseUp
-            break;
-        case 8:
-            cameraPosition = currentCamera.mogdenSpills
-            break;
-        case 9:
-            cameraPosition = currentCamera.mogdenSpills
-            break;
         default:
-            view = currentCamera.englandAndWales;
-            if (!$isMobile) {
-                view.padding.right = 0.3 * Math.max(0, mapWidth - 1000)
-            }
+            view = currentCamera.gazaOverview;
             cameraPosition = view
             break;
         }
     }
+
+    $: console.log('camera position', cameraPosition, currentCamera);
 
     $: if (step == 9 && offset >= 0.4) {
         // change camera position without animation during second overlay step
@@ -111,190 +91,6 @@
 <div class="background-container" style="--blur-amount: {blurAmount}px;" bind:clientWidth={mapWidth}>
     <Map bind:this={map} {cameraPosition} interactive={false}>
 
-        <PolygonLayer
-            id="sewerage-services-areas"
-            beforeId="greenspace names"
-            source="data-tiles"
-            sourceLayer="Sewerageservicesareas"
-            filter={["==", ["get", "CoType"], "regional water and sewerage company"]}
-            strokePaint={{
-                'line-width': 1,
-                'line-color': '#BABABA',
-            }}
-            opacity={step == 1 || step == 2 ? 1 : 0}
-        />
-
-        <PolygonLayer
-            id="sewerage-services-areas-lawsuit"
-            beforeId="greenspace names"
-            source="data-tiles"
-            sourceLayer="Sewerageservicesareas"
-            filter={["in", ["get", "COMPANY"], ["literal", namedInLawsuit]]}
-            fillPaint={{
-                'fill-color': '#CC0A11',
-            }}
-            strokePaint={{
-                'line-width': 2,
-                'line-color': '#707070',
-            }}
-            opacity={step == 2 ? 0.4 : 0}
-        />
-
-        <SymbolLayer
-            id="sewerage-company-names"
-            source="data-tiles"
-            sourceLayer="WaterCompanyLabels"
-            layout={{
-                "text-size": 14,
-                "text-field": ['get', 'name'],
-                "text-letter-spacing": 0.03,
-                "text-radial-offset": 0.5,
-                "text-variable-anchor": ['top', 'bottom', 'center', 'left', 'right'],
-                "text-justify": "auto",
-                "text-font": ["Gdn Text Sans TS3Regular"],
-                "visibility": step == 1 || step == 2 ? "visible" : "none",
-            }}
-            paint={{
-                "text-color": "#121212",
-                "text-halo-color": "#f1efec",
-                "text-halo-width": 2,
-                "text-halo-blur": 1,
-            }}
-        />
-
-        <CircleLayer
-            id="emd-spills-2022"
-            source="data-tiles"
-            sourceLayer="EDMspills2022"
-            beforeId="greenspace names"
-            paint={{
-                "circle-opacity": 0,
-                "circle-radius": [ // sqrt(totalDuration / Math.PI) / 4
-                    "/",
-                    ["sqrt", ["/", ["get", "duration"], ["literal", Math.PI]]],
-                    ["literal", $isMobile ? 8 : 4]
-                ],
-                "circle-stroke-color": "#7b5a00",
-                "circle-stroke-width": 1,
-                "circle-stroke-opacity": step == 3 ? 0.5 : 0,
-            }}
-        />
-
-        <CircleLayer
-            id="emd-spills-2022-annotated"
-            source="data-tiles"
-            sourceLayer="EDMspills2022top10"
-            beforeId="greenspace names"
-            paint={{
-                "circle-opacity": 0,
-                "circle-radius": [ // sqrt(duration / Math.PI) / 4
-                    "/",
-                    ["sqrt", ["/", ["get", "duration"], ["literal", Math.PI]]],
-                    ["literal", $isMobile ? 8 : 4]
-                ],
-                "circle-stroke-color": "#121212",
-                "circle-stroke-width": 1,
-                "circle-stroke-opacity": step == 3 ? 1 : 0,
-            }}
-        />
-
-        <PolygonLayer
-            id="thames-river-basin-inverted"
-            source="data-tiles"
-            sourceLayer="Thamesriverbasininverted"
-            fillPaint={{
-                'fill-color': "#A1A1A1",
-            }}
-            strokePaint={{
-                'line-width': 1,
-                'line-color': '#333',
-                
-            }}
-            opacity={ step == 5 ? 0.1 : 0}
-        />
-
-  
-        <RasterLayer
-            layerName="raster-layer-mogden"
-            opacity={ step == 7 || step == 8 ? 1 : 0}
-            />
-
-        <LineLayer 
-        id="rivers-england-wales"
-        source="data-tiles"
-        sourceLayer="ecologicalstatus"
-        beforeId="greenspace names"
-            filter={
-                ["in", ["get", "country"], ["literal", ["England", "Wales"]]]
-            }
-            paint={{
-                "line-color": ecoStatusCategories[2].colour,
-                "line-opacity": step == 10 || step == 11 ? 0.7 : 0,
-                "line-width": [
-                    "interpolate", ["linear"], ["zoom"],
-                    5, 1,
-                    9, 3
-                ],
-            }}
-        />
-
-        <LineLayer 
-            id="ecological-status-england"
-            source="data-tiles"
-            sourceLayer="ecologicalstatus"
-            beforeId="greenspace names"
-            filter={[
-                "all",
-                ["==", ["get", "country"], "England"],
-                ["in", ["get", "eco_status"], ["literal", ["Bad", "Poor", "Good", "High"]]]
-            ]}
-            paint={{
-                ...ecologicalStatusPaintSettings,
-                "line-opacity": step == 10 ? 1 : step == 11 ? 0.6 : 0,
-            }}
-        />
-
-        <PolygonLayer
-            id="england-boundary"
-            beforeId="greenspace names"
-            source="data-tiles"
-            sourceLayer="CountriesGB"
-            filter={["==", ["get", "country"], "England"]}
-            strokePaint={{
-                'line-width': 1,
-                'line-color': '#707070',
-            }}
-            opacity={step == 10 ? 1 : 0}
-        />
-
-        <LineLayer 
-            id="ecological-status-wales"
-            source="data-tiles"
-            sourceLayer="ecologicalstatus"
-            beforeId="greenspace names"
-            filter={[
-                "all",
-                ["==", ["get", "country"], "Wales"],
-                ["in", ["get", "eco_status"], ["literal", ["Bad", "Poor", "Good", "High"]]]
-            ]}
-            paint={{
-                ...ecologicalStatusPaintSettings,
-                "line-opacity": step == 11 ? 1 : 0,
-            }}
-        />
-
-        <PolygonLayer
-            id="wales-boundary"
-            beforeId="greenspace names"
-            source="data-tiles"
-            sourceLayer="CountriesGB"
-            filter={["==", ["get", "country"], "Wales"]}
-            strokePaint={{
-                'line-width': 1,
-                'line-color': '#707070',
-            }}
-            opacity={step == 11 ? 1 : 0}
-        />
     </Map>
     <div class="map-cover" style="opacity: {coverMap ? mapCoverOpacity : 0};"></div>
     <div class="legend-container" style="opacity: {step == 3 || step == 10 || step == 11 ? 1 : 0};">

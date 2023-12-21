@@ -1,17 +1,17 @@
 <script>
     import { onMount, onDestroy, setContext } from 'svelte'
-    import { Map, LngLat, PointLike } from "maplibre-gl";
-    import style from './map-style-light'
+    import { Map, LngLat } from "maplibre-gl";
+    import style from './map-style-gaza';
     import "maplibre-gl/dist/maplibre-gl.css";
 
     export let cameraPosition = undefined;
     export let cameraTransitionDelay = 0;
     export let interactive = true;
-    export let center = [0, 0];
+    export let center = [34.4046458278726, 31.454140399206565];
     export let zoom = 10;  // starting zoom level
     export let bearing = 0;
     export let pitch = 0;
-    export let bounds = undefined; 
+    export let bounds = undefined;
 
     let map, mapContainer, mapContainerWidth;
 
