@@ -4,7 +4,6 @@
     import Annotation from "$lib/components/map/Annotation.svelte";
     import TextAnnotation from "$lib/components/map/TextAnnotation.svelte";
     import Legend from "./Legend.svelte";
-    import { ecoStatusCategories } from "$lib/helpers/colourScales.js";
     import { isMobile } from "$lib/stores/devices";
     import { annotations, annotationsMobile } from "../annotations.js";
     import { camera, cameraMobile } from "../camera.js";
@@ -68,12 +67,6 @@
                 title="Total spilling duration in 2022"
                 subtitle="Spilling is allowed under certain conditions"
                 image="__assetsPath__/img/bubble-legend.svg"
-            />
-        {:else if step == 10 || step == 11}
-            <Legend 
-                title="Ecological status"
-                subtitle="Most recent classification"
-                categories={ecoStatusCategories} 
             />
         {/if}
     </div>

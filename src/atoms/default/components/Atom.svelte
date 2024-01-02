@@ -83,6 +83,7 @@
     border-top: 1px solid #CCC;
     border-bottom: 1px solid #CCC;
     overflow: hidden;
+    background-color: #FFF;
   }
 
   [slot="foreground"] {
