@@ -25,10 +25,10 @@
           <BeitHanounIntro />
         </ScrollyForeground>
         <ScrollyForeground>
-          <ScrollyBox>
-            <p>Six of those companies <a href="https://www.theguardian.com/business/2023/aug/09/public-could-receive-hundreds-of-millions-as-water-firms-face-sewage-lawsuit">now face a class action legal claim</a> alleging that they have failed to reveal the true scale of raw sewage discharges.</p>
-            <p>A spokesperson for Water UK, the industry body, has described the claim as “entirely without merit”.</p>
-          </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
         </ScrollyForeground>
       </div>
     </Scroller>

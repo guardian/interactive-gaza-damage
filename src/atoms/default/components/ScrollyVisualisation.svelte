@@ -3,13 +3,14 @@
     import AnnotationsLayer from "$lib/components/map/AnnotationsLayer.svelte"
     import Annotation from "$lib/components/map/Annotation.svelte";
     import TextAnnotation from "$lib/components/map/TextAnnotation.svelte";
-    import Legend from "./Legend.svelte";
     import { isMobile } from "$lib/stores/devices";
     import { annotations, annotationsMobile } from "../annotations.js";
     import { camera, cameraMobile } from "../camera.js";
+    import { geoInterpolate } from "d3";
 
     export let step = 0;
     export let offset = 0;
+    $: console.log('offset', offset);
     
     let map, mapWidth = 0;
     const stepsWithBackgroundBlur = [1,2]
@@ -20,25 +21,35 @@
     let cameraPosition;
     $: currentCamera = $isMobile ? cameraMobile : camera;
     $: {
-        let view;
         switch (step) {
+        case 0:
+            cameraPosition = currentCamera.gazaNorth;
         case 1:
-        case 2:
-            view = currentCamera.beitHanoun;
-            cameraPosition = view
+            cameraPosition = currentCamera.beitHanoun;
             break;
+        case 2:
+            cameraPosition = currentCamera.beitHanounDetail1;
+            break;
+        // case 3:
+        //     cameraPosition = currentCamera.beitHanounDetail2;
+        //     break;
         default:
-            view = currentCamera.gazaNorth;
-            cameraPosition = view
+            cameraPosition = currentCamera.beitHanounDetail2;
             break;
         }
     }
 
-    $: if (step == 9 && offset >= 0.4) {
-        // change camera position without animation during second overlay step
-        let newPosition = currentCamera.englandAndWales;
-        newPosition.animate = false;
-        cameraPosition = newPosition;
+    $: if (step === 2) {
+        const start = currentCamera.beitHanounDetail1;
+        const end = currentCamera.beitHanounDetail2;
+        const interpolator = geoInterpolate(start.center, end.center)
+
+        cameraPosition = {
+            center: interpolator(offset),
+            zoom: 15.5,
+            bearing: start.bearing,
+            animate: false,
+        }
     }
 
     function annnotationsForStep(step, annotations) {
@@ -53,7 +64,7 @@
     }
 
     $: annotationsForCurrentStep = $isMobile ? annnotationsForStep(step, annotationsMobile) : annnotationsForStep(step, annotations);
-    $: mapCoverOpacity = step == 9 ? 1 : 0.8;
+    $: mapCoverOpacity = 0;
 </script>
 
 <div class="background-container" style="--blur-amount: {blurAmount}px;" bind:clientWidth={mapWidth}>
@@ -61,15 +72,6 @@
 
     </Map>
     <div class="map-cover" style="opacity: {coverMap ? mapCoverOpacity : 0};"></div>
-    <div class="legend-container" style="opacity: {step == 3 || step == 10 || step == 11 ? 1 : 0};">
-        {#if step >= 2 && step <= 4}
-            <Legend 
-                title="Total spilling duration in 2022"
-                subtitle="Spilling is allowed under certain conditions"
-                image="__assetsPath__/img/bubble-legend.svg"
-            />
-        {/if}
-    </div>
     {#if map }
         <div class="annotations-container" style="opacity: {annotationsForCurrentStep.length ? 1 : 0};">
             <AnnotationsLayer project={map.project} onMapMove={map.onMove}>
@@ -122,36 +124,6 @@
         background-color: #f6f5f3;
         transition: 0.5s opacity linear;
         display: none;
-   }
-   
-   .legend-container {
-        --margin: 10px;
-        position: absolute;
-        top: 10px;
-        width: calc(100% - var(--margin) * 2);
-        margin: 0 var(--margin);
-        transition: opacity 0.5s;
-        padding: 4px 10px 12px 10px;
-        background-color: rgba(246, 245, 243, 0.8);
-        border-top: 1px solid #999;
-
-        @include mq($from: tablet) {
-            width: auto;
-            margin: 0;
-            right: 10px;
-        }
-   }
-
-   :global(.android .legend-container) {
-        top: 60px;
-   }
-
-   .legend-container h3 {
-        @include f-headline();
-        font-size: 20px;
-        line-height: 115%;
-        font-weight: 700;
-        margin-bottom: 12px;
    }
 
    .annotations-container {
