@@ -1,14 +1,14 @@
 <script>
-    import TextColumn from "$lib/components/TextColumn.svelte";
+    import Grid from "$lib/components/Grid.svelte";
 
     export let type = 'scrolly-box'; // scrolly-box, overlay
 </script>
 
 <div class="scrolly-foreground-element {type}">
     {#if type === 'scrolly-box'}
-        <TextColumn>
+        <Grid>
             <slot/>
-        </TextColumn>
+        </Grid>
     {:else if type === 'overlay'}
         <slot/>
     {/if}

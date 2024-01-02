@@ -42,7 +42,6 @@ div#maincontent:focus {
     }
 
     @include mq($from: wide) {
-        border-left: 1px solid #dcdcdc;
         left: -11px;
     }
 }

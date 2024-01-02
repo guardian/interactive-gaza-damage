@@ -7,7 +7,8 @@
   import { onMount } from "svelte";
   import { isDesktop } from "$lib/stores/devices.js";
 
-  export let id;
+  export let src;
+  export let posterImage;
   export let showControls = true;
   export let rewindOnPause = false;
 
@@ -135,7 +136,7 @@
     alt="poster for video"
     class="poster"
     class:hidden={hasStartedPlaying}
-    src="https://multimedia.guardianapis.com/interactivevideos/video.php?file={id}&poster=1&png"
+    src={posterImage}
   />
 
   <!-- svelte-ignore a11y-media-has-caption -->
@@ -151,13 +152,11 @@
     bind:duration
     class="video"
     preload="auto"
-    poster="https://uploads.guim.co.uk/2024/01/02/out.png"
+    poster={posterImage}
     playsinline="true"
     loop="true"
   >
-    <source
-      src="https://uploads.guim.co.uk/2023/12/22/beit-hanoun-walkthrough_SITE.mp4"
-    />
+    <source src />
   </video>
 
   {#if showControls}
@@ -196,8 +195,8 @@
   .video-wrapper {
     display: block;
     width: 100%;
-    height: 400px;
-    position: relative;
+    height: 100%;
+    position: absolute;
   }
 
   .poster {

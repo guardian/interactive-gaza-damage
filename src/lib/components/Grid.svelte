@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-  <div class="text-column">
+  <div class="grid">
     <slot />
   </div>
 </div>
@@ -39,27 +39,12 @@
     }
   }
 
-  .text-column {
+  .grid {
     display: grid;
     grid-column-gap: 10px;
     grid-template-columns: 219px 1px 1fr 300px;
-    grid-template-areas: ".          border      body        .";
-
-
-    // @include mq($from: tablet) {
-    //   max-width: 620px;
-    // }
-
-    // @include mq($from: tablet, $until: leftCol) {
-    //   margin-left: 20px;
-    // }
-
-    // @include mq($from: leftCol, $until: wide) {
-    //   margin-left: 180px;
-    // }
-
-    // @include mq($from: wide) {
-    //   margin-left: 260px;
-    // }
+    grid-template-areas: ".          border-header     header      ."
+                         "media      media             media       media"
+                         ".          border-body       body        .";
   }
 </style>
