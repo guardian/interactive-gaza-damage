@@ -3,14 +3,14 @@
   import ScrollyVisualisation from "./ScrollyVisualisation.svelte"
   import ScrollyForeground from "./ScrollyForeground.svelte"
   import ScrollyBox from "./ScrollyBox.svelte"
-  import FirstOverlaySection from "./FirstOverlaySection.svelte";
+  import BeitHanounIntro from "./BeitHanounIntro.svelte";
   import SecondOverlaySection from "./SecondOverlaySection.svelte";
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
 
   let index = 0
   let progress, offset;
 
-  $: step = progress > 0.02 ? index + 1 : index;
+  $: step = progress > 0 ? index + 1 : index;
   $: console.log('step', step);
 </script>
 
@@ -22,10 +22,8 @@
           <ScrollyVisualisation {step} {offset} />
       </div>
       <div slot="foreground">
-        <ScrollyForeground>
-          <ScrollyBox>
-            <p>The vast majority of sewerage services in England and Wales are provided by 11 large water companies.</p>
-          </ScrollyBox>
+        <ScrollyForeground type="overlay">
+          <BeitHanounIntro />
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
@@ -40,7 +38,7 @@
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground type="overlay">
-          <FirstOverlaySection />
+          <BeitHanounIntro />
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>

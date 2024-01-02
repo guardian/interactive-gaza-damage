@@ -13,33 +13,27 @@
     export let offset = 0;
     
     let map, mapWidth = 0;
+    const stepsWithBackgroundBlur = [1,2]
 
-    $: blurAmount = step == 4 || step == 9 ? 10 : 0;
+    $: blurAmount = 0; // stepsWithBackgroundBlur.includes(step) ? 10 : 0;
     $: coverMap = blurAmount > 0;
-    
-    $: if (map) {
-        // hide boundaries when scrolly starts
-        map.setPaintProperty("boundaries", "line-opacity", step == 0 || step >= 3 ? 1 : 0);
-    }
     
     let cameraPosition;
     $: currentCamera = $isMobile ? cameraMobile : camera;
     $: {
-        console.log('change camera', step)
         let view;
         switch (step) {
         case 1:
-            view = currentCamera.gazaCity;
+        case 2:
+            view = currentCamera.beitHanoun;
             cameraPosition = view
             break;
         default:
-            view = currentCamera.gazaOverview;
+            view = currentCamera.gazaNorth;
             cameraPosition = view
             break;
         }
     }
-
-    $: console.log('camera position', cameraPosition, currentCamera);
 
     $: if (step == 9 && offset >= 0.4) {
         // change camera position without animation during second overlay step
@@ -47,31 +41,6 @@
         newPosition.animate = false;
         cameraPosition = newPosition;
     }
-
-    const namedInLawsuit = ["Severn Trent Water", "Thames Water", "United Utilities", "Anglian Water", "Yorkshire Water", "Northumbrian Water"]
-    
-    // ecological status
-    const ecologicalStatusPaintSettings = {
-        "line-color": [
-        "case",
-        ["==", ["get", "eco_status"], ecoStatusCategories[0].label],
-        ecoStatusCategories[0].colour,
-        ["==", ["get", "eco_status"], ecoStatusCategories[1].label],
-        ecoStatusCategories[1].colour,
-        ["==", ["get", "eco_status"], ecoStatusCategories[2].label],
-        ecoStatusCategories[2].colour,
-        ["==", ["get", "eco_status"], ecoStatusCategories[3].label],
-        ecoStatusCategories[3].colour,
-        ["==", ["get", "eco_status"], ecoStatusCategories[4].label],
-        ecoStatusCategories[4].colour,
-        "#CCCCCC"
-        ],
-        "line-width": [
-            "interpolate", ["linear"], ["zoom"],
-            5, 1,
-            9, 3
-        ],
-    };
 
     function annnotationsForStep(step, annotations) {
         const key = `step-${step}`
@@ -85,7 +54,7 @@
     }
 
     $: annotationsForCurrentStep = $isMobile ? annnotationsForStep(step, annotationsMobile) : annnotationsForStep(step, annotations);
-    $: mapCoverOpacity = step == 9 ? 1 : 0.5;
+    $: mapCoverOpacity = step == 9 ? 1 : 0.8;
 </script>
 
 <div class="background-container" style="--blur-amount: {blurAmount}px;" bind:clientWidth={mapWidth}>
@@ -159,6 +128,7 @@
         height: 100%;
         background-color: #f6f5f3;
         transition: 0.5s opacity linear;
+        display: none;
    }
    
    .legend-container {
