@@ -156,7 +156,7 @@
     playsinline="true"
     loop="true"
   >
-    <source src />
+    <source src={src} />
   </video>
 
   {#if showControls}

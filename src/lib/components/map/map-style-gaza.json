@@ -6,22 +6,37 @@
   "bearing": -41,
   "pitch": 0,
   "sources": {
-    "raster-tiles": {
+    "med-res": {
       "type": "raster",
       "maxzoom": 15,
       "tileSize": 256,
       "tiles": ["https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-med-res/{z}/{x}/{y}.jpg"]
+    },
+    "high-res": {
+      "type": "raster",
+      "maxzoom": 17,
+      "tileSize": 256,
+      "tiles": [
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-high-res/{z}/{x}/{y}.jpg"
+      ]
     }
   },
   "sprite": "",
   "glyphs": "https://interactive.guim.co.uk/maptiles/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "simple-tiles",
+      "id": "med-res-tiles",
       "type": "raster",
-      "source": "raster-tiles",
+      "source": "med-res",
       "minzoom": 9,
       "maxzoom": 15
+    },
+    {
+      "id": "high-res-tiles",
+      "type": "raster",
+      "source": "high-res",
+      "minzoom": 13,
+      "maxzoom": 17
     }
   ],
   "light": {

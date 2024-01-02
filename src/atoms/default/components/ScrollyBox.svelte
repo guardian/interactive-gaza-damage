@@ -19,7 +19,7 @@
         background-color: var(--background-color, rgba(246, 245, 243, 0.9));
         margin: 0 auto;
         max-width: 420px;
-        border-top: 1px solid #999;
+        border-top: 4px solid #121212;
 
         @include mq($from: tablet) {
             margin: 0 -20px 0 -20px;

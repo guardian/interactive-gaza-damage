@@ -13,12 +13,14 @@ export const camera = {
     essential: true,
   },
   beitHanoun: {
-    bounds: [
-      [34.5173, 31.54195],
-      [34.5594, 31.53569],
-    ],
+    center: [34.54019, 31.53900],
+    zoom: 14,
+    // bounds: [
+    //   [34.53216, 31.55156],
+    //   [34.54878, 31.52642],
+    // ],
     bearing: 41,
-    padding: { top: 0, bottom: 200, left: 0, right: 0 },
+    padding: { top: 0, bottom: 300, left: 0, right: 0 },
     duration: 1000,
     easing: quadInOut,
     essential: true,
