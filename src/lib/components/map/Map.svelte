@@ -132,9 +132,9 @@
             console.log('Map error', error);
         });
 
-        map.on('zoomend', () => {
-            console.log('zoom level: ', map.getZoom())
-        })
+        // map.on('zoomend', () => {
+        //     console.log('zoom level: ', map.getZoom())
+        // })
     });
 
     onDestroy(() => {

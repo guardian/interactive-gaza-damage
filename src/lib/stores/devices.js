@@ -2,7 +2,7 @@ import { derived } from 'svelte/store';
 import { windowInnerWidth } from './dimensions';
 
 export const isMobile = derived(windowInnerWidth, $windowInnerWidth => {
-    return $windowInnerWidth < 740;
+    return $windowInnerWidth > 0 && $windowInnerWidth < 740;
 });
 
 export const isTablet = derived(windowInnerWidth, $windowInnerWidth => {

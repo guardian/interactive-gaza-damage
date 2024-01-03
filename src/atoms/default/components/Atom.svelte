@@ -10,6 +10,7 @@
   let progress, offset;
 
   $: step = progress > 0 ? index + 1 : index;
+  // $: step = index;
   $: console.log('step', step);
 </script>
 
@@ -18,9 +19,13 @@
 <div class="atom">
     <Scroller top="{0}" bottom="{1}" threshold="{0.8}" query=".scrolly-foreground-element" bind:index bind:progress bind:offset>
       <div slot="background">
+        {#if typeof document !== "undefined"}
           <ScrollyVisualisation {step} {offset} />
+        {/if}
       </div>
       <div slot="foreground">
+        <ScrollyForeground>
+        </ScrollyForeground>
         <ScrollyForeground type="overlay">
           <BeitHanounIntro />
         </ScrollyForeground>

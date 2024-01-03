@@ -28,7 +28,7 @@
     .overlay {
         border-top: 4px solid #121212;
         border-bottom: 4px solid #121212;
-        background-color: #FFF;
+        background-color: rgb(255, 255, 255);
     }
 
     .header {

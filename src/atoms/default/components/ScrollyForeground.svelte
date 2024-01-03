@@ -26,6 +26,6 @@
         padding-bottom: 100vh;
 
         // FOR DEBUGGING
-        border-bottom: 2px solid #C70000;
+        // border-bottom: 2px solid #C70000;
     }
 </style>

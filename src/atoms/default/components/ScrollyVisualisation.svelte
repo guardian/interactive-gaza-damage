@@ -6,51 +6,61 @@
     import { isMobile } from "$lib/stores/devices";
     import { annotations, annotationsMobile } from "../annotations.js";
     import { camera, cameraMobile } from "../camera.js";
-    import { geoInterpolate } from "d3";
+    import { interpolateNumber, geoInterpolate } from "d3";
 
     export let step = 0;
     export let offset = 0;
-    $: console.log('offset', offset);
+    // $: console.log('offset', offset);
+
+    $: currentCamera = $isMobile ? cameraMobile : camera;
     
     let map, mapWidth = 0;
-    const stepsWithBackgroundBlur = [1,2]
 
+    // const stepsWithBackgroundBlur = [1,2]
     $: blurAmount = 0; // stepsWithBackgroundBlur.includes(step) ? 10 : 0;
     $: coverMap = blurAmount > 0;
     
-    let cameraPosition;
-    $: currentCamera = $isMobile ? cameraMobile : camera;
-    $: {
+    $: cameraPositionForStep = (camera, step) => {
         switch (step) {
         case 0:
-            cameraPosition = currentCamera.gazaNorth;
         case 1:
-            cameraPosition = currentCamera.beitHanoun;
-            break;
+            return camera.gazaNorth;
         case 2:
-            cameraPosition = currentCamera.beitHanounDetail1;
-            break;
-        // case 3:
-        //     cameraPosition = currentCamera.beitHanounDetail2;
-        //     break;
+            return camera.beitHanoun;
+        case 3:
+            return camera.beitHanoun;
+        case 4:
+            return camera.beitHanounDetail1;
+        case 5:
+            return camera.beitHanounDetail2;
         default:
-            cameraPosition = currentCamera.beitHanounDetail2;
-            break;
+            return camera.beitHanounDetail2;
         }
     }
 
-    $: if (step === 2) {
-        const start = currentCamera.beitHanounDetail1;
-        const end = currentCamera.beitHanounDetail2;
-        const interpolator = geoInterpolate(start.center, end.center)
+    let cameraPosition;
+
+    function updateCameraPosition(camera, step, offset) {
+        // console.log('update camera', camera,' for step:', step, 'and offset:', offset)
+
+        const start = cameraPositionForStep(camera, step);
+        const end = cameraPositionForStep(camera, step + 1);
+
+        if (start === end) return;
+
+        const centerInterpolator = geoInterpolate(start.center, end.center);
+        const zoomInterpolator = interpolateNumber(start.zoom, end.zoom);
+        const bearingInterpolator = interpolateNumber(start.bearing, end.bearing);
 
         cameraPosition = {
-            center: interpolator(offset),
-            zoom: 15.5,
-            bearing: start.bearing,
+            center: centerInterpolator(offset),
+            zoom: zoomInterpolator(offset),
+            bearing: bearingInterpolator(offset),
             animate: false,
         }
     }
+
+    $: updateCameraPosition(currentCamera, step, offset)
 
     function annnotationsForStep(step, annotations) {
         const key = `step-${step}`
@@ -64,7 +74,7 @@
     }
 
     $: annotationsForCurrentStep = $isMobile ? annnotationsForStep(step, annotationsMobile) : annnotationsForStep(step, annotations);
-    $: mapCoverOpacity = 0;
+    // $: mapCoverOpacity = 0;
 </script>
 
 <div class="background-container" style="--blur-amount: {blurAmount}px;" bind:clientWidth={mapWidth}>
