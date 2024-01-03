@@ -50,20 +50,20 @@
     padding-top: 95vh;
 	}
 
-  p {
-    @include f-bodyCopy();
-    font-size: 17px;
-    line-height: 1.4;
-    font-weight: 400;
-    margin-bottom: 14px;
-    color: #121212;
-  }
+  // p {
+  //   @include f-bodyCopy();
+  //   font-size: 17px;
+  //   line-height: 1.4;
+  //   font-weight: 400;
+  //   margin-bottom: 14px;
+  //   color: #121212;
+  // }
 
-  p:last-child {
-    margin-bottom: 0;
-  }
+  // p:last-child {
+  //   margin-bottom: 0;
+  // }
 
-  a {
-    color: #C70000 !important;
-  }
+  // a {
+  //   color: #C70000 !important;
+  // }
 </style>

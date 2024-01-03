@@ -24,8 +24,8 @@ export const camera = {
     essential: true,
   },
   beitHanounDetail1: {
-    center: [34.55016, 31.54694],
-    zoom: 15.5,
+    center: [34.5501, 31.547],
+    zoom: 16,
     bearing: 41,
     padding: { top: 0, bottom: 0, left: 0, right: 0 },
     duration: 1000,
@@ -33,6 +33,15 @@ export const camera = {
     essential: true,
   },
   beitHanounDetail2: {
+    center: [34.54682, 31.5389],
+    zoom: 16,
+    bearing: 41,
+    padding: { top: 0, bottom: 0, left: 0, right: 0 },
+    duration: 1000,
+    easing: quadInOut,
+    essential: true,
+  },
+  beitHanounDetail3: {
     center: [34.53465, 31.54647],
     zoom: 15.5,
     bearing: 41,

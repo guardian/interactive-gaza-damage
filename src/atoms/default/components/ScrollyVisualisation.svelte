@@ -6,7 +6,7 @@
     import { isMobile } from "$lib/stores/devices";
     import { annotations, annotationsMobile } from "../annotations.js";
     import { camera, cameraMobile } from "../camera.js";
-    import { interpolateNumber, geoInterpolate } from "d3";
+    import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
 
     export let step = 0;
     export let offset = 0;
@@ -34,7 +34,7 @@
         case 5:
             return camera.beitHanounDetail2;
         default:
-            return camera.beitHanounDetail2;
+            return camera.beitHanounDetail3;
         }
     }
 
@@ -57,10 +57,12 @@
         const zoomInterpolator = interpolateNumber(start.zoom, end.zoom);
         const bearingInterpolator = interpolateNumber(start.bearing, end.bearing);
 
+        const easedOffset = easeQuadInOut(offset)
+
         cameraPosition = {
-            center: centerInterpolator(offset),
-            zoom: zoomInterpolator(offset),
-            bearing: bearingInterpolator(offset),
+            center: centerInterpolator(easedOffset),
+            zoom: zoomInterpolator(easedOffset),
+            bearing: bearingInterpolator(easedOffset),
             animate: false,
         }
     }

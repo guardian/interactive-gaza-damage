@@ -77,7 +77,7 @@
         margin-bottom: 14px;
     }
 
-    a {
-        color: #C70000;
-    }
+    // a {
+    //     color: #C70000;
+    // }
 </style>
