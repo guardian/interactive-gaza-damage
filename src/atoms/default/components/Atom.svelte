@@ -9,8 +9,7 @@
   let index = 0
   let progress, offset;
 
-  $: step = progress > 0 ? index + 1 : index;
-  // $: step = index;
+  $: step = progress > 0.02 ? index + 1 : index;
   $: console.log('step', step);
 </script>
 

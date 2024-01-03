@@ -117,7 +117,7 @@
             ...mapPosition,
         });
 
-        map.on("style.load", onMapLoad);
+        map.on("load", onMapLoad);
 
         map.on('resize', function() {
             if (cameraPosition) {

@@ -44,8 +44,13 @@
         // console.log('update camera', camera,' for step:', step, 'and offset:', offset)
 
         const start = cameraPositionForStep(camera, step);
-        const end = cameraPositionForStep(camera, step + 1);
 
+        if (cameraPosition === undefined) {
+            cameraPosition = start
+            return;
+        }
+
+        const end = cameraPositionForStep(camera, step + 1);
         if (start === end) return;
 
         const centerInterpolator = geoInterpolate(start.center, end.center);
