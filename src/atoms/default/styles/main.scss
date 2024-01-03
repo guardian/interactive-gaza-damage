@@ -3,8 +3,15 @@
 @import "$lib/styles/mq.scss";
 @import "$lib/styles/defaults.scss";
 @import "$lib/styles/full-width-immersive.scss";
-// @import "./layout.scss";
 // @import "$lib/styles/enhanced_fonts.scss"; // when you need special font features such as lining figures
+
+body {
+  --top-inset: 0px;
+}
+
+body.android {
+  --top-inset: 58px;
+}
 
 // Hide lower part of top navigation bar
 body > div:first-of-type > aside, body > div:first-of-type > section {
@@ -46,6 +53,10 @@ body > div:first-of-type > aside, body > div:first-of-type > section {
     color: #AB0613;
   }
 
+}
+
+article.content--interactive {
+  overflow: hidden;
 }
 
 article.content--interactive > div:last-child {

@@ -15,6 +15,7 @@
 
 <style lang="scss">
   .main-media {
+    width: 100%;
     height: 100vh;
     overflow: hidden;
   }

@@ -21,6 +21,7 @@
             <p>Other key parts of the city's critical infrastructure have been damaged or destroyed. Several educational facilities were destroyed or damaged. The Beit Hanoun hospital has been severely damaged. The Umm al-Nasr mosque, parts of which date back to 1239, was also damaged. Grocery stores and the town shopping mall have been damaged or destroyed, in addition to many residential buildings.</p>
             <p>The neighbourhood of ‘Izbat Beit Hanoun has been almost completely flattened, including its hospital and several tower blocks. Mosques and schools have also been hit. Many of the roads appear unserviceable.</p>
         </div>
+        
     </TextColumn>
 </div>
 

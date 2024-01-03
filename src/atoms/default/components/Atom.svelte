@@ -2,8 +2,9 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import ScrollyVisualisation from "./ScrollyVisualisation.svelte"
   import ScrollyForeground from "./ScrollyForeground.svelte"
-  import ScrollyBox from "./ScrollyBox.svelte"
   import BeitHanounIntro from "./BeitHanounIntro.svelte";
+  import VideoOverlay from "$lib/components/VideoOverlay.svelte";
+  import ScrollyBox from "./ScrollyBox.svelte"
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
 
   let index = 0
@@ -29,8 +30,18 @@
           <BeitHanounIntro />
         </ScrollyForeground>
         <ScrollyForeground>
+          <!-- Scroll to fields -->
+        </ScrollyForeground>
+          <!-- Scroll to neighbourhood -->
+        <ScrollyForeground>
+          <!-- Zoom to school -->
         </ScrollyForeground>
         <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+          <ScrollyBox>
+            <p>Copy on school demolition video.</p>
+          </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>
@@ -44,24 +55,30 @@
     border-bottom: 12px solid #121212;
     overflow: hidden;
     background-color: #FFF;
+    pointer-events: none;
   }
 
   [slot="foreground"] {
     padding-top: 95vh;
+    pointer-events: none;
 	}
 
-  // p {
-  //   @include f-bodyCopy();
-  //   font-size: 17px;
-  //   line-height: 1.4;
-  //   font-weight: 400;
-  //   margin-bottom: 14px;
-  //   color: #121212;
-  // }
+  [slot="background"] {
+    pointer-events: all;
+	}
 
-  // p:last-child {
-  //   margin-bottom: 0;
-  // }
+  p {
+    @include f-bodyCopy();
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin-bottom: 14px;
+    color: #121212;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 
   // a {
   //   color: #C70000 !important;
