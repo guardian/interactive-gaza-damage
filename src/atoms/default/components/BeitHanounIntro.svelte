@@ -27,6 +27,7 @@
 
 <style lang="scss">
     .overlay {
+        pointer-events: all;
         border-top: 4px solid #121212;
         border-bottom: 4px solid #121212;
         background-color: rgb(255, 255, 255);

@@ -1,0 +1,138 @@
+// Hide lower part of top navigation bar
+body > div:first-of-type > aside,
+body > div:first-of-type > section {
+  display: none;
+}
+
+article.content--interactive {
+  overflow: hidden;
+}
+
+article.content--interactive > div:last-child {
+  border: none;
+}
+
+div.content__main-column--interactive {
+  margin-left: 0px;
+}
+
+div.content--interactive > div {
+  grid-column-gap: 0px;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'title'
+                       'headline' 
+                       'standfirst'
+                       'byline'
+                       'caption'
+                       'lines'
+                       'meta'
+                       'body';
+
+  @include mq($from: desktop) {
+    grid-template-columns: 1fr 300px;
+    grid-column-gap: 20px;
+    grid-template-areas:
+    'title       .'
+    'headline    .'
+    'standfirst  .'
+    'byline      .'
+    'caption     .'
+    'lines       .'
+    'meta        .'
+    'body        .';
+  }
+
+  @include mq($from: leftCol) {
+    grid-template-columns: 140px 1px 620px 300px;
+    grid-column-gap: 10px;
+    grid-template-areas:
+        ".          border      headline    ."
+        ".          border      standfirst  ."
+        ".          border      byline      ."
+        "lines      border      body        ."
+        "meta       border      body        ."
+        ".          border      body        ."
+        ".          border      .           .";
+  }
+
+  @include mq($from: wide) {
+    grid-template-columns: 219px 1px 1fr 300px;
+  }
+}
+
+[data-gu-name="title"] {
+  display: none;
+  grid-area: unset !important;
+}
+
+[data-gu-name="headline"] {
+  background-color: #121212;
+  padding-left: 11px;
+  transform: translateX(-11px);
+  margin-top: -75px;
+  position: relative;
+
+  h1 {
+    @include f-headline();
+    font-size: 50px;
+    line-height: 56px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    width: 50vw;
+    background-color: #121212;
+  }
+}
+
+[data-gu-name="standfirst"] {
+  padding-top: 16px;
+
+  p {
+    @include f-headline();
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 300;
+  }
+}
+
+[data-component="meta-byline"] {
+  grid-area: byline;
+
+  div {
+    margin-bottom: 24px;
+  }
+
+  span,
+  a {
+    @include f-headline();
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 300 !important;
+    font-style: normal !important;
+  }
+
+  span {
+    color: #121212 !important;
+  }
+
+  a,
+  a:visited {
+    color: #c70000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+  }
+
+  a:hover {
+    color: #ab0613;
+  }
+}

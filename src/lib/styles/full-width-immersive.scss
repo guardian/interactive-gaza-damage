@@ -10,21 +10,27 @@ div#maincontent:focus {
     margin-left: calc(-50vw + var(--half-scrollbar-width)) !important;
     margin-right: calc(-50vw + var(--half-scrollbar-width)) !important;
 
-    @include mq($from: tablet, $until: leftCol) {
-        margin-left: calc(-50vw + var(--half-scrollbar-width) + 10px) !important;
+    @include mq($from: desktop) {
+        margin-left: calc(-50vw + 160px + var(--half-scrollbar-width)) !important;
     }
 
-    @include mq(leftCol) {
+    @include mq($from: leftCol) {
+        margin-left: calc(-50vw + 80px + var(--half-scrollbar-width)) !important;
+    }
+
+    @include mq($from: wide) {
         margin-left: calc(-50vw + 45px + var(--half-scrollbar-width)) !important;
     }
 }
 
 .content__main-column--interactive {
-    @include mq(leftCol) {
+    margin-left: 0px;
+
+    @include mq($from: leftCol) {
         margin-left: 160px;
     }
     
-    @include mq(wide) {
+    @include mq($from: wide) {
         margin-left: 240px;
     }
 }

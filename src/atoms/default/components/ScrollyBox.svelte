@@ -8,6 +8,7 @@
     .scrolly-box {
         width: 100%;
         padding-bottom: 90vh;
+        pointer-events: all;
     }
 
     .scrolly-box:last-child {

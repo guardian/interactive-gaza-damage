@@ -41,10 +41,32 @@
 
   .grid {
     display: grid;
-    grid-column-gap: 10px;
-    grid-template-columns: 219px 1px 1fr 300px;
-    grid-template-areas: ".          border-header     header      ."
-                         "media      media             media       media"
-                         ".          border-body       body        .";
+
+    grid-template-columns: 1fr;
+    grid-column-gap: 0px;
+    grid-template-areas: "header"
+                          "media"
+                          "body";
+
+    @include mq($from: desktop) {
+      grid-template-columns: 1fr 300px;
+      grid-column-gap: 20px;
+      grid-template-areas: "header  ."
+                           "media   media"
+                           "body    .";
+    }
+    
+
+    @include mq($from: leftCol) {
+      grid-template-columns: 140px 1px 620px 300px;
+      grid-column-gap: 10px;
+      grid-template-areas: ".          border-header     header      ."
+                           "media      media             media       media"
+                           ".          border-body       body        .";
+    }
+
+    @include mq($from: wide) {
+      grid-template-columns: 219px 1px 1fr 300px;
+    }
   }
 </style>
