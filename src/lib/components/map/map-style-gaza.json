@@ -59,11 +59,12 @@
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 15,
+      "minzoom": 20,
       "paint": {
         "line-color": "#121212",
         "line-width": 3,
-        "line-blur": 14
+        "line-blur": 14,
+        "line-opacity": 0
       }
     },
     {
@@ -76,14 +77,10 @@
       },
       "minzoom": 15,
       "paint": {
-        "line-color": "#121212",
-        "line-width": 3,
-        "line-opacity": 0.25,
-        "line-translate": [
-          0,
-          4
-        ],
-        "line-blur": 4
+        "line-color": "#000000",
+        "line-width": 10,
+        "line-opacity": 0.75,
+        "line-blur": 10
       }
     },
     {

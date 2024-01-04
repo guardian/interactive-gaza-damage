@@ -14,7 +14,6 @@
 <script>
     import { tweened } from 'svelte/motion';
     import { quadInOut } from 'svelte/easing';
-    import Arc from "./ArcConnector.svelte";
     import Line from "./LineConnector.svelte";
 
     export let title = undefined;
@@ -128,14 +127,14 @@
     }
 
     h5, p {
-        @include f-textSans();
-        // font-family: 'Guardian Text Sans Web', Arial, sans-serif;
+        font-family: 'Guardian Text Sans Web Medium', Arial, sans-serif;
         font-size: 18px;
         line-height: 21px;
-        font-weight: 300;
+        font-weight: 700;
         color: #FFF !important;
         text-shadow: 0px 0px 2px #000000, 
-                     0px 0px 14px #000000;
+                     0px 0px 14px rgba(0,0,0,0.5),
+                     0px 0px 20px rgba(0,0,0,0.5);
     }
 
     h5 {

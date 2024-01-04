@@ -15,7 +15,6 @@
 
 <style>
     line {
-        box-shadow: 0px 0px 2px #000000, 
-                    0px 0px 14px #000000;
+        filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1)) drop-shadow(0px 0px 14px rgba(0, 0, 0, 1));
     }
 </style>
