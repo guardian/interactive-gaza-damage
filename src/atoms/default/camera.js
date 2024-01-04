@@ -6,32 +6,32 @@ export const camera = {
     // ],
     center: [34.51, 31.54],
     zoom: 12.5,
-    bearing: 41,
+    bearing: 40,
   },
   beitHanoun: {
     center: [34.54019, 31.539],
     zoom: 14,
-    bearing: 41,
+    bearing: 40,
   },
   beitHanounDetail1: {
     center: [34.5501, 31.547],
     zoom: 16,
-    bearing: 41,
+    bearing: 40,
   },
   beitHanounDetail2: {
     center: [34.54682, 31.5389],
     zoom: 16,
-    bearing: 41,
+    bearing: 40,
   },
   beitHanounDetail3: {
     center: [34.545023, 31.536295],
     zoom: 17,
-    bearing: 41,
+    bearing: 40,
   },
   beitHanounDetail4: {
     center: [34.53465, 31.54647],
     zoom: 15,
-    bearing: 41,
+    bearing: 40,
   },
 };
 
