@@ -1,6 +1,6 @@
 <script>
     export let length = 0;
-    export let strokeWidth = 1;
+    export let strokeWidth = 2;
     export let stroke = "#121212";
 </script>
 
@@ -12,3 +12,10 @@
 
     <line y1={0} y2={length} stroke-width={strokeWidth} {stroke} />
 </svg>
+
+<style>
+    line {
+        box-shadow: 0px 0px 2px #000000, 
+                    0px 0px 14px #000000;
+    }
+</style>

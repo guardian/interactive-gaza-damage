@@ -1,8 +1,9 @@
 <script>
+    import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
     import Map from "$lib/components/map/Map.svelte";
     import { isMobile } from "$lib/stores/devices";
     import { camera, cameraMobile } from "../camera.js";
-    import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
+    import AnnotationsLayer from "./AnnotationsLayer.svelte"
     import VideoOverlay from "$lib/components/VideoOverlay.svelte";
 
     export let step = 0;
@@ -75,6 +76,11 @@
     <div class="map-container" style="--blur-amount: {blurAmount}px;">
         <Map bind:this={map} {cameraPosition} interactive={false} />
     </div>
+    {#if map}
+        <div class="annotations-layer">
+            <AnnotationsLayer {step} project={map.project} onMapMove={map.onMove} />   
+        </div>           
+    {/if}
     <div class="map-cover" style="opacity: {coverMap ? mapCoverOpacity : 0};"></div>
     <div class="media-layer">
         <VideoOverlay {step} />
@@ -99,29 +105,30 @@
         transition: 0.5s filter linear;
    }
 
+    .annotations-layer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+   }
+
    .map-cover {
         position: absolute;
         width: 100%;
         height: 100%;
         background-color: #121212;
         transition: 0.5s opacity linear;
-        z-index: 2;
+        z-index: 20;
    }
 
     .media-layer {
         position: absolute;
         width: 100%;
         height: 100%;
-        z-index: 10;
+        z-index: 30;
    }
 
-   .annotations-container {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        transition: opacity 0.5s;
-        z-index: 100;
-   }
+
 </style>

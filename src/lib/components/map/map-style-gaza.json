@@ -96,7 +96,7 @@
       },
       "minzoom": 15,
       "paint": {
-        "line-color": "#FFF",
+        "line-color": "#FFE500",
         "line-width": 3
       }
     }

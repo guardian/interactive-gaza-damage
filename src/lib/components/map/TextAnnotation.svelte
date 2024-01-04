@@ -17,50 +17,35 @@
     import Arc from "./ArcConnector.svelte";
     import Line from "./LineConnector.svelte";
 
-    export let title;
+    export let title = undefined;
     export let text = undefined;
     export let position = AnnotationPosition.bottomRight;
     export let textWidth = 200;
-    export let textRadialOffset = 4;
-    export let arcRadius = 0;
-    export let extensionWidth = 0;
+    export let textRadialOffset = 8;
     export let lineLength = 0;
-    export let lineStroke = "#121212";
-    export let fontSize = 14;
+    export let lineStroke = "#FFF";
     export let letterSpacing = undefined;
     export let backgroundColor = undefined;
-
-    $: arcSize = { width: arcRadius + extensionWidth, height: arcRadius}
 
     const _textWidth = tweened(textWidth, {
         duration: 800,
         easing: quadInOut
     });
     $: _textWidth.set(textWidth);
-    
-    const _fontSize = tweened(fontSize, {
-        duration: 800,
-        easing: quadInOut
-    });
-    $: _fontSize.set(fontSize);
 </script>
-
-{#if arcRadius}
-    <div class="arc {position}" style="width: {arcSize.width}px; height: {arcSize.height}px;">
-        <Arc {arcRadius} {extensionWidth} />
-    </div>
-{/if}
 
 {#if lineLength}
     <div class="line {position}" style="width: 1px; height: {lineLength}px;">
         <Line length={lineLength} stroke={lineStroke} />
     </div>
 
-    <div class="dot" style="background-color: {lineStroke};"></div>
+    <!-- <div class="dot" style="background-color: {lineStroke};"></div> -->
 {/if}
 
-<div class="text {position}" style="--text-width: {$_textWidth}px; --text-radial-offset:{textRadialOffset}px; --arc-width: {arcSize.width}px; --arc-height: {arcSize.height}px; --line-height:18px; --line-length: {lineLength}px; background-color: {backgroundColor || 'transparent'}; padding: {backgroundColor ? '4px 8px' : 0}">
-    <h5 style="font-size: {$_fontSize}px; letter-spacing: {letterSpacing || "normal"};">{title}</h5>
+<div class="text {position}" style="--text-width: {$_textWidth}px; --text-radial-offset:{textRadialOffset}px; --line-length: {lineLength}px; background-color: {backgroundColor || 'transparent'}; padding: {backgroundColor ? '4px 8px' : 0}">
+    {#if title}
+        <h5 style="letter-spacing: {letterSpacing || "normal"};">{title}</h5>
+    {/if}
     {#if text}
         <p>{text}</p>
     {/if}
@@ -68,26 +53,6 @@
 
 
 <style lang="scss">
-    .arc {
-        position: absolute;
-
-        // defaults to bottom-right position
-        top: 0;
-        left: 0;
-    }
-
-    .arc.bottom-left {
-        transform: scaleX(-1) translateX(100%);
-    }
-
-    .arc.top-left {
-        transform: scale(-1, -1) translate(100%, 100%);
-    }
-
-    .arc.top-right {
-        transform: scaleY(-1) translateY(100%);
-    }
-
     .line {
         position: absolute;
 
@@ -118,8 +83,8 @@
         width: var(--text-width);
 
         // defaults to bottom-right position
-        top: calc(var(--arc-height) - var(--line-height) * 0.75);
-        left: calc(var(--arc-width) + var(--text-radial-offset));
+        top: calc(var(--line-height) * 0.75);
+        left: var(--text-radial-offset);
     }
 
     .text.center {
@@ -129,9 +94,9 @@
     }
 
     .text.bottom-left {
-        top: var(--arc-height);
+        top: 0;
         transform: translateY(-50%);
-        left: calc(var(--arc-width) * (-1) - var(--text-width) - var(--text-radial-offset));
+        left: calc(var(--text-width) - var(--text-radial-offset));
     }
 
     .text.bottom-middle {
@@ -140,9 +105,9 @@
     }
 
     .text.top-left {
-        top: calc(var(--arc-height) * (-1));
+        top: 0;
         transform: translateY(-50%);
-        left: calc(var(--arc-width) * (-1) - var(--text-width) - var(--text-radial-offset));
+        left: calc(var(--text-width) - var(--text-radial-offset));
     }
 
     .text.top-middle {
@@ -158,21 +123,19 @@
     }
 
     .text.top-right {
-        top: calc(var(--arc-height) * (-1));
+        top: 0;
         transform: translateY(-50%);
     }
 
     h5, p {
-        --shadow-color: #f1efec;
         @include f-textSans();
-        font-size: 14px;
-        line-height: var(--line-height);
-        color: #121212 !important;
-        text-shadow:
-            -1px -1px 0 var(--shadow-color),  
-            1px -1px 0 var(--shadow-color),
-            -1px 1px 0 var(--shadow-color),
-            1px 1px 0 var(--shadow-color);
+        // font-family: 'Guardian Text Sans Web', Arial, sans-serif;
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 300;
+        color: #FFF !important;
+        text-shadow: 0px 0px 2px #000000, 
+                     0px 0px 14px #000000;
     }
 
     h5 {
