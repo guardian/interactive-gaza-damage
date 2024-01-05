@@ -74,7 +74,7 @@
 
 <div class="background-container"  bind:clientWidth={mapWidth}>
     <div class="map-container" style="--blur-amount: {blurAmount}px;">
-        <Map bind:this={map} {cameraPosition} interactive={false} />
+        <Map bind:this={map} {step} {cameraPosition} interactive={false} />
     </div>
     {#if map}
         <div class="annotations-layer">

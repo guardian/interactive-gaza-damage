@@ -1,6 +1,6 @@
 <script>
     import { getContext } from 'svelte';
-    // import { fade } from 'svelte/transition';
+    import { fade } from 'svelte/transition';
 
     export let center;
 
@@ -13,7 +13,7 @@
     });
 </script>
 
-<div class="annotation" style="left: {position.x}px; top: {position.y}px;">
+<div class="annotation" style="left: {position.x}px; top: {position.y}px;" transition:fade="{{duration: 500}}">
     <slot />
 </div>
 

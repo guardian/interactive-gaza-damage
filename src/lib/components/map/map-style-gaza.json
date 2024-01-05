@@ -49,38 +49,47 @@
       "type": "raster",
       "source": "high-res",
       "minzoom": 13,
-      "maxzoom": 17
-    },
-    {
-      "id": "annotation-drop-shadows-2",
-      "type": "line",
-      "source": "annotations",
-      "source-layer": "beithanounannotations",
-      "layout": {
-        "line-join": "round"
-      },
-      "minzoom": 20,
+      "maxzoom": 17,
       "paint": {
-        "line-color": "#121212",
-        "line-width": 3,
-        "line-blur": 14,
-        "line-opacity": 0
+        "raster-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          13,
+          0,
+          14,
+          1.0
+        ]
       }
     },
     {
-      "id": "annotation-drop-shadows-1",
+      "id": "annotation-drop-shadows",
       "type": "line",
       "source": "annotations",
       "source-layer": "beithanounannotations",
+      "metadata": {
+        "interactive:steps": [3,4,5,6]
+      },
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 15,
+      "minzoom": 14,
       "paint": {
         "line-color": "#000000",
-        "line-width": 10,
-        "line-opacity": 0.75,
-        "line-blur": 10
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          14,
+          6,
+          15,
+          10
+        ],
+        "line-blur": 10,
+        "line-opacity": 0,
+        "line-opacity-transition": {
+          "duration": 500
+        }
       }
     },
     {
@@ -88,13 +97,28 @@
       "type": "line",
       "source": "annotations",
       "source-layer": "beithanounannotations",
+      "metadata": {
+        "interactive:steps": [3,4,5,6]
+      },
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 15,
+      "minzoom": 14,
       "paint": {
         "line-color": "#FFE500",
-        "line-width": 3
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          14,
+          2,
+          15,
+          3
+        ],
+        "line-opacity": 0,
+        "line-opacity-transition": {
+          "duration": 500
+        }
       }
     }
   ],

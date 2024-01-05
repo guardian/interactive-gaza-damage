@@ -23,10 +23,25 @@
         map.on('move', callback);
     }
 
-    let sourcesToAdd = [];
-    let layersToAdd = [];
-    let layers = [];
+    export let step = 0;
     const layerVisibility = {};
+
+    function updateLayerVisibility(step) {
+        if (!isReady) return;
+        const orderedLayerIds = map.getLayersOrder();
+        for (const layerID of orderedLayerIds) {
+            const layer = map.getLayer(layerID);
+            const metadata = layer.metadata;
+            if (metadata && "interactive:steps" in metadata) {
+                const visibleSteps = metadata["interactive:steps"]
+                if (layer.type === "line") {
+                    const opacity = visibleSteps.includes(step) ? 1 : 0;
+                    setPaintProperty(layerID, "line-opacity", opacity);
+                }
+            }
+        }
+    }
+    $: isReady && updateLayerVisibility(step)
 
     let isReady = false;
 
@@ -117,7 +132,9 @@
             ...mapPosition,
         });
 
-        map.on("load", onMapLoad);
+        map.on("load", () => {
+            isReady = true;
+        });
 
         map.on('resize', function() {
             if (cameraPosition) {
@@ -142,62 +159,8 @@
         isReady = false;
     });
 
-    function onMapLoad() {
-        isReady = true;
-
-        sourcesToAdd.forEach(source => map.addSource(source.id, source.data));
-        sourcesToAdd = [];
-        flushLayersToAdd();
-    }
-
-    function addSource(sourceID, source) {
-        if (isReady) {
-            map.addSource(sourceID, source);
-        } else {
-            sourcesToAdd.push({
-                id: sourceID,
-                data: source
-            });
-        }
-    }
-
-    function removeSource(sourceID) {
-        if (isReady) {
-            if (map.getSource(sourceID)) {
-            map.removeSource(sourceID);
-        }
-        } else {
-            sourcesToAdd = sourcesToAdd.filter(source => source.id !== sourceID);
-        }
-    }
-
-    function getSource(sourceID) {
-        if (!isReady) return;
-
-        return map && map.getSource(sourceID);
-    }
-
-    function addLayer(layer, zIndex = 0, beforeId) {
-        layersToAdd.push({layer, zIndex, beforeId});
-
-        if (isReady) {
-            flushLayersToAdd();
-        }
-    }
-
-    function removeLayer(layerID) {
-        if (isReady) {
-            if (map.getLayer(layerID)) {
-                map.removeLayer(layerID);
-                layers = layers.filter(({layer}) => layer.id !== layerID);
-            }
-        } else {
-            layersToAdd = layersToAdd.filter(({layer}) => layer.id !== layerID);
-        }
-    }
-
     function setVisible(layerID, visible) {
-        let visibility = visible ? 'visible' : 'none';
+        const visibility = visible ? 'visible' : 'none';
         layerVisibility[layerID] = visibility;
 
         // console.log('visible', visible, 'layer.id', layerID);
@@ -205,45 +168,6 @@
         if (map && map.getLayer(layerID)) {
             map.setLayoutProperty(layerID, 'visibility', visibility);
         }
-    }
-
-    function flushLayersToAdd() {
-        layersToAdd.forEach(({layer, zIndex, beforeId}) => {
-            layers.push({layer, zIndex, beforeId});
-            map.addLayer(layer, beforeId);
-            map.setLayoutProperty(layer.id, 'visibility', layerVisibility[layer.id]);
-        });
-        layersToAdd = [];
-        // updateLayerOrder();
-    }
-
-    function updateZIndexForLayer(layerName, zIndex) {
-        let layer = layers.find(({layer}) => layer.id === layerName);
-        if (layer) {
-            layer.zIndex = zIndex;
-            updateLayerOrder();
-        }
-    }
-
-    function updateLayerOrder() {
-        // sort layers by zIndex
-        layers.sort((a, b) => a.zIndex - b.zIndex);
-
-        let firstNegativeZindex = true;
-
-        layers.reverse().forEach(({layer, zIndex}, index) => {
-            const nextLayerIndex = index - 1;
- 
-            if (nextLayerIndex >= 0) {
-                const nextLayer = layers[nextLayerIndex].layer;
-                map.moveLayer(layer.id, nextLayer.id);
-            }
-
-            if (zIndex < 0 && firstNegativeZindex) {
-                map.moveLayer(layer.id, "building-3d");
-                firstNegativeZindex = false;
-            }
-        });
     }
 
     export function setPaintProperty(layerID, property, value) {
@@ -265,15 +189,9 @@
     }
 
     $: setContext('map', {
-        addSource,
-        removeSource,
-        getSource,
-        addLayer,
-        removeLayer,
         setVisible,
         setPaintProperty,
         setLayoutProperty,
-        updateZIndexForLayer,
         setFilter,
     });
 </script>
