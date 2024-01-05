@@ -1,13 +1,14 @@
 <script context="module">
-	export const AnnotationPosition = {
+    export const LineDirection = {
+        up: 'up',
+        down: 'down',
+        left: 'left',
+        right: 'right',
+    };
+	export const TextPosition = {
+        start: 'start',
         center: 'center',
-        topLeft: 'top-left',
-        topMiddle: 'top-middle',
-        topRight: 'top-right',
-        rightMiddle: 'right-middle',
-        bottomLeft: 'bottom-left',
-        bottomMiddle: 'bottom-middle',
-        bottomRight: 'bottom-right',
+        end: 'end',
     };
 </script>
 
@@ -16,15 +17,22 @@
     import { quadInOut } from 'svelte/easing';
     import Line from "./LineConnector.svelte";
 
-    export let title = undefined;
-    export let text = undefined;
-    export let position = AnnotationPosition.bottomRight;
-    export let textWidth = 200;
-    export let textRadialOffset = 8;
+    export let lineDirection = LineDirection.up;
     export let lineLength = 0;
     export let lineStroke = "#FFF";
+
+    // spacing between line and text box
+    export let textRadialOffset = 8;
+
+    export let title = undefined;
+    export let text = undefined;
+    export let textWidth = 200;
+    export let textPosition = TextPosition.center;
     export let letterSpacing = undefined;
+
     export let backgroundColor = undefined;
+
+    const lineHeight = 21;
 
     const _textWidth = tweened(textWidth, {
         duration: 800,
@@ -34,14 +42,12 @@
 </script>
 
 {#if lineLength}
-    <div class="line {position}" style="width: 1px; height: {lineLength}px;">
+    <div class="line {lineDirection}" style="width: 1px; height: {lineLength}px;">
         <Line length={lineLength} stroke={lineStroke} />
     </div>
-
-    <!-- <div class="dot" style="background-color: {lineStroke};"></div> -->
 {/if}
 
-<div class="text {position}" style="--text-width: {$_textWidth}px; --text-radial-offset:{textRadialOffset}px; --line-length: {lineLength}px; background-color: {backgroundColor || 'transparent'}; padding: {backgroundColor ? '4px 8px' : 0}">
+<div class="text line-{lineDirection} {textPosition}" style="--text-width: {$_textWidth}px; --text-radial-offset:{textRadialOffset}px; --line-length: {lineLength}px; --line-height: {lineHeight}px; background-color: {backgroundColor || 'transparent'}; padding: {backgroundColor ? '4px 8px' : 0}">
     {#if title}
         <h5 style="letter-spacing: {letterSpacing || "normal"};">{title}</h5>
     {/if}
@@ -55,76 +61,151 @@
     .line {
         position: absolute;
 
-        // defaults to bottom-middle position
+        // default to direction 'down'
         top: 0;
         left: 0;
     }
 
-    .line.top-middle {
+    .line.up {
         transform: translateY(-100%); 
     }
 
-    .line.right-middle {
+    .line.right {
         transform-origin: 0 0;
         transform: rotate(-90deg);
     }
 
-    .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 4px;
-        background-color: #121212;
-        transform: translate(-50%, -50%);
+    .line.left {
+        transform-origin: 0 0;
+        transform: rotate(90deg);
     }
 
     .text {
         position: absolute;
         width: var(--text-width);
 
-        // defaults to bottom-right position
-        top: calc(var(--line-height) * 0.75);
-        left: var(--text-radial-offset);
-    }
-
-    .text.center {
         top: 0;
         left: 0;
-        transform: translate(-50%, -50%);
+
+        &.line-down {
+            top: calc(var(--line-length) + var(--text-radial-offset));
+
+            &.start {
+                transform: none;
+            }
+
+            &.center {
+                transform: translateX(-50%);
+            }
+
+            &.end {
+                transform: translateX(-100%);
+            }
+        }
+
+        &.line-up {
+            top: calc((var(--line-length) + var(--text-radial-offset)) * -1);
+
+            &.start {
+                left: calc(var(--text-radial-offset) * -2);
+                transform: translateY(-100%);
+            }
+
+            &.center {
+                transform: translate(-50%, -100%);
+            }
+
+            &.end {
+                left: calc(var(--text-radial-offset) * 2);
+                transform: translate(-100%, -100%);
+            }
+        }
+
+        &.line-left {
+            left: calc((var(--line-length) + var(--text-radial-offset)) * -1);
+
+            &.start {
+                top: calc(var(--line-height) / 2 * -1);
+                transform: none;
+            }
+
+            &.center {
+                transform: translate(-100%, -50%);
+            }
+
+            &.end {
+                top: calc(var(--line-height) / 2);
+                transform: translate(-100%, -100%);
+            }
+        }
+
+        &.line-right {
+            left: calc(var(--line-length) + var(--text-radial-offset));
+
+            &.start {
+                top: calc(var(--line-height) / 2 * -1);
+                transform: none;
+            }
+
+            &.center {
+                transform: translateY(-50%);
+            }
+
+            &.end {
+                top: calc(var(--line-height) / 2);
+                transform: translateY(-100%);
+            }
+        }
     }
 
-    .text.bottom-left {
-        top: 0;
-        transform: translateY(-50%);
-        left: calc(var(--text-width) - var(--text-radial-offset));
-    }
+    // .text.line-up {
+    //     top: calc((var(--line-height) + var(--text-radial-offset)) * -1);
+    //     transform: translateY(-100%);
+    // } 
+    
+    // .text.line-down {
+    //     transform: translateX(-50%);
+    // }
 
-    .text.bottom-middle {
-        top: calc(var(--line-length) + var(--text-radial-offset));
-        transform: translateX(-50%);
-    }
+    // .text.center {
+    //     top: 0;
+    //     left: 0;
+    //     transform: translate(-50%, -50%);
+    // }
 
-    .text.top-left {
-        top: 0;
-        transform: translateY(-50%);
-        left: calc(var(--text-width) - var(--text-radial-offset));
-    }
+    // .text.bottom-left {
+    //     top: 0;
+    //     transform: translateY(-50%);
+    //     left: calc(var(--text-width) - var(--text-radial-offset));
+    // }
 
-    .text.top-middle {
-        top: calc(var(--line-length) * (-1) + var(--text-radial-offset) * (-1));
-        left: 0;
-        transform: translate(-50%, -100%);
-    }
+    // .text.bottom-middle {
+    //     top: calc(var(--line-length) + var(--text-radial-offset));
+    //     transform: translateX(-50%);
+    // }
 
-    .text.right-middle {
-        top: 0;
-        left: calc(var(--line-length) + var(--text-radial-offset));
-        transform: translateY(-50%);
-    }
+    // .text.top-left {
+    //     top: 0;
+    //     transform: translateY(-50%);
+    //     left: calc(var(--text-width) - var(--text-radial-offset));
+    // }
 
-    .text.top-right {
-        top: 0;
-        transform: translateY(-50%);
-    }
+    // .text.top-middle {
+    //     top: calc(var(--line-length) * (-1) + var(--text-radial-offset) * (-1));
+    //     left: 0;
+    //     transform: translate(-50%, -100%);
+    // }
+
+    // .text.right-middle {
+    //     top: 0;
+    //     left: calc(var(--line-length) + var(--text-radial-offset));
+    //     transform: translateY(-50%);
+    // }
+
+    // .text.top-right {
+    //     top: 0;
+    //     transform: translateY(-50%);
+    // }
 
     h5, p {
         font-family: 'Guardian Text Sans Web Medium', Arial, sans-serif;

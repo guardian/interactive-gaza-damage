@@ -14,8 +14,8 @@ export const camera = {
     bearing: 40,
   },
   beitHanounDetail1: {
-    center: [34.54814, 31.54521],
-    zoom: 15,
+    center: [34.54634, 31.54669],
+    zoom: 15.5,
     bearing: 40,
   },
   beitHanounDetail2: {
@@ -31,6 +31,13 @@ export const camera = {
   beitHanounDetail4: {
     center: [34.53465, 31.54647],
     zoom: 15,
+    bearing: 40,
+  },
+
+  // JUST FOR TESTING
+  beitHanounTest: {
+    center: [34.53683, 31.54410],
+    zoom: 14,
     bearing: 40,
   },
 };

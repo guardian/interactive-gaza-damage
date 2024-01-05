@@ -30,7 +30,7 @@
       "minzoom": 4,
       "maxzoom": 14,
       "tiles": [
-        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/vector/{z}/{x}/{y}.pbf"
+        "https://gdn-cdn.s3.amazonaws.com/maptiles/2023/12/gaza/vector/{z}/{x}/{y}.pbf"
       ]
     }
   },

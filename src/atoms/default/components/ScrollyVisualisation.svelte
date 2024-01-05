@@ -37,7 +37,7 @@
         case 7:
             return camera.beitHanounDetail3;
         default:
-            return camera.beitHanounDetail4;
+            return camera.beitHanounTest;
         }
     }
 

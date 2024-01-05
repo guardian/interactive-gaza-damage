@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"name": "Al Zahra annotations",
+"name": "al-zahra-annotations",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "id": 3 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 34.423811672448757, 31.484624263122061 ], [ 34.421587020703505, 31.482363313233709 ], [ 34.417940418349794, 31.484972730679612 ], [ 34.420165070095038, 31.487233617506924 ], [ 34.423811672448757, 31.484624263122061 ] ] ] ] } },
