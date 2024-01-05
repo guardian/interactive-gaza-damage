@@ -1,11 +1,11 @@
 <script>
-    import TextColumn from "$lib/components/Grid.svelte";
+    import Grid from "$lib/components/Grid.svelte";
     import VideoPlayer from "$lib/components/VideoPlayer.svelte";
     import AspectRatioBox from "$lib/components/AspectRatioBox.svelte";
 </script>
 
 <div class="overlay">
-    <TextColumn>
+    <Grid>
         <div class="border border-header"></div>
         <h2 class="header" data-ignore="global-h2-styling">Beit Hanoun</h2>
         <div class="media">
@@ -22,7 +22,7 @@
             <p>The neighbourhood of ‘Izbat Beit Hanoun has been almost completely flattened, including its hospital and several tower blocks. Mosques and schools have also been hit. Many of the roads appear unserviceable.</p>
         </div>
         
-    </TextColumn>
+    </Grid>
 </div>
 
 <style lang="scss">

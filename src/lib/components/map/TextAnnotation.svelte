@@ -158,55 +158,6 @@
         }
     }
 
-    // .text.line-up {
-    //     top: calc((var(--line-height) + var(--text-radial-offset)) * -1);
-    //     transform: translateY(-100%);
-    // } 
-    
-    // .text.line-down {
-    //     transform: translateX(-50%);
-    // }
-
-    // .text.center {
-    //     top: 0;
-    //     left: 0;
-    //     transform: translate(-50%, -50%);
-    // }
-
-    // .text.bottom-left {
-    //     top: 0;
-    //     transform: translateY(-50%);
-    //     left: calc(var(--text-width) - var(--text-radial-offset));
-    // }
-
-    // .text.bottom-middle {
-    //     top: calc(var(--line-length) + var(--text-radial-offset));
-    //     transform: translateX(-50%);
-    // }
-
-    // .text.top-left {
-    //     top: 0;
-    //     transform: translateY(-50%);
-    //     left: calc(var(--text-width) - var(--text-radial-offset));
-    // }
-
-    // .text.top-middle {
-    //     top: calc(var(--line-length) * (-1) + var(--text-radial-offset) * (-1));
-    //     left: 0;
-    //     transform: translate(-50%, -100%);
-    // }
-
-    // .text.right-middle {
-    //     top: 0;
-    //     left: calc(var(--line-length) + var(--text-radial-offset));
-    //     transform: translateY(-50%);
-    // }
-
-    // .text.top-right {
-    //     top: 0;
-    //     transform: translateY(-50%);
-    // }
-
     h5, p {
         font-family: 'Guardian Text Sans Web Medium', Arial, sans-serif;
         font-size: 18px;
