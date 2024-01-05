@@ -37,7 +37,6 @@
 
 
     $: annotations = annnotationsForStep(step);
-    // $: console.log('annotations for step', step, annotations.length)
 </script>
 
 <svelte:window on:resize={updatePositions} />
@@ -60,6 +59,6 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
-        /* transition: opacity 0.5s; */
+        transition: opacity 0.5s;
     }
 </style>

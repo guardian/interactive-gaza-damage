@@ -9,7 +9,7 @@ export const camera = {
     bearing: 40,
   },
   beitHanoun: {
-    center: [34.53194, 31.53474],
+    center: [34.53846, 31.53719],
     zoom: 14,
     bearing: 40,
   },

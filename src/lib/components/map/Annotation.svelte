@@ -13,7 +13,7 @@
     });
 </script>
 
-<div class="annotation" style="left: {position.x}px; top: {position.y}px;" transition:fade="{{duration: 500}}">
+<div class="annotation" style="left: {position.x}px; top: {position.y}px;" transition:fade|global="{{duration: 500, delay: 100}}">
     <slot />
 </div>
 

@@ -7,7 +7,7 @@ export function annnotationsForStep(step) {
 const annotations = [
   {
     id: "orchards",
-    steps: [4, 5],
+    steps: [3, 4, 5],
     location: [34.55, 31.54908],
     config: {
       text: "Razed orchards and agricultural fields",
@@ -18,7 +18,7 @@ const annotations = [
   },
   {
     id: "solar-panels",
-    steps: [4, 5],
+    steps: [3, 4, 5],
     location: [34.54185, 31.54866],
     config: {
       text: "Seven destroyed solar panels and one greenhouse",
@@ -29,7 +29,7 @@ const annotations = [
   },
   {
     id: "greenhouses",
-    steps: [4, 5],
+    steps: [3, 4, 5],
     location: [34.54719, 31.54389],
     config: {
       text: "Three destroyed greenhouses and nearby solar panels",
@@ -40,7 +40,7 @@ const annotations = [
   },
   {
     id: "entire-neighbourhood",
-    steps: [5, 6],
+    steps: [4, 5, 6],
     location: [34.55014, 31.53942],
     config: {
       text: "Entire neighborhood, with over 150 buildings, flattened",
@@ -51,7 +51,7 @@ const annotations = [
   },
   {
     id: "mosque-1",
-    steps: [5, 6],
+    steps: [4, 5, 6],
     location: [34.547, 31.53882],
     config: {
       text: "Destroyed mosque",
