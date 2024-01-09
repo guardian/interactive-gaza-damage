@@ -17,6 +17,14 @@
         "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-med-res/{z}/{x}/{y}.jpg"
       ]
     },
+      "before": {
+      "type": "raster",
+      "maxzoom": 17,
+      "tileSize": 256,
+      "tiles": [
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-before/{z}/{x}/{y}.jpg"
+      ]
+    },
     "high-res": {
       "type": "raster",
       "maxzoom": 17,
@@ -42,7 +50,10 @@
       "type": "raster",
       "source": "med-res",
       "minzoom": 9,
-      "maxzoom": 15
+      "maxzoom": 15,
+      "paint": {
+        "raster-opacity": 0.25
+      }
     },
     {
       "id": "high-res-tiles",
