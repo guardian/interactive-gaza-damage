@@ -181,6 +181,11 @@
             map.setLayoutProperty(layerID, property, value);
         }
     }
+    
+    export function getBounds() {
+        if (!map) return;
+        return map.getBounds()
+    }
 
     function setFilter(layerID, filter) {
         if (map && map.getLayer(layerID)) {

@@ -66,6 +66,8 @@
             bearing: bearingInterpolator(easedOffset),
             animate: false,
         }
+
+        // console.log('map bounds', map.getBounds());
     }
 
     $: updateCameraPosition(currentCamera, step, offset)
