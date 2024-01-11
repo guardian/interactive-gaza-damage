@@ -1,6 +1,6 @@
 <script>
     import { onMount, onDestroy, setContext } from 'svelte'
-    import { Map, LngLat } from "maplibre-gl";
+    import { Map, LngLat, LngLatBounds, Point } from "maplibre-gl";
     import style from './map-style-gaza';
     import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -13,7 +13,7 @@
     export let pitch = 0;
     export let bounds = undefined;
 
-    let map, mapContainer, mapContainerWidth;
+    let map, mapContainer, mapContainerWidth, mapContainerHeight;
 
     export function project(coordinates) {
 		return map.project(coordinates);
@@ -43,7 +43,7 @@
     }
     $: isReady && updateLayerVisibility(step)
 
-    let isReady = false;
+   export let isReady = false;
 
     $: if (isReady && cameraPosition) {
         if (cameraTransitionDelay > 0) {
@@ -98,12 +98,22 @@
         }
         
         if (cameraPosition.bounds) {
-            // console.log('fit to bounds', cameraPosition);
-            map.fitBounds(cameraPosition.bounds, {offset, ...cameraPosition});
+            console.log('fit to bounds', cameraPosition);
+            
+            map.fitBounds(cameraPosition.bounds, {
+                padding: {top: 100, bottom:25, left: 100, right: 50},
+                // bearing: cameraPosition.bearing
+            });
+
+            // map.fitBounds(cameraPosition.bounds, {offset, padding: cameraPosition.padding, bearing: cameraPosition.bearing});
+
+            setTimeout(function() {
+                console.log('map bounds', map.getBounds(), map.getPadding());
+            }, 1000);
         } else if (cameraPosition.zoom === map.getZoom()) {
             map.easeTo(cameraPosition);
         } else {
-            // console.log('fly to', cameraPosition);
+            console.log('fly to', cameraPosition);
             map.flyTo(cameraPosition);
         }
     }
@@ -134,6 +144,8 @@
 
         map.on("load", () => {
             isReady = true;
+
+            // map.showPadding = true
         });
 
         map.on('resize', function() {
@@ -187,6 +199,70 @@
         return map.getBounds()
     }
 
+    export function cameraForBounds(bounds, options = {}) {
+        if (!map) return;
+
+        bounds = LngLatBounds.convert(bounds);
+
+        const bearing = options && options.bearing || 0;
+        return _cameraForBoxAndBearing(bounds.getSouthWest(), bounds.getNorthEast(), bearing, options);
+    }
+
+    function _cameraForBoxAndBearing(p0, p1, bearing, options) {
+        const defaultPadding = {
+            top: 0,
+            bottom: 0,
+            right: 0,
+            left: 0
+        };
+
+        if (typeof options.padding === 'number') {
+            const p = options.padding;
+            options.padding = {
+                top: p,
+                bottom: p,
+                right: p,
+                left: p
+            };
+        }
+
+        options.padding = {
+          ...defaultPadding,
+          ...options.padding,
+        }
+
+        // convert points to screen coordinates
+        const p0_screen = map.project(LngLat.convert(p0));
+        const p1_screen = map.project(LngLat.convert(p1));
+
+        const p0rotated = p0_screen// p0_screen.rotate(-bearing * Math.PI / 180);
+        const p1rotated = p1_screen//p1_screen.rotate(-bearing * Math.PI / 180);
+
+        const upperLeft = new Point(Math.min(p0rotated.x, p1rotated.x), Math.min(p0rotated.y, p1rotated.y));
+        const lowerRight = new Point(Math.max(p0rotated.x, p1rotated.x), Math.max(p0rotated.y, p1rotated.y));
+
+        const size = lowerRight.sub(upperLeft);
+
+        const scaleX = (mapContainerWidth - options.padding.left - options.padding.right) / size.x //(size.x + options.padding.left + options.padding.right);
+        const scaleY = (mapContainerHeight - options.padding.top - options.padding.bottom) / size.y // + options.padding.top + options.padding.bottom);
+
+        const currentZoomScale = Math.pow(2, map.getZoom())
+        const newZoomScale = currentZoomScale * Math.min(scaleX, scaleY)
+        const zoom = Math.log(newZoomScale) / Math.LN2
+
+        const paddingOffsetX = (options.padding.left - options.padding.right) / 2;
+        const paddingOffsetY = (options.padding.top - options.padding.bottom) / 2;
+        const paddingOffset = new Point(paddingOffsetX, paddingOffsetY);
+        const offsetAtFinalZoom = paddingOffset.mult(currentZoomScale / newZoomScale);
+        const center =  map.unproject(p0_screen.add(p1_screen).div(2).sub(offsetAtFinalZoom));
+
+        return {
+            center,
+            zoom,
+            bearing
+        };
+  }
+
     function setFilter(layerID, filter) {
         if (map && map.getLayer(layerID)) {
             map.setFilter(layerID, filter);
@@ -203,7 +279,7 @@
   
 <svelte:options accessors={true} />
 
-<div class="map-container" bind:this={mapContainer} bind:clientWidth={mapContainerWidth}>
+<div class="map-container" bind:this={mapContainer} bind:clientWidth={mapContainerWidth} bind:clientHeight={mapContainerHeight}>
     {#if isReady}
         <slot />
     {/if}

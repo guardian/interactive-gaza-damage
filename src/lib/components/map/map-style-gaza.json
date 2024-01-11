@@ -6,7 +6,7 @@
     0
   ],
   "zoom": 4,
-  "bearing": -40,
+  "bearing": 40,
   "pitch": 0,
   "sources": {
     "med-res": {
@@ -52,7 +52,7 @@
       "minzoom": 9,
       "maxzoom": 15,
       "paint": {
-        "raster-opacity": 0.25
+        "raster-opacity": 1
       }
     },
     {
@@ -79,7 +79,7 @@
       "source": "annotations",
       "source-layer": "beithanounannotations",
       "metadata": {
-        "interactive:steps": [3,4,5,6]
+        "interactive:steps": [3,4,5,6,7,8,9,10]
       },
       "layout": {
         "line-join": "round"
@@ -109,7 +109,7 @@
       "source": "annotations",
       "source-layer": "beithanounannotations",
       "metadata": {
-        "interactive:steps": [3,4,5,6]
+        "interactive:steps": [3,4,5,6,7,8,9,10]
       },
       "layout": {
         "line-join": "round"

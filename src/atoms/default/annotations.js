@@ -1,6 +1,13 @@
-export function annnotationsForStep(step) {
+export function visibleAnnotationsForStep(step) {
   return annotations.filter(d => {
-    return d.steps.includes(step)
+    return d.visibleForSteps.includes(step)
+  })
+}
+
+export function annotationsInFocusForStep(step) {
+  return annotations.filter(d => {
+    if (!d.focusForSteps) return false
+    return d.focusForSteps.includes(step)
   })
 }
 
@@ -8,7 +15,8 @@ export function annnotationsForStep(step) {
 const annotations = [
   {
     id: 1,
-    steps: [3, 4, 5],
+    visibleForSteps: [3, 4],
+    focusForSteps: [3],
     location: [34.55, 31.54908],
     config: {
       text: "Razed orchards and agricultural fields",
@@ -18,7 +26,8 @@ const annotations = [
   },
   {
     id: 2,
-    steps: [3, 4, 5],
+    visibleForSteps: [3, 4],
+    focusForSteps: [3],
     location: [34.54719, 31.54389],
     config: {
       text: "Three destroyed greenhouses and nearby solar panels",
@@ -30,7 +39,8 @@ const annotations = [
   },
   {
     id: 3,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [3,4],
+    focusForSteps: [3],
     location: [34.54259, 31.54358],
     config: {
       text: "27 destroyed greenhouses",
@@ -40,7 +50,8 @@ const annotations = [
   },
   {
     id: 4,
-    steps: [3, 4, 5],
+    visibleForSteps: [3,4],
+    focusForSteps: [3],
     location: [34.54185, 31.54866],
     config: {
       text: "Seven destroyed solar panels and one greenhouse",
@@ -49,8 +60,30 @@ const annotations = [
     },
   },
   {
+    id: -98,
+    visibleForSteps: [1, 2, 3,4],
+    focusForSteps: [3,4],
+    location: [34.537660948491066, 31.545143361563145],
+    config: {
+      text: "Test annotation SW",
+      textWidth: 150,
+      lineLength: 20,
+    },
+  },
+  {
+    id: -99,
+    visibleForSteps: [1,2,3,4],
+    focusForSteps: [3,4],
+    location: [34.55350903130011, 31.546559708799975],
+    config: {
+      text: "Test annotation NE",
+      textWidth: 150,
+      lineLength: 20,
+    },
+  },
+  {
     id: 35,
-    steps: [4, 5, 6],
+    visibleForSteps: [],
     location: [34.55012, 31.53463],
     config: {
       text: "Razed fields",
@@ -62,7 +95,7 @@ const annotations = [
   },
   {
     id: 5,
-    steps: [4, 5, 6],
+    visibleForSteps: [],
     location: [34.55014, 31.53942],
     config: {
       text: "Entire neighborhood, with over 150 buildings, flattened",
@@ -73,7 +106,7 @@ const annotations = [
   },
   {
     id: 7,
-    steps: [4, 5, 6],
+    visibleForSteps: [],
     location: [34.547, 31.53882],
     config: {
       text: "Destroyed mosque",
@@ -84,7 +117,7 @@ const annotations = [
   },
   {
     id: 6,
-    steps: [5, 6],
+    visibleForSteps: [5, 6],
     location: [34.54533, 31.53639],
     config: {
       text: "Demolished UNRWA school",
@@ -96,7 +129,7 @@ const annotations = [
   },
   {
     id: 8,
-    steps: [4, 5, 6],
+    visibleForSteps: [],
     location: [34.54013, 31.54019],
     config: {
       text: "Destroyed secondary schools",
@@ -108,7 +141,7 @@ const annotations = [
   },
   {
     id: 9,
-    steps: [5, 6],
+    visibleForSteps: [5, 6],
     location: [34.53802, 31.53864],
     config: {
       text: "Damaged Beit Hanoun hospital",
@@ -120,7 +153,7 @@ const annotations = [
   },
   {
     id: 33,
-    steps: [5, 6],
+    visibleForSteps: [5, 6],
     location: [34.53773, 31.53879],
     config: {
       text: "Damaged bakery",
@@ -132,7 +165,7 @@ const annotations = [
   },
   {
     id: 34,
-    steps: [5, 6],
+    visibleForSteps: [5, 6],
     location: [34.53789, 31.53891],
     config: {
       text: "Damaged library",
@@ -144,7 +177,7 @@ const annotations = [
   },
   {
     id: 10,
-    steps: [5, 6],
+    visibleForSteps: [5, 6],
     location: [34.53641, 31.54063],
     config: {
       text: "Bulldozed cemetery",
@@ -156,7 +189,7 @@ const annotations = [
   },
   {
     id: 11,
-    steps: [5, 6],
+    visibleForSteps: [5, 6],
     location: [34.53600, 31.54161],
     config: {
       text: "Damaged Umm al-Nasr mosque",
@@ -168,7 +201,7 @@ const annotations = [
   },
   {
     id: 12,
-    steps: [4, 5, 6],
+    visibleForSteps: [],
     location: [34.54073, 31.54505],
     config: {
       text: "Destroyed agriculture school and greenhouses",
@@ -180,7 +213,7 @@ const annotations = [
   },
   {
     id: 14,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [],
     location: [34.53325, 31.54200],
     config: {
       text: "Damaged mosque",
@@ -192,7 +225,7 @@ const annotations = [
   },
   {
     id: 15,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [],
     location: [34.53077, 31.53727],
     config: {
       text: "Bulldozed and cratered football stadium",
@@ -204,7 +237,7 @@ const annotations = [
   },
   {
     id: 27,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [],
     location: [34.53664, 31.53833],
     config: {
       text: "Destroyed supermarket",
@@ -216,7 +249,7 @@ const annotations = [
   },
   {
     id: 13,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [6],
     location: [34.53571, 31.54735      ],
     config: {
       text: "Destroyed neighbourhood, with 40 buildings levelled",
@@ -228,7 +261,7 @@ const annotations = [
   },
   {
     id: 17,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [6],
     location: [34.52556, 31.54546      ],
     config: {
       text: "Damaged mosque",
@@ -240,7 +273,7 @@ const annotations = [
   },
   {
     id: 18,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [6],
     location: [34.52503, 31.54904],
     config: {
       text: "Destroyed residential area, multiple buildings levelled",
@@ -252,7 +285,7 @@ const annotations = [
   },
   {
     id: 19,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [6],
     location: [34.51907, 31.54814],
     config: {
       text: "Destroyed Balsam Hospital",
@@ -264,7 +297,7 @@ const annotations = [
   },
   {
     id: 20,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [6],
     location: [34.52031, 31.54641],
     config: {
       text: "Damaged school campus",
@@ -276,7 +309,7 @@ const annotations = [
   },
   {
     id: 21,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [6],
     location: [34.51883, 31.54552],
     config: {
       text: "Destroyed tower blocks, some buildings levelled",
@@ -288,7 +321,7 @@ const annotations = [
   },
   {
     id: 22,
-    steps: [3, 4, 5, 6],
+    visibleForSteps: [6],
     location: [34.51738, 31.54589        ],
     config: {
       text: "Damaged school",
