@@ -231,15 +231,14 @@
           ...options.padding,
         }
 
+        options.maxZoom = options.maxZoom || map.maxZoom;
+
         // convert points to screen coordinates
         const p0_screen = map.project(LngLat.convert(p0));
         const p1_screen = map.project(LngLat.convert(p1));
 
-        const p0rotated = p0_screen// p0_screen.rotate(-bearing * Math.PI / 180);
-        const p1rotated = p1_screen//p1_screen.rotate(-bearing * Math.PI / 180);
-
-        const upperLeft = new Point(Math.min(p0rotated.x, p1rotated.x), Math.min(p0rotated.y, p1rotated.y));
-        const lowerRight = new Point(Math.max(p0rotated.x, p1rotated.x), Math.max(p0rotated.y, p1rotated.y));
+        const upperLeft = new Point(Math.min(p0_screen.x, p1_screen.x), Math.min(p0_screen.y, p1_screen.y));
+        const lowerRight = new Point(Math.max(p0_screen.x, p1_screen.x), Math.max(p0_screen.y, p1_screen.y));
 
         const size = lowerRight.sub(upperLeft);
 
@@ -248,12 +247,14 @@
 
         const currentZoomScale = Math.pow(2, map.getZoom())
         const newZoomScale = currentZoomScale * Math.min(scaleX, scaleY)
-        const zoom = Math.log(newZoomScale) / Math.LN2
+        const newZoom = Math.log(newZoomScale) / Math.LN2
+        const zoom = Math.min(newZoom, options.maxZoom)
+        const actualZoomScale = Math.pow(2, zoom)
 
         const paddingOffsetX = (options.padding.left - options.padding.right) / 2;
         const paddingOffsetY = (options.padding.top - options.padding.bottom) / 2;
         const paddingOffset = new Point(paddingOffsetX, paddingOffsetY);
-        const offsetAtFinalZoom = paddingOffset.mult(currentZoomScale / newZoomScale);
+        const offsetAtFinalZoom = paddingOffset.mult(currentZoomScale / actualZoomScale);
         const center =  map.unproject(p0_screen.add(p1_screen).div(2).sub(offsetAtFinalZoom));
 
         return {

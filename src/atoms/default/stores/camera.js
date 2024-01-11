@@ -70,6 +70,7 @@ function transformCameraIfNeeded(map, camera) {
         camera.bounds, {
             bearing: camera.bearing,
             padding: camera.padding,
+            maxZoom: 15,
         })
 
     return {
