@@ -5,7 +5,7 @@
 
     export let step;
 
-    $: showVideo = step === 6;
+    $: showVideo = step === 5;
 </script>
 
 {#if showVideo}

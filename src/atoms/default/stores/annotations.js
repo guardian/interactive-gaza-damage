@@ -1,22 +1,52 @@
+import { writable } from 'svelte/store';
+import { fetchJSON } from '$lib/helpers/fetchJSON.js';
+
+export const annotationFeatures = writable(null);
+
+export async function loadAnnotationFeatures() {
+  const geoJSON = await fetchJSON("__assetsPath__/geojson/beit-hanoun-annotations-simplified.geojson")
+  annotationFeatures.set(geoJSON.features);
+}
+
 export function visibleAnnotationsForStep(step) {
-  return annotations.filter(d => {
-    return d.visibleForSteps.includes(step)
-  })
+  // switch (step) {  
+  //   default:
+  //     return annotations;
+  // }
+
+  return annotations;
 }
 
 export function annotationsInFocusForStep(step) {
+  let IDs = [];
+
+  switch (step) {  
+    case 3:
+      IDs = [1,2,3,4,35] 
+      break;
+    case 4:
+      IDs = [5,6,7]
+      break;
+    case 5:
+    case 6:
+      IDs = [8]
+      break;
+    case 7:
+      IDs = [9,33,34,10,11]
+      break;
+    default:
+      break;
+  }
+
   return annotations.filter(d => {
-    if (!d.focusForSteps) return false
-    return d.focusForSteps.includes(step)
-  })
+    return IDs.includes(d.id)
+  }) 
 }
 
 // IDs match those in spreadsheet
 const annotations = [
   {
     id: 1,
-    visibleForSteps: [3, 4],
-    focusForSteps: [3],
     location: [34.55, 31.54908],
     config: {
       text: "Razed orchards and agricultural fields",
@@ -26,8 +56,6 @@ const annotations = [
   },
   {
     id: 2,
-    visibleForSteps: [3, 4],
-    focusForSteps: [3],
     location: [34.54719, 31.54389],
     config: {
       text: "Three destroyed greenhouses and nearby solar panels",
@@ -39,8 +67,6 @@ const annotations = [
   },
   {
     id: 3,
-    visibleForSteps: [3,4],
-    focusForSteps: [3],
     location: [34.54259, 31.54358],
     config: {
       text: "27 destroyed greenhouses",
@@ -50,34 +76,10 @@ const annotations = [
   },
   {
     id: 4,
-    visibleForSteps: [3,4],
-    focusForSteps: [3],
     location: [34.54185, 31.54866],
     config: {
       text: "Seven destroyed solar panels and one greenhouse",
       textWidth: 220,
-      lineLength: 20,
-    },
-  },
-  {
-    id: -98,
-    visibleForSteps: [1, 2, 3,4],
-    focusForSteps: [3,4],
-    location: [34.537660948491066, 31.545143361563145],
-    config: {
-      text: "Test annotation SW",
-      textWidth: 150,
-      lineLength: 20,
-    },
-  },
-  {
-    id: -99,
-    visibleForSteps: [1,2,3,4],
-    focusForSteps: [3,4],
-    location: [34.55350903130011, 31.546559708799975],
-    config: {
-      text: "Test annotation NE",
-      textWidth: 150,
       lineLength: 20,
     },
   },

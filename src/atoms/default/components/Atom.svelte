@@ -37,11 +37,11 @@
           <!-- Zoom to school -->
         </ScrollyForeground>
         <ScrollyForeground>
-        </ScrollyForeground>
-        <ScrollyForeground>
           <ScrollyBox>
             <p>Copy on school demolition video.</p>
           </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>

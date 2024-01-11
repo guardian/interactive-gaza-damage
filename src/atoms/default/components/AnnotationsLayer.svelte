@@ -1,6 +1,6 @@
 <script>
     import { onMount, setContext } from 'svelte';
-    import { visibleAnnotationsForStep } from '../annotations';
+    import { annotationsInFocusForStep } from '../stores/annotations';
     import Annotation from "$lib/components/map/Annotation.svelte";
     import TextAnnotation from "$lib/components/map/TextAnnotation.svelte";
 
@@ -36,13 +36,13 @@
     })
 
 
-    $: activeAnnotations = visibleAnnotationsForStep(step);
+    $: visibleAnnotations = annotationsInFocusForStep(step);
 </script>
 
 <svelte:window on:resize={updatePositions} />
 
-<div class="annotations-container" style="opacity: {activeAnnotations.length ? 1 : 0};">
-    {#each activeAnnotations as annotation (annotation.id)}
+<div class="annotations-container" style="opacity: {visibleAnnotations.length ? 1 : 0};">
+    {#each visibleAnnotations as annotation (annotation.id)}
         <Annotation center={annotation.location}>
             <TextAnnotation
                 {...annotation.config}

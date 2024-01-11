@@ -113,7 +113,7 @@
         } else if (cameraPosition.zoom === map.getZoom()) {
             map.easeTo(cameraPosition);
         } else {
-            console.log('fly to', cameraPosition);
+            // console.log('fly to', cameraPosition);
             map.flyTo(cameraPosition);
         }
     }
@@ -161,9 +161,9 @@
             console.log('Map error', error);
         });
 
-        // map.on('zoomend', () => {
-        //     console.log('zoom level: ', map.getZoom())
-        // })
+        map.on('zoomend', () => {
+            console.log('zoom level: ', map.getZoom())
+        })
     });
 
     onDestroy(() => {
