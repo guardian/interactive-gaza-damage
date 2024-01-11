@@ -20,7 +20,7 @@ export function visibleAnnotationsForStep(step) {
 export function annotationsInFocusForStep(step) {
   let IDs = [];
 
-  switch (step) {  
+  switch (step) {
     case 3:
       IDs = [1,2,3,4,35] 
       break;

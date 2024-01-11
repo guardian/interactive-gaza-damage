@@ -117,7 +117,7 @@
       "source": "debug-source",
       "source-layer": "beithanoundebug",
       "metadata": {
-        "interactive:steps": [2, 3]
+        "interactive:steps": [2, 3, 4]
       },
       "layout": {
         "line-join": "round"

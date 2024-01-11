@@ -22,9 +22,9 @@ const views = {
     padding: PADDING,
   },
   beitHanoun: {
-    bounds: [34.51219,31.56551,34.56665, 31.52114],
+    bounds: [34.51703,31.54613,34.55906, 31.54258],
     bearing: BEARING,
-    padding: PADDING,
+    padding: 0,
   },
 };
 
@@ -41,6 +41,7 @@ export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFea
         if (annotationsInFocus.length && $annotationFeatures) {
             // create camera object with bounding box for annotations
             const bounds = boundsForAnnotations(annotationsInFocus, $annotationFeatures);
+            console.log('bounds for step', step, bounds);
             const cameraForAnnotations = {
                 bounds,
                 bearing: BEARING,
