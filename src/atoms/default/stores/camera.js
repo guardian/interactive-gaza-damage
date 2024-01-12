@@ -47,17 +47,17 @@ export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFea
                 bearing: BEARING,
                 padding: PADDING,
             }
-            return transformCameraIfNeeded($map, cameraForAnnotations);
+            return transformCameraIfNeeded($map, cameraForAnnotations, config);
         }
 
         switch (step) {
             case 0:
             case 1:
-                return transformCameraIfNeeded($map, views.gazaNorth);
+                return transformCameraIfNeeded($map, views.gazaNorth, config);
             case 2:
-                return transformCameraIfNeeded($map, views.beitHanoun);
+                return transformCameraIfNeeded($map, views.beitHanoun, config);
             default:
-                return transformCameraIfNeeded($map, views.beitHanoun);
+                return transformCameraIfNeeded($map, views.beitHanoun, config);
         }
     }
 
@@ -65,14 +65,14 @@ export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFea
     return memoize(cameraForStep)
 });
 
-function transformCameraIfNeeded(map, camera) {
+function transformCameraIfNeeded(map, camera, config) {
     if (camera.center && camera.zoom) return camera;
 
     const derivedCamera = map.cameraForBounds(
         camera.bounds, {
             bearing: camera.bearing,
             padding: camera.padding,
-            maxZoom: 15,
+            maxZoom: config.maxZoom || 15,
         })
 
     return {

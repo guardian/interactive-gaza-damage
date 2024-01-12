@@ -49,7 +49,7 @@
     $: scrollyConfig = scrollyConfigForStep(step)
     $: scrollyConfigForNextStep = offset > 0.5 ? scrollyConfigForStep(step+1) : scrollyConfig;
     $: blurAmount = scrollyConfig.video ? 5 : 0;
-    $: $map && $map.updateHighlightedAnnotations(scrollyConfig.highlighted)
+    $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
 
     onMount(() => {
        loadAnnotationFeatures();
@@ -67,8 +67,8 @@
         </div>           
     {/if}
     {#if scrollyConfig.video}
-        <div class="map-cover" transition:fade={{delay: 500}}></div>
-        <div class="media-layer" transition:fade={{delay: 500}}>
+        <div class="map-cover" transition:fade={{delay: 0}}></div>
+        <div class="media-layer" transition:fade={{delay: 0}}>
             {#if scrollyConfig.video}
                 <VideoOverlay video={scrollyConfig.video} />
             {/if}

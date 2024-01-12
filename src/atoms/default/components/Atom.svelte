@@ -3,7 +3,6 @@
   import ScrollyVisualisation from "./ScrollyVisualisation.svelte"
   import ScrollyForeground from "./ScrollyForeground.svelte"
   import BeitHanounIntro from "./BeitHanounIntro.svelte";
-  import VideoOverlay from "$lib/components/VideoOverlay.svelte";
   import ScrollyBox from "./ScrollyBox.svelte"
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
 
@@ -30,18 +29,29 @@
           <BeitHanounIntro />
         </ScrollyForeground>
         <ScrollyForeground>
-          <!-- Scroll to fields -->
-        </ScrollyForeground>
-          <!-- Scroll to neighbourhood -->
-        <ScrollyForeground>
-          <!-- Zoom to school -->
         </ScrollyForeground>
         <ScrollyForeground>
-
+        </ScrollyForeground>
+        <ScrollyForeground>
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>Copy on school demolition video.</p>
+            <p>A video from early December showed Israeli forces blowing up a UNRWA school building in Beit Hanoun.</p>
+          </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+          <ScrollyBox>
+            <p>Video filmed from a car moving along a road in November showed flattened and damaged buildings in the west of Beit Hanoun.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>

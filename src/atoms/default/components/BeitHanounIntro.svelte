@@ -16,10 +16,13 @@
         <div class="border border-body"></div>
         <div class="body">
             <p>Beit Hanoun, in the north-east of Gaza, was home to around 50,000 people in 2017. The IDF signalled it had full control over the area in December, with several neighbourhoods being reduced to rubble.</p>
-            <p>Vast swathes of farmland, with crops like citrus fruit, potatoes and dragon fruit, were devastated. Satellite imagery from Planet Labs, taken on 30 November, shows that orchards were razed and greenhouses bulldozed. Heavy vehicle tracking and craters can be observed. A preliminary analysis by UNOSAT shows that 35% of agricultural areas in North Gaza have been damaged.</p>
-            <p>Several neighbourhoods of Beit Hanoun have been virtually flattened. For example, to the north-west of these tank tracks, this entire neighbourhood, including its mosque, was levelled. A UN-run middle-school was blown up by Israeli forces in mid-December and captured on video.</p>
-            <p>Other key parts of the city's critical infrastructure have been damaged or destroyed. Several educational facilities were destroyed or damaged. The Beit Hanoun hospital has been severely damaged. The Umm al-Nasr mosque, parts of which date back to 1239, was also damaged. Grocery stores and the town shopping mall have been damaged or destroyed, in addition to many residential buildings.</p>
-            <p>The neighbourhood of ‘Izbat Beit Hanoun has been almost completely flattened, including its hospital and several tower blocks. Mosques and schools have also been hit. Many of the roads appear unserviceable.</p>
+            <p>Vast swathes of farmland have been rendered barren, clearly visible in satellite imagery from Planet Labs, taken on 30 November. Most of the greenhouses and solar panels have been destroyed, with craters from munitions and tracks from armoured vehicles across the area. An analysis by UNOSAT found that 39% of agricultural land in North Gaza has been damaged.</p>
+            <p>An entire residential neighbourhood of more than 150 buildings has been flattened. Also destroyed were schools, including one run by the UN that was blown up by Israeli forces in mid-December.</p>
+            <p>Schools and hospitals have special protection, with international humanitarian law dictating that the principles of proportionality be taken into account when targeting them. The Beit Hanoun hospital has been severely damaged, and the Balsam hospital destroyed.</p>
+            <p>Our analysis found a cemetery bulldozed, and mosques systematically damaged or destroyed. Among them is the Umm al-Nasr mosque, parts of which date back to 1239. The destruction of religious objects may amount to a war crime.</p>
+            <p>Azzouz explained: “Domicide’s impact unfolds with time. Its pain spreads not only across those who lost their homes in Gaza, but also for those whose homes remain intact as their wider infrastructure has been targeted.”</p>
+            <p>“The main purpose of domicide is depopulation [...] to make life impossible, to push people into extremis.”</p>
+            <p>By zooming into Beit Hanoun further, the scale of the damage becomes clear to see.</p>
         </div>
         
     </Grid>
@@ -41,6 +44,7 @@
 
     .media {
         grid-area: media;
+        display: none;
     }
 
     .border {
