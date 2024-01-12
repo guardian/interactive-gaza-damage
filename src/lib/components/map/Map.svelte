@@ -208,6 +208,16 @@
         return _cameraForBoxAndBearing(bounds.getSouthWest(), bounds.getNorthEast(), bearing, options);
     }
 
+    export function updateHighlightedAnnotations(highlighted = []) {
+        if (!map) return;
+
+        const fillFeatures = map.queryRenderedFeatures({ layers: ['annotation-fills'] })
+        for (const feature of fillFeatures) {
+            const shouldBeHighlighted = highlighted.includes(feature.properties.id)
+            map.setFeatureState(feature, {highlighted: shouldBeHighlighted})
+        }
+    }
+
     function _cameraForBoxAndBearing(p0, p1, bearing, options) {
         const defaultPadding = {
             top: 0,

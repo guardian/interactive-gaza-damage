@@ -1,5 +1,4 @@
 <script>
-    import { fade } from "svelte/transition";
     import VideoPlayer from "$lib/components/VideoPlayer.svelte";
     import AspectRatioBox from "$lib/components/AspectRatioBox.svelte";
 
@@ -7,7 +6,7 @@
 
 </script>
 
-<div class="video-overlay" transition:fade>
+<div class="video-overlay">
     <div class="video-wrapper">
         <AspectRatioBox aspectRatio=0.5625>
             <VideoPlayer src={video.src} posterImage={video.posterImage} />

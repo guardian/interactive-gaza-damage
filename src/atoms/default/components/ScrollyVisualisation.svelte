@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { fade } from "svelte/transition";
     import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
     import { getCameraForStep, map, mapWidth, mapHeight } from "../stores/camera.js";
     import { loadAnnotationFeatures } from '../stores/annotations.js';
@@ -11,11 +12,6 @@
     export let step = 0;
     export let offset = 0;
     // $: console.log('offset', offset);
-
-    const stepsWithBackgroundBlur = [5]
-    $: blurAmount = stepsWithBackgroundBlur.includes(step) ? 5 : 0;
-    $: coverMap = blurAmount > 0;
-    $: mapCoverOpacity = blurAmount > 0 ? 0.6 : 0;
 
     let cameraPosition;
 
@@ -51,6 +47,9 @@
     // $: cameraPosition = $getCameraForStep(step);
 
     $: scrollyConfig = scrollyConfigForStep(step)
+    $: scrollyConfigForNextStep = offset > 0.5 ? scrollyConfigForStep(step+1) : scrollyConfig;
+    $: blurAmount = scrollyConfig.video ? 5 : 0;
+    $: $map && $map.updateHighlightedAnnotations(scrollyConfig.highlighted)
 
     onMount(() => {
        loadAnnotationFeatures();
@@ -64,15 +63,17 @@
     </div>
     {#if $map}
         <div class="annotations-layer">
-            <AnnotationsLayer annotationsInFocus={scrollyConfig.annotationsInFocus} project={$map.project} onMapMove={$map.onMove} />   
+            <AnnotationsLayer annotationsInFocus={scrollyConfigForNextStep.annotationsInFocus} project={$map.project} onMapMove={$map.onMove} />   
         </div>           
     {/if}
-    <div class="map-cover" style="opacity: {coverMap ? mapCoverOpacity : 0};"></div>
-    <div class="media-layer">
-        {#if scrollyConfig.video}
-            <VideoOverlay video={scrollyConfig.video} />
-        {/if}
-    </div>
+    {#if scrollyConfig.video}
+        <div class="map-cover" transition:fade={{delay: 500}}></div>
+        <div class="media-layer" transition:fade={{delay: 500}}>
+            {#if scrollyConfig.video}
+                <VideoOverlay video={scrollyConfig.video} />
+            {/if}
+        </div>
+    {/if}
 </div>
 
 <style lang="scss">
@@ -90,7 +91,7 @@
 
 
         filter: blur(var(--blur-amount));
-        transition: 0.5s filter linear;
+        transition: 0.5s 0.5s filter linear;
    }
 
     .annotations-layer {
@@ -107,7 +108,7 @@
         width: 100%;
         height: 100%;
         background-color: #121212;
-        transition: 0.5s opacity linear;
+        opacity: 0.6;
         z-index: 20;
    }
 
