@@ -15,20 +15,18 @@
 </div>
 
 <style lang="scss">
+    .debug {
+        // FOR DEBUGGING
+        border-bottom: 2px solid #C70000;
+    }
     .overlay {
         width: 100%;
         padding-bottom: 80vh;
-
-        // FOR DEBUGGING
-        border-bottom: 2px solid #C70000;
     }
 
     .scrolly-box {
         box-sizing: border-box;
         width: 100%;
         padding-bottom: 100vh;
-
-        // FOR DEBUGGING
-        border-bottom: 2px solid #C70000;
     }
 </style>

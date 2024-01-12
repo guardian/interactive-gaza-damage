@@ -14,7 +14,7 @@
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
-        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-after/{z}/{x}/{y}.jpg"
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-after/{z}/{x}/{y}.png"
       ]
     },
     "before": {
@@ -88,7 +88,7 @@
       "source": "annotations",
       "source-layer": "beithanounannotations",
       "metadata": {
-        "interactive:steps": [3,4,5,6,7,8,9,10]
+        "interactive:steps": [2,3,4,5,6,7,8,9,10]
       },
       "layout": {
         "line-join": "round"
@@ -112,6 +112,23 @@
       }
     },
     {
+      "id": "annotation-fills",
+      "type": "fill",
+      "source": "annotations",
+      "source-layer": "beithanounannotations",
+      "metadata": {
+        "interactive:steps": [3,4,5,6,7,8,9,10]
+      },
+      "minzoom": 14,
+      "paint": {
+        "fill-color": "#FFE500",
+        "fill-opacity": 0,
+        "fill-opacity-transition": {
+          "duration": 500
+        }
+      }
+    },
+    {
       "id": "debug-outlines",
       "type": "line",
       "source": "debug-source",
@@ -120,7 +137,8 @@
         "interactive:steps": [2, 3, 4]
       },
       "layout": {
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "none"
       },
       "minzoom": 14,
       "paint": {

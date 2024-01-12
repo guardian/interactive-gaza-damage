@@ -3,6 +3,7 @@
     import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
     import { getCameraForStep, map, mapWidth, mapHeight } from "../stores/camera.js";
     import { loadAnnotationFeatures } from '../stores/annotations.js';
+    import { scrollyConfigForStep } from '../stores/config.js';
     import Map from "$lib/components/map/Map.svelte";
     import AnnotationsLayer from "./AnnotationsLayer.svelte"
     import VideoOverlay from "$lib/components/VideoOverlay.svelte";
@@ -49,6 +50,8 @@
     // uncomment for smooth animations
     // $: cameraPosition = $getCameraForStep(step);
 
+    $: scrollyConfig = scrollyConfigForStep(step)
+
     onMount(() => {
        loadAnnotationFeatures();
     })
@@ -61,12 +64,14 @@
     </div>
     {#if $map}
         <div class="annotations-layer">
-            <AnnotationsLayer {step} project={$map.project} onMapMove={$map.onMove} />   
+            <AnnotationsLayer annotationsInFocus={scrollyConfig.annotationsInFocus} project={$map.project} onMapMove={$map.onMove} />   
         </div>           
     {/if}
     <div class="map-cover" style="opacity: {coverMap ? mapCoverOpacity : 0};"></div>
     <div class="media-layer">
-        <VideoOverlay {step} />
+        {#if scrollyConfig.video}
+            <VideoOverlay video={scrollyConfig.video} />
+        {/if}
     </div>
 </div>
 

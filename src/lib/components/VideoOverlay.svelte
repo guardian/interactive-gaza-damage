@@ -3,20 +3,17 @@
     import VideoPlayer from "$lib/components/VideoPlayer.svelte";
     import AspectRatioBox from "$lib/components/AspectRatioBox.svelte";
 
-    export let step;
+    export let video;
 
-    $: showVideo = step === 5;
 </script>
 
-{#if showVideo}
-    <div class="video-overlay" transition:fade>
-        <div class="video-wrapper">
-            <AspectRatioBox aspectRatio=0.5625>
-                <VideoPlayer src="https://uploads.guim.co.uk/2023/12/22/unrwa-school-beit-hanoun.mp4" posterImage="https://uploads.guim.co.uk/2024/01/02/out.png" />
-            </AspectRatioBox>
-        </div>
+<div class="video-overlay" transition:fade>
+    <div class="video-wrapper">
+        <AspectRatioBox aspectRatio=0.5625>
+            <VideoPlayer src={video.src} posterImage={video.posterImage} />
+        </AspectRatioBox>
     </div>
-{/if}
+</div>
 
 <style>
     .video-overlay {

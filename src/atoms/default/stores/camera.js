@@ -1,6 +1,7 @@
 import memoize from 'memoize';
 import { writable, derived } from 'svelte/store';
-import { annotationsInFocusForStep, annotationFeatures } from './annotations.js';
+import { annotationFeatures } from './annotations.js';
+import { scrollyConfigForStep } from './config.js';
 import { featureCollection, convex, centroid, transformRotate, bbox, bboxPolygon } from '@turf/turf';
 
 export const map = writable(null);
@@ -35,11 +36,12 @@ export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFea
         // console.log('get camera for step', step);
         if (!$map) return views.gazaNorth;
 
-        const annotationsInFocus = annotationsInFocusForStep(step);
-        if (annotationsInFocus.length && $annotationFeatures) {
+        const config = scrollyConfigForStep(step);
+        const annotationsInFocus = config.annotationsInFocus
+        if (annotationsInFocus && $annotationFeatures) {
             // create camera object with bounding box for annotations
             const bounds = boundsForAnnotations(annotationsInFocus, $annotationFeatures);
-            console.log('bounds for step', step, bounds);
+            // console.log('bounds for step', step, bounds);
             const cameraForAnnotations = {
                 bounds,
                 bearing: BEARING,
@@ -81,10 +83,8 @@ function transformCameraIfNeeded(map, camera) {
 }
 
 function boundsForAnnotations(annotationsInFocus, annotationFeatures) {
-    const IDs = annotationsInFocus.map(d => d.id)
-
     // find map features matching these IDs
-    const features = annotationFeatures.filter(d => IDs.includes(d.properties.id))
+    const features = annotationFeatures.filter(d => annotationsInFocus.includes(d.properties.id))
     if (!features.length) {
         throw "No features found"
     }

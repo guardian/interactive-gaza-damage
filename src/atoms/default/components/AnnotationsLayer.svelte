@@ -1,10 +1,10 @@
 <script>
     import { onMount, setContext } from 'svelte';
-    import { annotationsInFocusForStep } from '../stores/annotations';
+    import { annotationLabelsForIDs } from '../stores/annotations';
     import Annotation from "$lib/components/map/Annotation.svelte";
     import TextAnnotation from "$lib/components/map/TextAnnotation.svelte";
 
-    export let step;
+    export let annotationsInFocus;
 
     // Expects a function that returns {x, y} in screen coordinates for a given [lon, lat]
     export let project;
@@ -36,21 +36,21 @@
     })
 
 
-    $: visibleAnnotations = annotationsInFocusForStep(step);
+    $: annotationLabels = annotationsInFocus ? annotationLabelsForIDs(annotationsInFocus) : [];
 </script>
 
 <svelte:window on:resize={updatePositions} />
 
-<div class="annotations-container" style="opacity: {visibleAnnotations.length ? 1 : 0};">
-    {#each visibleAnnotations as annotation (annotation.id)}
+<div class="annotations-container" style="opacity: {annotationsInFocus ? 1 : 0};">
+    {#each annotationLabels as annotation (annotation.id)}
         <Annotation center={annotation.location}>
             <TextAnnotation
                 {...annotation.config}
             />
         </Annotation>
     {/each}
-    <div class="debug"></div>
-    <div class="debug2"></div>
+    <div class="debug hidden"></div>
+    <div class="debug2 hidden"></div>
 </div>
 
 <style>
@@ -82,5 +82,9 @@
         left: 0;
         width: 100vw;
         height: 50px;
+    }
+
+    .hidden {
+        display: none;
     }
 </style>

@@ -8,40 +8,45 @@ export async function loadAnnotationFeatures() {
   annotationFeatures.set(geoJSON.features);
 }
 
-export function visibleAnnotationsForStep(step) {
-  // switch (step) {  
-  //   default:
-  //     return annotations;
-  // }
-
-  return annotations;
-}
-
-export function annotationsInFocusForStep(step) {
-  let IDs = [];
-
-  switch (step) {
-    case 3:
-      IDs = [1,2,3,4,35] 
-      break;
-    case 4:
-      IDs = [5,6,7]
-      break;
-    case 5:
-    case 6:
-      IDs = [8]
-      break;
-    case 7:
-      IDs = [9,33,34,10,11]
-      break;
-    default:
-      break;
-  }
-
+export function annotationLabelsForIDs(annotationIDs) {
   return annotations.filter(d => {
-    return IDs.includes(d.id)
+    return annotationIDs.includes(d.id)
   }) 
 }
+
+//   // switch (step) {  
+//   //   default:
+//   //     return annotations;
+//   // }
+
+//   return annotations;
+// }
+
+// export function annotationsInFocusForStep(step) {
+//   let IDs = [];
+
+//   switch (step) {
+//     case 3:
+//       IDs = [1,2,3,4,35] 
+//       break;
+//     case 4:
+//       IDs = [5,6,7]
+//       break;
+//     case 5:
+//     case 6:
+//       IDs = [8]
+//       break;
+//     case 7:
+//       IDs = [9,33,34,10,11]
+//       break;
+//     default:
+//       break;
+//   }
+
+//   return annotations.filter(d => {
+//     return IDs.includes(d.id)
+//   }) 
+// }
 
 // IDs match those in spreadsheet
 const annotations = [
