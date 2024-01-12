@@ -28,13 +28,11 @@ const views = {
   },
 };
 
-const CAMERA_POSITIONS = {};
-
 export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFeatures], ([$map, $mapWidth, $mapHeight, $annotationFeatures]) => {
-    console.log('map size change', $mapWidth, $mapHeight);
+    // console.log('map size change', $mapWidth, $mapHeight);
 
     const cameraForStep = (step) => {
-        console.log('get camera for step', step);
+        // console.log('get camera for step', step);
         if (!$map) return views.gazaNorth;
 
         const annotationsInFocus = annotationsInFocusForStep(step);
@@ -61,6 +59,7 @@ export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFea
         }
     }
 
+    // memoize camera function to prevent running expensive calculations multiple times
     return memoize(cameraForStep)
 });
 
