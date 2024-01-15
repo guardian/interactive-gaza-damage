@@ -3,6 +3,7 @@ import { writable, derived } from 'svelte/store';
 import { annotationFeatures } from './annotations.js';
 import { scrollyConfigForStep } from './config.js';
 import { featureCollection, convex, centroid, transformRotate, bbox, bboxPolygon } from '@turf/turf';
+import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
 
 export const map = writable(null);
 export const mapWidth = writable(0);
@@ -20,12 +21,10 @@ const views = {
     center: [34.51, 31.54],
     zoom: 12.5,
     bearing: BEARING,
-    padding: PADDING,
   },
   beitHanoun: {
     bounds: [34.51703,31.54613,34.55906, 31.54258],
     bearing: BEARING,
-    padding: 0,
   },
 };
 
@@ -33,7 +32,6 @@ export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFea
     // console.log('map size change', $mapWidth, $mapHeight);
 
     const cameraForStep = (step) => {
-        // console.log('get camera for step', step);
         if (!$map) return views.gazaNorth;
 
         const config = scrollyConfigForStep(step);
@@ -71,9 +69,14 @@ function transformCameraIfNeeded(map, camera, config) {
     const derivedCamera = map.cameraForBounds(
         camera.bounds, {
             bearing: camera.bearing,
-            padding: camera.padding,
+            padding: camera.padding || 0,
             maxZoom: config.maxZoom || 15,
         })
+
+    if (!derivedCamera) {
+        console.log('no derived camera for', camera)
+        return camera;
+    }
 
     return {
         center: [derivedCamera.center.lng, derivedCamera.center.lat],
@@ -110,4 +113,28 @@ function boundsForAnnotations(annotationsInFocus, annotationFeatures) {
     // console.log('rotated bounding box', [coordinates[0], coordinates[2]]);
 
     return [coordinates[0], coordinates[2]]        
+}
+
+
+export function interpolateBetween(start, end, progress) {
+    if (!canInterpolateCamera(start) || !canInterpolateCamera(end)) {
+        throw `Can't interpolate between start: ${start} and end: ${end}`
+    }
+
+    const centerInterpolator = geoInterpolate(start.center, end.center);
+    const zoomInterpolator = interpolateNumber(start.zoom, end.zoom);
+    const bearingInterpolator = interpolateNumber(start.bearing, end.bearing);
+
+    const easedProgress = easeQuadInOut(progress)
+
+    return {
+        center: centerInterpolator(easedProgress),
+        zoom: zoomInterpolator(easedProgress),
+        bearing: bearingInterpolator(easedProgress),
+        animate: false,
+    }
+}
+
+export function canInterpolateCamera(camera) {
+    return camera.center && camera.zoom && camera.bearing
 }

@@ -1,11 +1,8 @@
 {
   "version": 8,
   "name": "Gaza strip",
-  "center": [
-    0,
-    0
-  ],
-  "zoom": 4,
+  "center": [34.51, 31.54],
+  "zoom": 12,
   "bearing": 40,
   "pitch": 0,
   "sources": {
@@ -31,14 +28,6 @@
       "maxzoom": 14,
       "tiles": [
         "https://gdn-cdn.s3.amazonaws.com/maptiles/2023/12/gaza/vector/{z}/{x}/{y}.pbf"
-      ]
-    },
-    "debug-source": {
-      "type": "vector",
-      "minzoom": 9,
-      "maxzoom": 17,
-      "tiles": [
-        "https://gdn-cdn.s3.amazonaws.com/maptiles/2023/12/gaza/debug/{z}/{x}/{y}.pbf"
       ]
     }
   },
@@ -127,32 +116,6 @@
             ["boolean", ["feature-state", "highlighted"], false],
             0.3,
             0
-        ]
-      }
-    },
-    {
-      "id": "debug-outlines",
-      "type": "line",
-      "source": "debug-source",
-      "source-layer": "beithanoundebug",
-      "metadata": {
-        "interactive:steps": [2, 3, 4]
-      },
-      "layout": {
-        "line-join": "round",
-        "visibility": "none"
-      },
-      "minzoom": 14,
-      "paint": {
-        "line-color": "#FF0000",
-        "line-width": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          14,
-          2,
-          15,
-          3
         ]
       }
     }

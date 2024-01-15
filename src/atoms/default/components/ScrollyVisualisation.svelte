@@ -1,8 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { fade } from "svelte/transition";
-    import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
-    import { getCameraForStep, map, mapWidth, mapHeight } from "../stores/camera.js";
+    import { getCameraForStep, map, mapWidth, mapHeight, canInterpolateCamera, interpolateBetween } from "../stores/camera.js";
     import { loadAnnotationFeatures } from '../stores/annotations.js';
     import { scrollyConfigForStep } from '../stores/config.js';
     import Map from "$lib/components/map/Map.svelte";
@@ -17,26 +16,18 @@
 
     function updateCameraPosition(getCameraForStep, step, offset) {
         const start = getCameraForStep(step);
-
         if (cameraPosition === undefined) {
             cameraPosition = start
             return;
         }
 
         const end = getCameraForStep(step + 1);
-        if (start === end) return;
+        if (!start || !end || start === end) return;
 
-        const centerInterpolator = geoInterpolate(start.center, end.center);
-        const zoomInterpolator = interpolateNumber(start.zoom, end.zoom);
-        const bearingInterpolator = interpolateNumber(start.bearing, end.bearing);
-
-        const easedOffset = easeQuadInOut(offset)
-
-        cameraPosition = {
-            center: centerInterpolator(easedOffset),
-            zoom: zoomInterpolator(easedOffset),
-            bearing: bearingInterpolator(easedOffset),
-            animate: false,
+        if (canInterpolateCamera(start) && canInterpolateCamera(end)) {
+            cameraPosition = interpolateBetween(start, end, offset)
+        } else {
+            cameraPosition = start;
         }
     }
 
