@@ -103,26 +103,7 @@
   ////////////////////////////
 
   onMount(() => {
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          const startVideo = entry.intersectionRatio >= 0.75;
-          if (startVideo && video.readyState >= 2) {
-            paused = false;
-          } else {
-            paused = true;
-          }
-        });
-      },
-      {
-        threshold: [0, 0.75, 1],
-      }
-    );
-    observer.observe(video);
-
-    return () => {
-      observer.unobserve(video);
-    };
+    paused = false;
   });
 </script>
 
