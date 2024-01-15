@@ -49,7 +49,7 @@
             {step} 
             {cameraPosition} 
             interactive={false}
-            showBeforeOnHover={step>=3} />
+            showBeforeOnHover={step>=3 && step < 13} />
     </div>
     {#if $map}
         <div class="annotations-layer">

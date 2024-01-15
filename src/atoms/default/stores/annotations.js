@@ -3,53 +3,26 @@ import { fetchJSON } from '$lib/helpers/fetchJSON.js';
 
 export const annotationFeatures = writable(null);
 
-export async function loadAnnotationFeatures() {
-  const geoJSON = await fetchJSON("__assetsPath__/geojson/beit-hanoun-annotations-simplified.geojson")
-  annotationFeatures.set(geoJSON.features);
+export async function fetchAnnotationFeatures() {
+  const fetchBeitHanoun = fetchJSON("__assetsPath__/geojson/beit-hanoun-annotations-simplified.geojson")
+  const fetchAlZahra = await fetchJSON("__assetsPath__/geojson/al-zahra-annotations-simplified.geojson")
+
+  Promise.all([fetchBeitHanoun, fetchAlZahra]).then(([beitHanoun, alZahra]) => {
+      annotationFeatures.set({
+        beitHanoun: beitHanoun.features,
+        alZahra: alZahra.features,
+      });
+  });
 }
 
 export function annotationLabelsForIDs(annotationIDs) {
-  return annotations.filter(d => {
+  return beitHanoun.filter(d => {
     return annotationIDs.includes(d.id)
   }) 
 }
 
-//   // switch (step) {  
-//   //   default:
-//   //     return annotations;
-//   // }
-
-//   return annotations;
-// }
-
-// export function annotationsInFocusForStep(step) {
-//   let IDs = [];
-
-//   switch (step) {
-//     case 3:
-//       IDs = [1,2,3,4,35] 
-//       break;
-//     case 4:
-//       IDs = [5,6,7]
-//       break;
-//     case 5:
-//     case 6:
-//       IDs = [8]
-//       break;
-//     case 7:
-//       IDs = [9,33,34,10,11]
-//       break;
-//     default:
-//       break;
-//   }
-
-//   return annotations.filter(d => {
-//     return IDs.includes(d.id)
-//   }) 
-// }
-
 // IDs match those in spreadsheet
-const annotations = [
+const beitHanoun = [
   {
     id: 1,
     location: [34.55, 31.54908],

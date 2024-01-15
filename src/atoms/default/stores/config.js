@@ -62,6 +62,11 @@ export function scrollyConfigForStep(step) {
         highlighted: [31],
         maxZoom: [16],
       };
+    case 15:
+      return {
+        annotationsInFocus: [2,3,4,5,7],
+        maxZoom: [15],
+      };
     default:
       return {};
   }

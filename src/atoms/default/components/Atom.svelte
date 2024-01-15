@@ -4,7 +4,7 @@
   import ScrollyForeground from "./ScrollyForeground.svelte"
   import BeitHanounIntro from "./BeitHanounIntro.svelte";
   import ScrollyBox from "./ScrollyBox.svelte"
-  import { loadAnnotationFeatures } from '../stores/annotations.js';
+  import { fetchAnnotationFeatures } from '../stores/annotations.js';
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
   import { onMount } from "svelte";
 
@@ -16,7 +16,7 @@
   $: console.log('step', step);
 
   onMount(async () => {
-    await loadAnnotationFeatures();
+    await fetchAnnotationFeatures();
     scrollyReady = true;
   })
 </script>
@@ -62,6 +62,14 @@
           <ScrollyBox>
             <p>Video filmed from a car moving along a road in November showed flattened and damaged buildings in the west of Beit Hanoun.</p>
           </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>

@@ -24,23 +24,42 @@ const views = {
     bearing: BEARING,
   },
   beitHanoun: {
+    bounds: [[34.51703,31.54613], [34.55906, 31.54258]],
+    bearing: BEARING,
+  },
+  alZahraRegion: {
+    center: [34.42048, 31.47848],
+    zoom: 12.5,
+    bearing: BEARING,
+  },
+  alZahra: {
     bounds: [34.51703,31.54613,34.55906, 31.54258],
     bearing: BEARING,
   },
 };
 
-export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, annotationFeatures], ([$map, $mapReady, $mapWidth, $mapHeight, $annotationFeatures]) => {
-    // console.log('update camera for step function', $mapReady, $mapWidth, $mapHeight);
+export const annotationFeaturesForStep = derived([annotationFeatures], ([$annotationFeatures]) => {
+    return (step) => {
+        if (step <=13) {
+            return $annotationFeatures.beitHanoun
+        } else if (step > 13) {
+            return $annotationFeatures.alZahra;
+        }
 
+        throw "Undefined region"
+    }
+})
+
+export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, annotationFeaturesForStep], ([$map, $mapReady, $mapWidth, $mapHeight, $annotationFeaturesForStep]) => {
     const cameraForStep = (step) => {
         if (!$map) return views.gazaNorth;
 
         const config = scrollyConfigForStep(step);
         const annotationsInFocus = config.annotationsInFocus
-        if (annotationsInFocus && $annotationFeatures) {
+        const annotationFeatures = $annotationFeaturesForStep(step)
+        if (annotationsInFocus && annotationFeatures) {
             // create camera object with bounding box for annotations
-            const bounds = boundsForAnnotations(annotationsInFocus, $annotationFeatures);
-            // console.log('bounds for step', step, $annotationFeatures);
+            const bounds = boundsForAnnotations(annotationsInFocus, annotationFeatures);
             const cameraForAnnotations = {
                 bounds,
                 bearing: BEARING,
@@ -52,9 +71,12 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, ann
         switch (step) {
             case 0:
             case 1:
+            case 14:
                 return transformCameraIfNeeded($map, views.gazaNorth, config);
             case 2:
                 return transformCameraIfNeeded($map, views.beitHanoun, config);
+            case 15:
+                return transformCameraIfNeeded($map, views.alZahraRegion, config);
             default:
                 return transformCameraIfNeeded($map, views.beitHanoun, config);
         }

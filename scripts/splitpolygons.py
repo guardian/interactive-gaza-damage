@@ -3,7 +3,9 @@
 
 import json
 
-js = open("src/assets/geojson/beit-hanoun-annotations.geojson", "r").read()
+area = "al-zahra"
+
+js = open(f"src/assets/geojson/{area}-annotations.geojson", "r").read()
 gj = json.loads(js)
 
 output = {"type": "FeatureCollection", "crs": gj["crs"], "features": []}
@@ -22,6 +24,6 @@ for feature in gj["features"]:
             xfeature["geometry"]["coordinates"] = poly
             output["features"].append(xfeature)
 
-open("src/assets/geojson/beit-hanoun-annotations-simplified.geojson", "w").write(
+open(f"src/assets/geojson/{area}-annotations-simplified.geojson", "w").write(
     json.dumps(output)
 )
