@@ -138,6 +138,13 @@
 
         map.on("load", () => {
             isReady = true;
+
+            if (cameraPosition) {
+                moveTo({
+                    ...cameraPosition,
+                    animate: false,
+                });
+            }
         });
 
         map.on('resize', function() {

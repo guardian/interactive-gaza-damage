@@ -22,6 +22,7 @@ export function scrollyConfigForStep(step) {
     case 7:
       return {
         annotationsInFocus: [6],
+        highlighted: [6],
         maxZoom: [16],
       };
     case 8:
@@ -46,7 +47,8 @@ export function scrollyConfigForStep(step) {
       };
     case 12:
       return {
-        annotationsInFocus: [19, 20, 21, 22],
+        annotationsInFocus: [31],
+        highlighted: [31],
         maxZoom: [16],
         video: {
           src: "https://uploads.guim.co.uk/2023/12/22/beit-hanoun-walkthrough_SITE.mp4",
@@ -56,7 +58,8 @@ export function scrollyConfigForStep(step) {
       };
     case 13:
       return {
-        annotationsInFocus: [19, 20, 21, 22],
+        annotationsInFocus: [31],
+        highlighted: [31],
         maxZoom: [16],
       };
     default:

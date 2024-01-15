@@ -6,6 +6,7 @@ import { featureCollection, convex, centroid, transformRotate, bbox, bboxPolygon
 import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
 
 export const map = writable(null);
+export const mapReady = writable(false);
 export const mapWidth = writable(0);
 export const mapHeight = writable(0);
 
@@ -28,8 +29,8 @@ const views = {
   },
 };
 
-export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFeatures], ([$map, $mapWidth, $mapHeight, $annotationFeatures]) => {
-    // console.log('map size change', $mapWidth, $mapHeight);
+export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, annotationFeatures], ([$map, $mapReady, $mapWidth, $mapHeight, $annotationFeatures]) => {
+    console.log('update camera for step funciton', $mapReady, $mapWidth, $mapHeight);
 
     const cameraForStep = (step) => {
         if (!$map) return views.gazaNorth;
@@ -39,7 +40,7 @@ export const getCameraForStep = derived([map, mapWidth, mapHeight, annotationFea
         if (annotationsInFocus && $annotationFeatures) {
             // create camera object with bounding box for annotations
             const bounds = boundsForAnnotations(annotationsInFocus, $annotationFeatures);
-            // console.log('bounds for step', step, bounds);
+            // console.log('bounds for step', step, $annotationFeatures);
             const cameraForAnnotations = {
                 bounds,
                 bearing: BEARING,
@@ -74,7 +75,7 @@ function transformCameraIfNeeded(map, camera, config) {
         })
 
     if (!derivedCamera) {
-        console.log('no derived camera for', camera)
+        // console.log('no derived camera for', camera)
         return camera;
     }
 

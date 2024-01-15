@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { fade } from "svelte/transition";
-    import { getCameraForStep, map, mapWidth, mapHeight, canInterpolateCamera, interpolateBetween } from "../stores/camera.js";
+    import { getCameraForStep, map, mapReady, mapWidth, mapHeight, canInterpolateCamera, interpolateBetween } from "../stores/camera.js";
     import { loadAnnotationFeatures } from '../stores/annotations.js';
     import { scrollyConfigForStep } from '../stores/config.js';
     import Map from "$lib/components/map/Map.svelte";
@@ -50,7 +50,7 @@
 
 <div class="background-container"  bind:clientWidth={$mapWidth} bind:clientHeight={$mapHeight}>
     <div class="map-container" style="--blur-amount: {blurAmount}px;">
-        <Map bind:this={$map} {step} {cameraPosition} interactive={false} />
+        <Map bind:this={$map} mapReady={$mapReady} {step} {cameraPosition} interactive={false} />
     </div>
     {#if $map}
         <div class="annotations-layer">

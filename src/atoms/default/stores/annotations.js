@@ -304,7 +304,6 @@ const annotations = [
   },
   {
     id: 20,
-    visibleForSteps: [6],
     location: [34.52031, 31.54641],
     config: {
       text: "Damaged school campus",
@@ -316,7 +315,6 @@ const annotations = [
   },
   {
     id: 21,
-    visibleForSteps: [6],
     location: [34.51883, 31.54552],
     config: {
       text: "Destroyed tower blocks, some buildings levelled",
@@ -328,8 +326,7 @@ const annotations = [
   },
   {
     id: 22,
-    visibleForSteps: [6],
-    location: [34.51738, 31.54589        ],
+    location: [34.51713, 31.54580],
     config: {
       text: "Damaged school",
       textWidth: 80,
@@ -337,7 +334,7 @@ const annotations = [
       lineDirection: "down",
       textPosition: "center",
     },
-  },
+  }
 ];
 
 
