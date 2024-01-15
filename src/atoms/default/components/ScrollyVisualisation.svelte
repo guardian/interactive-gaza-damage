@@ -50,7 +50,13 @@
 
 <div class="background-container"  bind:clientWidth={$mapWidth} bind:clientHeight={$mapHeight}>
     <div class="map-container" style="--blur-amount: {blurAmount}px;">
-        <Map bind:this={$map} mapReady={$mapReady} {step} {cameraPosition} interactive={false} />
+        <Map 
+            bind:this={$map} 
+            isReady={$mapReady} 
+            {step} 
+            {cameraPosition} 
+            interactive={false}
+            showBeforeOnHover={step>=3} />
     </div>
     {#if $map}
         <div class="annotations-layer">

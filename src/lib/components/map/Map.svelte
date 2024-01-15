@@ -13,6 +13,7 @@
     export let bearing = 0;
     export let pitch = 0;
     export let bounds = undefined;
+    export let showBeforeOnHover;
 
     let map, mapContainer, mapContainerWidth, mapContainerHeight;
 
@@ -163,6 +164,16 @@
         // map.on('zoomend', () => {
         //     console.log('zoom level: ', map.getZoom())
         // })
+
+         map.on('mouseover', 'annotation-fills', (error) => {
+            if (showBeforeOnHover) {
+                map.setPaintProperty("satellite-before-tiles", "raster-opacity", 1);
+            }
+         })
+
+        map.on('mouseout', 'annotation-fills', (error) => {
+            map.setPaintProperty("satellite-before-tiles", "raster-opacity", 0);
+        })
     });
 
     onDestroy(() => {
@@ -296,5 +307,6 @@
         position: absolute;
         width: 100%;
         height: 100%;
+        pointer-events: all;
     }
 </style>

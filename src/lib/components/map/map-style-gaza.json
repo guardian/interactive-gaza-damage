@@ -14,12 +14,12 @@
         "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-after/{z}/{x}/{y}.png"
       ]
     },
-    "before": {
+    "satellite-before": {
       "type": "raster",
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
-        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-before/{z}/{x}/{y}.jpg"
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-before/{z}/{x}/{y}.png"
       ]
     },
     "annotations": {
@@ -40,6 +40,19 @@
       "source": "satellite-after",
       "minzoom": 9,
       "maxzoom": 17
+    },
+    {
+      "id": "satellite-before-tiles",
+      "type": "raster",
+      "source": "satellite-before",
+      "minzoom": 9,
+      "maxzoom": 17,
+      "paint": {
+        "raster-opacity": 0,
+        "raster-opacity-transition": {
+          "duration": 300
+        }
+      }
     },
     {
       "id": "annotation-drop-shadows",

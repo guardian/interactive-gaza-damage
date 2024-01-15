@@ -75,7 +75,7 @@
 	}
 
   [slot="background"] {
-    pointer-events: all;
+    pointer-events: none;
 	}
 
   p {
