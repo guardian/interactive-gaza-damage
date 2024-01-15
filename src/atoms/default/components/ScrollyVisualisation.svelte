@@ -1,8 +1,6 @@
 <script>
-    import { onMount } from 'svelte';
     import { fade } from "svelte/transition";
     import { getCameraForStep, map, mapReady, mapWidth, mapHeight, canInterpolateCamera, interpolateBetween } from "../stores/camera.js";
-    import { loadAnnotationFeatures } from '../stores/annotations.js';
     import { scrollyConfigForStep } from '../stores/config.js';
     import Map from "$lib/components/map/Map.svelte";
     import AnnotationsLayer from "./AnnotationsLayer.svelte"
@@ -32,7 +30,7 @@
     }
 
     // uncomment for scroll animations
-    $: updateCameraPosition($getCameraForStep, step, offset)
+    $: $mapReady && updateCameraPosition($getCameraForStep, step, offset)
 
     // uncomment for smooth animations
     // $: cameraPosition = $getCameraForStep(step);
@@ -41,18 +39,13 @@
     $: scrollyConfigForNextStep = offset > 0.5 ? scrollyConfigForStep(step+1) : scrollyConfig;
     $: blurAmount = scrollyConfig.video ? 5 : 0;
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
-
-    onMount(() => {
-       loadAnnotationFeatures();
-    })
-
 </script>
 
 <div class="background-container"  bind:clientWidth={$mapWidth} bind:clientHeight={$mapHeight}>
     <div class="map-container" style="--blur-amount: {blurAmount}px;">
         <Map 
             bind:this={$map} 
-            isReady={$mapReady} 
+            bind:isReady={$mapReady} 
             {step} 
             {cameraPosition} 
             interactive={false}

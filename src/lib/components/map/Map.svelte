@@ -137,7 +137,7 @@
             ...mapPosition,
         });
 
-        map.on("load", () => {
+        map.on("style.load", () => {
             isReady = true;
 
             if (cameraPosition) {

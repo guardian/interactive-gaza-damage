@@ -30,7 +30,7 @@ const views = {
 };
 
 export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, annotationFeatures], ([$map, $mapReady, $mapWidth, $mapHeight, $annotationFeatures]) => {
-    console.log('update camera for step funciton', $mapReady, $mapWidth, $mapHeight);
+    // console.log('update camera for step function', $mapReady, $mapWidth, $mapHeight);
 
     const cameraForStep = (step) => {
         if (!$map) return views.gazaNorth;

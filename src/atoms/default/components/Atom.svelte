@@ -4,18 +4,27 @@
   import ScrollyForeground from "./ScrollyForeground.svelte"
   import BeitHanounIntro from "./BeitHanounIntro.svelte";
   import ScrollyBox from "./ScrollyBox.svelte"
+  import { loadAnnotationFeatures } from '../stores/annotations.js';
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
+  import { onMount } from "svelte";
 
   let index = 0
   let progress, offset;
+  let scrollyReady = false;
 
   $: step = progress > 0.02 ? index + 1 : index;
   $: console.log('step', step);
+
+  onMount(async () => {
+    await loadAnnotationFeatures();
+    scrollyReady = true;
+  })
 </script>
 
 <svelte:window bind:innerWidth={$windowInnerWidth} bind:innerHeight={$windowInnerHeight} />
 
 <div class="atom">
+    {#if scrollyReady}
     <Scroller top="{0}" bottom="{1}" threshold="{0.8}" query=".scrolly-foreground-element" bind:index bind:progress bind:offset>
       <div slot="background">
         {#if typeof document !== "undefined"}
@@ -58,6 +67,7 @@
         </ScrollyForeground>
       </div>
     </Scroller>
+    {/if}
 </div>
 
 <style lang="scss">
