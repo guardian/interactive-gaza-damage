@@ -15,8 +15,9 @@ export async function fetchAnnotationFeatures() {
   });
 }
 
-export function annotationLabelsForIDs(annotationIDs) {
-  return beitHanoun.filter(d => {
+export function annotationLabelsForIDs(annotationIDs, area) {
+  const annotationsForArea = annotations[area];
+  return annotationsForArea.filter(d => {
     return annotationIDs.includes(d.id)
   }) 
 }
@@ -310,6 +311,21 @@ const beitHanoun = [
   }
 ];
 
+const alZahra = [
+  {
+    id: 2,
+    location: [34.43077, 31.48736],
+    config: {
+      text: "Wastewater treatment plant",
+      textWidth: 130,
+      lineLength: 20,
+    },
+  },
+]
 
+const annotations = {
+  'beit-hanoun': beitHanoun,
+  'al-zahra': alZahra,
+}
 
 

@@ -55,7 +55,7 @@
       }
     },
     {
-      "id": "annotation-drop-shadows",
+      "id": "annotation-drop-shadows-beit-hanoun",
       "type": "line",
       "source": "annotations",
       "source-layer": "beithanoun",
@@ -85,7 +85,7 @@
       }
     },
     {
-      "id": "annotation-outlines",
+      "id": "annotation-outlines-beit-hanoun",
       "type": "line",
       "source": "annotations",
       "source-layer": "beithanoun",
@@ -130,6 +130,65 @@
             0.3,
             0
         ]
+      }
+    },
+    {
+      "id": "annotation-drop-shadows-al-zahra",
+      "type": "line",
+      "source": "annotations",
+      "source-layer": "alzahra",
+      "metadata": {
+        "interactive:steps": [15,16,17,18,19,20]
+      },
+      "layout": {
+        "line-join": "round"
+      },
+      "minzoom": 14,
+      "paint": {
+        "line-color": "#000000",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          14,
+          6,
+          15,
+          10
+        ],
+        "line-blur": 10,
+        "line-opacity": 0,
+        "line-opacity-transition": {
+          "duration": 500
+        }
+      }
+    },
+    {
+      "id": "annotation-outlines-al-zahra",
+      "type": "line",
+      "source": "annotations",
+      "source-layer": "alzahra",
+      "metadata": {
+        "interactive:steps": [15,16,17,18,19,20]
+      },
+      "layout": {
+        "line-join": "round"
+      },
+      "minzoom": 14,
+      "paint": {
+        "line-color": "#FFE500",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          14,
+          2,
+          15,
+          3
+        ],
+        "line-opacity": 0,
+        "line-opacity-transition": {
+          "duration": 500
+        }
       }
     }
   ],

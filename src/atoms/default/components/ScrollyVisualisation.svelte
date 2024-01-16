@@ -5,6 +5,7 @@
     import Map from "$lib/components/map/Map.svelte";
     import AnnotationsLayer from "./AnnotationsLayer.svelte"
     import VideoOverlay from "$lib/components/VideoOverlay.svelte";
+  import { onDestroy } from "svelte";
 
     export let step = 0;
     export let offset = 0;
@@ -39,6 +40,10 @@
     $: scrollyConfigForNextStep = offset > 0.5 ? scrollyConfigForStep(step+1) : scrollyConfig;
     $: blurAmount = scrollyConfig.video ? 5 : 0;
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
+
+    onDestroy(() => {
+        map.set(null)
+    })
 </script>
 
 <div class="background-container"  bind:clientWidth={$mapWidth} bind:clientHeight={$mapHeight}>
@@ -53,7 +58,7 @@
     </div>
     {#if $map}
         <div class="annotations-layer">
-            <AnnotationsLayer annotationsInFocus={scrollyConfigForNextStep.annotationsInFocus} project={$map.project} onMapMove={$map.onMove} />   
+            <AnnotationsLayer area={scrollyConfig.area} annotationsInFocus={scrollyConfigForNextStep.annotationsInFocus} project={$map.project} onMapMove={$map.onMove} />   
         </div>           
     {/if}
     {#if scrollyConfig.video}

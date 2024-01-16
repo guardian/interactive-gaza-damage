@@ -4,6 +4,7 @@
     import Annotation from "$lib/components/map/Annotation.svelte";
     import TextAnnotation from "$lib/components/map/TextAnnotation.svelte";
 
+    export let area;
     export let annotationsInFocus;
 
     // Expects a function that returns {x, y} in screen coordinates for a given [lon, lat]
@@ -36,7 +37,7 @@
     })
 
 
-    $: annotationLabels = annotationsInFocus ? annotationLabelsForIDs(annotationsInFocus) : [];
+    $: annotationLabels = area && annotationsInFocus ? annotationLabelsForIDs(annotationsInFocus, area) : [];
 </script>
 
 <svelte:window on:resize={updatePositions} />
