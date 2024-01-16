@@ -222,9 +222,14 @@
     }
 
     export function updateHighlightedAnnotations(highlighted = []) {
-        if (!map || !map.getLayer('annotation-fills')) return;
+        if (!map) return;
+        const mapLayers = map.getLayersOrder()
+        const annotationFillLayers = mapLayers.filter(layerID => {
+            return layerID.startsWith("annotation-fills")
+        })
+        if (annotationFillLayers.length === 0) return;
 
-        const fillFeatures = map.queryRenderedFeatures({ layers: ['annotation-fills'] })
+        const fillFeatures = map.queryRenderedFeatures({ layers: annotationFillLayers })
         for (const feature of fillFeatures) {
             const shouldBeHighlighted = highlighted.includes(feature.properties.id)
             map.setFeatureState(feature, {highlighted: shouldBeHighlighted})

@@ -5,7 +5,7 @@
     import Map from "$lib/components/map/Map.svelte";
     import AnnotationsLayer from "./AnnotationsLayer.svelte"
     import VideoOverlay from "$lib/components/VideoOverlay.svelte";
-  import { onDestroy } from "svelte";
+    import { onDestroy } from "svelte";
 
     export let step = 0;
     export let offset = 0;

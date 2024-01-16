@@ -316,8 +316,8 @@ const alZahra = [
     id: 2,
     location: [34.43077, 31.48736],
     config: {
-      text: "Wastewater treatment plant",
-      textWidth: 130,
+      text: "Damaged buildings around wastewater treatment plant",
+      textWidth: 160,
       lineLength: 20,
     },
   },
@@ -325,7 +325,7 @@ const alZahra = [
     id: 3,
     location: [34.41959, 31.48665],
     config: {
-      text: "Tracks with series of smaller roads wiped out",
+      text: "Paths for armoured vehicles over farmland",
       textWidth: 200,
       lineLength: 20,
       lineDirection: "left",
@@ -336,7 +336,7 @@ const alZahra = [
     id: 4,
     location: [34.42796, 31.48176],
     config: {
-      text: "Destroyed farmland",
+      text: "Destroyed agricultural land",
       textWidth: 100,
       lineLength: 20,
       lineDirection: "right",
@@ -347,38 +347,175 @@ const alZahra = [
     id: 5,
     location: [34.42510, 31.48451],
     config: {
-      text: "Razed orchards",
+      text: "Destroyed orchards",
       textWidth: 80,
       lineLength: 20,
     },
   },
   {
     id: 7,
-    location: [34.42751, 31.47636],
+    location: [34.42772, 31.47846],
     config: {
-      text: "General Directorate of Engineering and Maintenance",
-      textWidth: 160,
+      text: "Damaged buildings in university compound",
+      textWidth: 96,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 8,
+    location: [34.43483, 31.47687],
+    config: {
+      text: "Destroyed mosque",
+      textWidth: 70,
+      lineLength: 20,
+      lineDirection: "up",
+      textPosition: "center",
+    },
+  },
+  {
+    id: 9,
+    location: [34.43484, 31.47572],
+    config: {
+      text: "Destroyed greenhouses and agricultural land",
+      textWidth: 190,
+      lineLength: 20,
+      lineDirection: "down",
+    },
+  },
+  {
+    id: 19,
+    location: [34.43727, 31.48456],
+    config: {
+      text: "Damage reported at school",
+      textWidth: 200,
       lineLength: 20,
       lineDirection: "right",
       textPosition: "center",
     },
   },
   {
-    id: 0,
-    location: [],
+    id: 22,
+    location: [34.42810, 31.47148],
     config: {
-      text: "",
-      textWidth: 100,
+      text: "Destroyed greenhouses and agricultural land",
+      textWidth: 190,
       lineLength: 20,
     },
   },
   {
-    id: 0,
-    location: [],
+    id: 10,
+    location: [34.42095, 31.46700],
     config: {
-      text: "",
+      text: "Large crater where building stood",
+      textWidth: 160,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 11,
+    location: [34.41871, 31.46916],
+    config: {
+      text: "Destroyed buildings",
+      textWidth: 80,
+      lineLength: 28,
+      lineDirection: "down",
+    },
+  },
+  {
+    id: 12,
+    location: [34.41690, 31.47059],
+    config: {
+      text: "Reportedly damaged school",
+      textWidth: 140,
+      lineLength: 28,
+      lineDirection: "down",
+    },
+  },
+  {
+    id: 20,
+    location: [34.42155, 31.47049],
+    config: {
+      text: "Damaged mosque",
+      textWidth: 80,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 24,
+    location: [34.41789, 31.47145],
+    config: {
+      text: "Destroyed buildings",
+      textWidth: 100,
+      lineLength: 24,
+    },
+  },
+  {
+    id: 13,
+    location: [34.41724, 31.47857],
+    config: {
+      text: "Craters and tire tracks around Turkish-Palestinian Friendship hospital",
+      textWidth: 220,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 15,
+    location: [34.41424, 31.47531],
+    config: {
+      text: "Buildings levelled",
+      textWidth: 150,
+      lineLength: 28,
+      lineDirection: "down",
+    },
+  },
+  {
+    id: 16,
+    location: [34.40367, 31.47673],
+    config: {
+      text: "Damaged Palestine University",
+      textWidth: 160,
+      lineLength: 20,
+      lineDirection: "left",
+    },
+  },
+  {
+    id: 23,
+    location: [34.40822, 31.48216],
+    config: {
+      text: "Damage at Israa University",
+      textWidth: 126,
+      lineLength: 20,
+      lineDirection: "left",
+    },
+  },
+  {
+    id: 25,
+    location: [34.40559, 31.47947],
+    config: {
+      text: "Craters around university building",
+      textWidth: 150,
+      lineLength: 20,
+      lineDirection: "right",
+    },
+  },
+  {
+    id: 18,
+    location: [34.40204, 31.47165],
+    config: {
+      text: "12 tower blocks levelled, others destroyed",
+      textWidth: 140,
+      lineLength: 20,
+      lineDirection: "left",
+    },
+  },
+  {
+    id: 21,
+    location: [34.40004, 31.46933],
+    config: {
+      text: "Damaged mosque",
       textWidth: 100,
       lineLength: 20,
+      lineDirection: "down",
     },
   },
 ]

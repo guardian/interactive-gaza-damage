@@ -39,9 +39,7 @@ const resolvePadding = (paddingInput) => {
         left: p
     };
   }
-
-  console.log('resolved padding', resolvedPadding)
-
+  
   return resolvedPadding
 }
 

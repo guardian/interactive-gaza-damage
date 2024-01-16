@@ -91,6 +91,7 @@
             top: calc(var(--line-length) + var(--text-radial-offset));
 
             &.start {
+                left: calc(var(--text-radial-offset) * -1);
                 transform: none;
             }
 
@@ -107,7 +108,7 @@
             top: calc((var(--line-length) + var(--text-radial-offset)) * -1);
 
             &.start {
-                left: calc(var(--text-radial-offset) * -2);
+                left: calc(var(--text-radial-offset) * -1);
                 transform: translateY(-100%);
             }
 

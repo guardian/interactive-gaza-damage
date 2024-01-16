@@ -82,6 +82,30 @@
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+          <ScrollyBox>
+            <p>Video from late October show fire and smoke rising from the courtyard of the Turkish-Palestinian Friendship hospital.</p>
+          </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+          <ScrollyBox>
+            <p>Video footage from October shows 25 apartment blocks in the al Zahra neighbourhood flattened by Israeli airstrike. Hundreds of people were made homeless or displaced by the strike.</p>
+          </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
       </div>
     </Scroller>
     {/if}
