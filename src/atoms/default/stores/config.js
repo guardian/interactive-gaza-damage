@@ -142,11 +142,14 @@ export function scrollyConfigForStep(step) {
             "https://uploads.guim.co.uk/2024/01/10/Al_Zahra_site.jpg",
         },
       };
-    default:
+    case 26:
+    case 27:
       return {
         area: 'al-zahra',
         annotationsInFocus: [18,21],
         maxZoom: [16],
       };
+    default: 
+      return {}
   }
 }
