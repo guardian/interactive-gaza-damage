@@ -104,6 +104,10 @@
 
   onMount(() => {
     paused = false;
+
+    return () => {
+      paused = true;
+    }
   });
 </script>
 

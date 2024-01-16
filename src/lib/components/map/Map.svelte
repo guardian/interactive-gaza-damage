@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy, setContext } from 'svelte'
     import { Map, LngLat, LngLatBounds, Point } from "maplibre-gl";
-    import { extend } from '$lib/helpers/util';
+    import { resolvePadding } from '$lib/helpers/util';
     import style from './map-style-gaza';
     import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -110,7 +110,9 @@
             map.setCenter(cameraPosition.center);
             map.setZoom(cameraPosition.zoom);
             map.setBearing(cameraPosition.bearing || 0);
-        } 
+        }
+
+        // console.log('new map bounds', map.getBounds());
     }
 
     onMount(async () => {
@@ -162,7 +164,8 @@
         });
 
         // map.on('zoomend', () => {
-        //     console.log('zoom level: ', map.getZoom())
+        //     // console.log('zoom level: ', map.getZoom())
+        //     console.log('map bounds', map.getBounds())
         // })
 
          map.on('mouseover', 'annotation-fills', (error) => {
@@ -213,6 +216,8 @@
         bounds = LngLatBounds.convert(bounds);
 
         const bearing = options && options.bearing || 0;
+        options.padding = resolvePadding(options.padding)
+        options.maxZoom = options.maxZoom || map.maxZoom;
         return _cameraForBoxAndBearing(bounds.getSouthWest(), bounds.getNorthEast(), bearing, options);
     }
 
@@ -227,27 +232,6 @@
     }
 
     function _cameraForBoxAndBearing(p0, p1, bearing, options) {
-        const defaultPadding = {
-            top: 0,
-            bottom: 0,
-            right: 0,
-            left: 0
-        };
-
-        const derivedOptions = extend({
-            padding: defaultPadding,
-            maxZoom: map.maxZoom
-        }, options);
-
-        if (typeof options.padding === 'number') {
-            const p = options.padding;
-            derivedOptions.padding = {
-                top: p,
-                bottom: p,
-                right: p,
-                left: p
-            };
-        }
 
         // convert points to screen coordinates
         const p0_screen = map.project(LngLat.convert(p0));
@@ -258,17 +242,17 @@
 
         const size = lowerRight.sub(upperLeft);
 
-        const scaleX = (mapContainerWidth - derivedOptions.padding.left - derivedOptions.padding.right) / size.x //(size.x + options.padding.left + options.padding.right);
-        const scaleY = (mapContainerHeight - derivedOptions.padding.top - derivedOptions.padding.bottom) / size.y // + options.padding.top + options.padding.bottom);
+        const scaleX = (mapContainerWidth - options.padding.left - options.padding.right) / size.x //(size.x + options.padding.left + options.padding.right);
+        const scaleY = (mapContainerHeight - options.padding.top - options.padding.bottom) / size.y // + options.padding.top + options.padding.bottom);
 
         const currentZoomScale = Math.pow(2, map.getZoom())
         const newZoomScale = currentZoomScale * Math.min(scaleX, scaleY)
         const newZoom = Math.log(newZoomScale) / Math.LN2
-        const zoom = Math.min(newZoom, derivedOptions.maxZoom)
+        const zoom = Math.min(newZoom, options.maxZoom)
         const actualZoomScale = Math.pow(2, zoom)
 
-        const paddingOffsetX = (derivedOptions.padding.left - derivedOptions.padding.right) / 2;
-        const paddingOffsetY = (derivedOptions.padding.top - derivedOptions.padding.bottom) / 2;
+        const paddingOffsetX = (options.padding.left - options.padding.right) / 2;
+        const paddingOffsetY = (options.padding.top - options.padding.bottom) / 2;
         const paddingOffset = new Point(paddingOffsetX, paddingOffsetY);
         const offsetAtFinalZoom = paddingOffset.mult(currentZoomScale / actualZoomScale);
         const center =  map.unproject(p0_screen.add(p1_screen).div(2).sub(offsetAtFinalZoom));

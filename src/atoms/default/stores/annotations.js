@@ -321,6 +321,66 @@ const alZahra = [
       lineLength: 20,
     },
   },
+  {
+    id: 3,
+    location: [34.41959, 31.48665],
+    config: {
+      text: "Tracks with series of smaller roads wiped out",
+      textWidth: 200,
+      lineLength: 20,
+      lineDirection: "left",
+      textPosition: "end",
+    },
+  },
+  {
+    id: 4,
+    location: [34.42796, 31.48176],
+    config: {
+      text: "Destroyed farmland",
+      textWidth: 100,
+      lineLength: 20,
+      lineDirection: "right",
+      textPosition: "start",
+    },
+  },
+  {
+    id: 5,
+    location: [34.42510, 31.48451],
+    config: {
+      text: "Razed orchards",
+      textWidth: 80,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 7,
+    location: [34.42751, 31.47636],
+    config: {
+      text: "General Directorate of Engineering and Maintenance",
+      textWidth: 160,
+      lineLength: 20,
+      lineDirection: "right",
+      textPosition: "center",
+    },
+  },
+  {
+    id: 0,
+    location: [],
+    config: {
+      text: "",
+      textWidth: 100,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 0,
+    location: [],
+    config: {
+      text: "",
+      textWidth: 100,
+      lineLength: 20,
+    },
+  },
 ]
 
 const annotations = {

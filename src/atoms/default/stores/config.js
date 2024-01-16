@@ -72,13 +72,14 @@ export function scrollyConfigForStep(step) {
         highlighted: [31],
         maxZoom: [16],
       };
-    case 16:
+    case 18:
       return {
         area: 'al-zahra',
         annotationsInFocus: [2,3,4,5,7],
         maxZoom: [15],
+        padding: { top: 100 },
       };
-    case 17:
+    case 19:
       return {
         area: 'al-zahra',
         annotationsInFocus: [9,8,19,22],

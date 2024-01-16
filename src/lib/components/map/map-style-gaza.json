@@ -138,12 +138,12 @@
       "source": "annotations",
       "source-layer": "alzahra",
       "metadata": {
-        "interactive:steps": [15,16,17,18,19,20]
+        "interactive:steps": [17,18,19,20]
       },
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 14,
+      "minzoom": 13,
       "paint": {
         "line-color": "#000000",
         "line-width": [
@@ -168,12 +168,12 @@
       "source": "annotations",
       "source-layer": "alzahra",
       "metadata": {
-        "interactive:steps": [15,16,17,18,19,20]
+        "interactive:steps": [17,18,19,20]
       },
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 14,
+      "minzoom": 13,
       "paint": {
         "line-color": "#FFE500",
         "line-width": [

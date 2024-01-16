@@ -3,6 +3,7 @@
   import ScrollyVisualisation from "./ScrollyVisualisation.svelte"
   import ScrollyForeground from "./ScrollyForeground.svelte"
   import BeitHanounIntro from "./BeitHanounIntro.svelte";
+  import AlZahraIntro from "./AlZahraIntro.svelte";
   import ScrollyBox from "./ScrollyBox.svelte"
   import { fetchAnnotationFeatures } from '../stores/annotations.js';
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
@@ -18,6 +19,11 @@
   onMount(async () => {
     await fetchAnnotationFeatures();
     scrollyReady = true;
+
+    // setTimeout(() => {
+    //   const element = document.querySelector("#al-zahra-intro")
+    //   element.scrollIntoView()
+    // }, 1000);
   })
 </script>
 
@@ -68,6 +74,9 @@
         <ScrollyForeground>
         </ScrollyForeground>
         <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground type="overlay">
+          <AlZahraIntro />
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>

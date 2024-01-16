@@ -34,12 +34,17 @@
     $: $mapReady && updateCameraPosition($getCameraForStep, step, offset)
 
     // uncomment for smooth animations
-    // $: cameraPosition = $getCameraForStep(step);
+    // $: cameraPosition = $mapReady && {
+    //     ...$getCameraForStep(step),
+    //     animate: true,
+    // };
 
     $: scrollyConfig = scrollyConfigForStep(step)
     $: scrollyConfigForNextStep = offset > 0.5 ? scrollyConfigForStep(step+1) : scrollyConfig;
     $: blurAmount = scrollyConfig.video ? 5 : 0;
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
+
+    // $: console.log('config', scrollyConfig);
 
     onDestroy(() => {
         map.set(null)

@@ -33,7 +33,8 @@ const views = {
     bearing: BEARING,
   },
   alZahra: {
-    bounds: [34.51703,31.54613,34.55906, 31.54258],
+    bounds: [[34.40741104010476, 31.460389184069285], [34.434034824752985, 31.49279261026933]],
+    padding: 50,
     bearing: BEARING,
   },
 };
@@ -63,7 +64,7 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, ann
             const cameraForAnnotations = {
                 bounds,
                 bearing: BEARING,
-                padding: PADDING,
+                padding: config.padding || PADDING,
             }
             return transformCameraIfNeeded($map, cameraForAnnotations, config);
         }
@@ -74,9 +75,13 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, ann
             case 14:
                 return transformCameraIfNeeded($map, views.gazaNorth, config);
             case 2:
+            case 3:
                 return transformCameraIfNeeded($map, views.beitHanoun, config);
             case 15:
                 return transformCameraIfNeeded($map, views.alZahraRegion, config);
+            case 16:
+            case 17:
+                return transformCameraIfNeeded($map, views.alZahra, config);
             default:
                 return transformCameraIfNeeded($map, views.beitHanoun, config);
         }
@@ -110,6 +115,7 @@ function transformCameraIfNeeded(map, camera, config) {
 
 function boundsForAnnotations(annotationsInFocus, annotationFeatures) {
     // find map features matching these IDs
+    // const features = annotationFeatures
     const features = annotationFeatures.filter(d => annotationsInFocus.includes(d.properties.id))
     if (!features.length) {
         throw "No features found"
