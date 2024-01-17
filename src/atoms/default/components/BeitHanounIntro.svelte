@@ -39,7 +39,7 @@
     .header {
         grid-area: header;
         margin-top: 4px;
-        margin-bottom: 40px;
+        // margin-bottom: 40px;
     }
 
     .media {
@@ -61,7 +61,7 @@
 
     .body {
         grid-area: body;
-        padding: 40px 0;
+        padding: 20px 0;
         max-width: 620px;
     }
 
