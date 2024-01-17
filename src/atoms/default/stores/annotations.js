@@ -35,7 +35,7 @@ const beitHanoun = [
       lineLength: 20,
     },
     hint: {
-      location: [34.54885, 31.54575],
+      location: [34.54889, 31.54571],
     },
   },
   {
