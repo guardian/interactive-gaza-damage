@@ -26,7 +26,6 @@ export function scrollyConfigForStep(step) {
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [6],
-        highlighted: [6],
         maxZoom: [16],
       };
     case 8:
@@ -69,7 +68,6 @@ export function scrollyConfigForStep(step) {
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [31],
-        highlighted: [31],
         maxZoom: [16],
       };
     case 18:

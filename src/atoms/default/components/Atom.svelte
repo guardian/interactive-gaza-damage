@@ -100,7 +100,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>Video footage from October shows 25 apartment blocks in the al Zahra neighbourhood flattened by Israeli airstrike. Hundreds of people were made homeless or displaced by the strike.</p>
+            <p>Video footage from October shows 25 apartment blocks in the al Zahra neighbourhood flattened by Israeli airstrikes. Hundreds of people were made homeless or displaced by the strike.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
