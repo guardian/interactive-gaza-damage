@@ -25,6 +25,7 @@
 
     .video-wrapper {
         flex-basis: 80%;
+        max-width: 1024px;
         background-color: #FFF;
     }
 </style>
