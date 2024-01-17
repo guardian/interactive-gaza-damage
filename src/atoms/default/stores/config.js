@@ -137,9 +137,9 @@ export function scrollyConfigForStep(step) {
         highlighted: [18],
         maxZoom: [16],
         video: {
-          src: "https://uploads.guim.co.uk/2024/01/10/Al_Zahra_BODY.mp4",
+          src: "https://uploads.guim.co.uk/2024/01/17/Al_Zahra_site.mp4",
           posterImage:
-            "https://uploads.guim.co.uk/2024/01/10/Al_Zahra_site.jpg",
+            "https://uploads.guim.co.uk/2024/01/17/Al_Zahra_site.00_00_11_17.Still004.jpg",
         },
       };
     case 26:
