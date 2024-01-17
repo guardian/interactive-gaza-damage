@@ -110,6 +110,8 @@
             map.setCenter(cameraPosition.center);
             map.setZoom(cameraPosition.zoom);
             map.setBearing(cameraPosition.bearing || 0);
+
+            // console.log('camera center', cameraPosition.center)
         }
 
         // console.log('new map bounds', map.getBounds());

@@ -143,10 +143,64 @@ export function scrollyConfigForStep(step) {
         },
       };
     case 26:
-    case 27:
       return {
         area: 'al-zahra',
         annotationsInFocus: [18,21],
+        maxZoom: [16],
+      };
+    case 31:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [1,3,4,36],
+        maxZoom: [16],
+      };
+    case 32:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [23,24,33],
+        maxZoom: [16],
+      };
+    case 33:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [25,26,30],
+        maxZoom: [16],
+      };
+    case 34:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [21,22,29,31,41,42],
+        maxZoom: [16],
+      };
+    case 35:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [16,17,18,19,20,39,50],
+        maxZoom: [16],
+      };
+    case 36:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [5,6,8,9,12,35,51],
+        maxZoom: [16],
+      };
+    case 37:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [13,53],
+        highlighted: [53],
+        maxZoom: [16],
+        video: {
+          src: "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosque.mp4",
+          posterImage:
+            "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosque.00_00_00_00.Still001.jpg",
+        },
+      };
+    case 38:
+    case 39:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [13,53],
         maxZoom: [16],
       };
     default: 

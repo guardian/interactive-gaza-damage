@@ -3,7 +3,7 @@
 
 import json
 
-area = "al-zahra"
+area = "khan-younis"
 
 js = open(f"src/assets/geojson/{area}-annotations.geojson", "r").read()
 gj = json.loads(js)

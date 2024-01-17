@@ -6,11 +6,13 @@ export const annotationFeatures = writable(null);
 export async function fetchAnnotationFeatures() {
   const fetchBeitHanoun = fetchJSON("__assetsPath__/geojson/beit-hanoun-annotations-simplified.geojson")
   const fetchAlZahra = await fetchJSON("__assetsPath__/geojson/al-zahra-annotations-simplified.geojson")
+  const fetchKhanYounis = await fetchJSON("__assetsPath__/geojson/khan-younis-annotations-simplified.geojson")
 
-  Promise.all([fetchBeitHanoun, fetchAlZahra]).then(([beitHanoun, alZahra]) => {
+  Promise.all([fetchBeitHanoun, fetchAlZahra, fetchKhanYounis]).then(([beitHanoun, alZahra, khanYounis]) => {
       annotationFeatures.set({
         beitHanoun: beitHanoun.features,
         alZahra: alZahra.features,
+        khanYounis: khanYounis.features,
       });
   });
 }
@@ -520,9 +522,320 @@ const alZahra = [
   },
 ]
 
+const khanYounis = [
+  {
+    id: 1,
+    location: [34.30606, 31.35816],
+    config: {
+      text: "Six destroyed greenhouses",
+      textWidth: 110,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 3,
+    location: [34.31057, 31.35252],
+    config: {
+      text: "Damaged residential block",
+      textWidth: 120,
+      lineLength: 20,
+      lineDirection: "right",
+    },
+  },
+  {
+    id: 4,
+    location: [34.30620, 31.35168],
+    config: {
+      text: "Destroyed Al-Katiba mosque",
+      textWidth: 168,
+      lineLength: 20,
+      lineDirection: "down",
+      textPosition: "start",
+    },
+  },
+  {
+    id: 36,
+    location: [34.31274, 31.35478],
+    config: {
+      text: "Destroyed sports ground",
+      textWidth: 116,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 42,
+    location: [34.32855, 31.34347],
+    config: {
+      text: "Destroyed mosque",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 23,
+    location: [34.32716, 31.34919],
+    config: {
+      text: "Large craters and over 100 greenhouses destroyed",
+      textWidth: 220,
+      lineLength: 28,
+      lineDirection: "down",
+      textPosition: "start",
+    },
+  },
+  {
+    id: 24,
+    location: [34.32383, 31.35283],
+    config: {
+      text: "Destroyed Jaafar mosque",
+      textWidth: 136,
+      lineLength: 20,
+      lineDirection: "down",
+    },
+  },
+  {
+    id: 33,
+    location: [34.31875, 31.35198],
+    config: {
+      text: "Damaged residential buildings and agricultural fields",
+      textWidth: 244,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 25,
+    location: [34.33612, 31.34580],
+    config: {
+      text: "Destroyed supermarket",
+      textWidth: 110,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 26,
+    location: [34.33396, 31.34464],
+    config: {
+      text: "Destroyed mosque",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 30,
+    location: [34.33030, 31.34554],
+    config: {
+      text: "Destroyed mosque",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 21,
+    location: [34.32280, 31.34284],
+    config: {
+      text: "Damaged pharmacy",
+      textWidth: 100,
+      lineLength: 20,
+      textPosition: "start",
+    },
+  },
+  {
+    id: 22,
+    location: [34.32235, 31.34358],
+    config: {
+      text: "Destroyed mosque",
+      textWidth: 76,
+      lineLength: 20,
+      lineDirection: "down",
+      textPosition: "end",
+    },
+  },
+  {
+    id: 31,
+    location: [34.32343, 31.34621],
+    config: {
+      text: "Damaged kindergarten",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 29,
+    location: [34.32724, 31.34086],
+    config: {
+      text: "Damaged pharmacy",
+      textWidth: 80,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 16,
+    location: [34.31677, 31.34397],
+    config: {
+      text: "Damaged boys' school",
+      textWidth: 100,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 17,
+    location: [34.31532, 31.34478],
+    config: {
+      text: "Damaged girls' school",
+      textWidth: 108,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 39,
+    location: [34.31387, 31.34273],
+    config: {
+      text: "Damaged Khaled al Hassan school",
+      textWidth: 140,
+      lineLength: 20,
+      lineDirection: "right",
+    },
+  },
+  {
+    id: 50,
+    location: [34.31783, 31.34108],
+    config: {
+      text: "Destroyed cemetery",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 19,
+    location: [34.32010, 31.34432],
+    config: {
+      text: "Damaged primary school",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 41,
+    location: [34.32301, 31.34428],
+    config: {
+      text: "Destroyed historical landmark",
+      textWidth: 154,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 20,
+    location: [34.31992, 31.34338],
+    config: {
+      text: "Damaged medical centre",
+      textWidth: 143,
+      lineLength: 20,
+      lineDirection: "down",
+      textPosition: "end",
+    },
+  },
+  {
+    id: 18,
+    location: [34.32135, 31.34234],
+    config: {
+      text: "Destroyed cemetery",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 12,
+    location: [34.30679, 31.34756],
+    config: {
+      text: "Damage around Khalil Rahman mosque",
+      textWidth: 140,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 6,
+    location: [34.30866, 31.34747],
+    config: {
+      text: "Residential buildings destroyed",
+      textWidth: 60,
+      lineLength: 20,
+      textPosition: "end",
+    },
+  },
+  {
+    id: 5,
+    location: [34.30745, 31.34451],
+    config: {
+      text: "Damage around secondary school",
+      textWidth: 140,
+      lineLength: 20,
+      lineDirection: "down",
+    },
+  },
+  {
+    id: 35,
+    location: [34.30944, 31.34521],
+    config: {
+      text: "Destroyed residential buildings",
+      textWidth: 260,
+      lineLength: 12,
+      lineDirection: "down",
+      textPosition: "start",
+    },
+  },
+  {
+    id: 51,
+    location: [34.31001, 31.34653],
+    config: {
+      text: "Destroyed mosque",
+      textWidth: 90,
+      lineLength: 20,
+      textPosition: "end",
+    },
+  },
+  {
+    id: 8,
+    location: [34.31100, 31.34687],
+    config: {
+      text: "Destroyed park",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 9,
+    location: [34.31088, 31.34523],
+    config: {
+      text: "Cratered roads around Al Bandar Al Sharqi hospital",
+      textWidth: 160,
+      lineLength: 20,
+      textPosition: "start",
+    },
+  },
+  {
+    id: 13,
+    location: [34.28773, 31.35088],
+    config: {
+      text: "Damaged refugee camp buildings",
+      textWidth: 90,
+      lineLength: 20,
+    },
+  },
+  {
+    id: 53,
+    location: [34.28744, 31.34852],
+    config: {
+      text: "Khaled bin Al-Walid Mosque",
+      textWidth: 90,
+      lineLength: 20,
+      lineDirection: "down",
+    },
+  },
+]
+
 const annotations = {
   'beit-hanoun': beitHanoun,
   'al-zahra': alZahra,
+  'khan-younis': khanYounis,
 }
 
 

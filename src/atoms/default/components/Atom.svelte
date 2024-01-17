@@ -4,6 +4,7 @@
   import ScrollyForeground from "./ScrollyForeground.svelte"
   import BeitHanounIntro from "./BeitHanounIntro.svelte";
   import AlZahraIntro from "./AlZahraIntro.svelte";
+  import KhanYounis from "./KhanYounisIntro.svelte";
   import ScrollyBox from "./ScrollyBox.svelte"
   import { fetchAnnotationFeatures } from '../stores/annotations.js';
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
@@ -103,6 +104,32 @@
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground type="overlay">
+          <AlZahraIntro />
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+          <ScrollyBox>
+            <p>Video shows the moment Khaled bin Al-Walid mosque was destroyed on 8 November and the aftermath of the strike.</p>
+          </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>

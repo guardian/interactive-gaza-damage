@@ -100,6 +100,7 @@
             }
 
             &.end {
+                left: calc(var(--text-radial-offset));
                 transform: translateX(-100%);
             }
         }

@@ -209,6 +209,84 @@
             0
         ]
       }
+    },
+    {
+      "id": "annotation-drop-shadows-khan-younis",
+      "type": "line",
+      "source": "annotations",
+      "source-layer": "khanyounis",
+      "metadata": {
+        "interactive:steps": [30,31,32,33,34,35,36,37,38,39]
+      },
+      "layout": {
+        "line-join": "round"
+      },
+      "minzoom": 13,
+      "paint": {
+        "line-color": "#000000",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          14,
+          6,
+          15,
+          10
+        ],
+        "line-blur": 10,
+        "line-opacity": 0,
+        "line-opacity-transition": {
+          "duration": 500
+        }
+      }
+    },
+    {
+      "id": "annotation-outlines-khan-younis",
+      "type": "line",
+      "source": "annotations",
+      "source-layer": "khanyounis",
+      "metadata": {
+        "interactive:steps": [30,31,32,33,34,35,36,37,38,39]
+      },
+      "layout": {
+        "line-join": "round"
+      },
+      "minzoom": 13,
+      "paint": {
+        "line-color": "#FFE500",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          14,
+          2,
+          15,
+          3
+        ],
+        "line-opacity": 0,
+        "line-opacity-transition": {
+          "duration": 500
+        }
+      }
+    },
+    {
+      "id": "annotation-fills-khan-younis",
+      "type": "fill",
+      "source": "annotations",
+      "source-layer": "khanyounis",
+      "metadata": {
+        "interactive:steps": [30,31,32,33,34,35,36,37,38,39]
+      },
+      "minzoom": 14,
+      "paint": {
+        "fill-color": "#FFE500",
+        "fill-opacity": [
+            "case",
+            ["boolean", ["feature-state", "highlighted"], false],
+            0.3,
+            0
+        ]
+      }
     }
   ],
   "light": {

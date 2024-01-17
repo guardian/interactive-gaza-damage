@@ -37,14 +37,31 @@ const views = {
     padding: 50,
     bearing: BEARING,
   },
+  alZahraRegion2: {
+    center: [34.402363045152725, 31.47119556028592],
+    zoom: 12.5,
+    bearing: BEARING,
+  },
+  khanYounisRegion: {
+    center: [34.31575, 31.34870],
+    zoom: 12.5,
+    bearing: BEARING,
+  },
+  khanYounis: {
+    bounds: [[34.29088745483136, 31.334316346540497], [34.332649836006226, 31.359644467950872]],
+    padding: 50,
+    bearing: BEARING,
+  },
 };
 
 export const annotationFeaturesForStep = derived([annotationFeatures], ([$annotationFeatures]) => {
     return (step) => {
         if (step <=13) {
             return $annotationFeatures.beitHanoun
-        } else if (step > 13) {
+        } else if (step > 13 && step < 27) {
             return $annotationFeatures.alZahra;
+        } if (step >= 27) {
+            return $annotationFeatures.khanYounis
         }
 
         throw "Undefined region"
@@ -82,6 +99,13 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, ann
             case 16:
             case 17:
                 return transformCameraIfNeeded($map, views.alZahra, config);
+            case 27:
+                return transformCameraIfNeeded($map, views.alZahraRegion2, config);
+            case 28:
+                return transformCameraIfNeeded($map, views.khanYounisRegion, config);
+            case 29:
+            case 30:
+                return transformCameraIfNeeded($map, views.khanYounis, config);
             default:
                 return transformCameraIfNeeded($map, views.beitHanoun, config);
         }
