@@ -107,7 +107,7 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, ann
             case 30:
                 return transformCameraIfNeeded($map, views.khanYounis, config);
             default:
-                return transformCameraIfNeeded($map, views.beitHanoun, config);
+                throw `Camera undefined for ${step}`
         }
     }
 

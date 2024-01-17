@@ -14,7 +14,7 @@
   let progress, offset;
   let scrollyReady = false;
 
-  $: step = progress > 0.02 ? index + 1 : index;
+  $: step = progress > 0 ? index + 1 : index;
   $: console.log('step', step);
 
   onMount(async () => {
@@ -35,7 +35,7 @@
     <Scroller top="{0}" bottom="{1}" threshold="{0.8}" query=".scrolly-foreground-element" bind:index bind:progress bind:offset>
       <div slot="background">
         {#if typeof document !== "undefined"}
-          <ScrollyVisualisation {step} {offset} />
+          <ScrollyVisualisation {step} offset={Math.max(0, offset)} />
         {/if}
       </div>
       <div slot="foreground">

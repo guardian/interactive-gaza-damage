@@ -26,7 +26,7 @@
         if (canInterpolateCamera(start) && canInterpolateCamera(end)) {
             cameraPosition = interpolateBetween(start, end, offset)
         } else {
-            cameraPosition = start;
+            throw "Unable to interpolate camera position"
         }
     }
 
