@@ -110,11 +110,7 @@
             map.setCenter(cameraPosition.center);
             map.setZoom(cameraPosition.zoom);
             map.setBearing(cameraPosition.bearing || 0);
-
-            // console.log('camera center', cameraPosition.center)
         }
-
-        // console.log('new map bounds', map.getBounds());
     }
 
     onMount(async () => {
@@ -170,21 +166,29 @@
         //     console.log('map bounds', map.getBounds())
         // })
 
-         map.on('mouseover', 'annotation-fills', (error) => {
-            if (showBeforeOnHover) {
-                map.setPaintProperty("satellite-before-tiles", "raster-opacity", 1);
-            }
-         })
+        map.on('mouseover', 'annotation-fills-beit-hanoun', showBeforeTiles)
+        map.on('mouseout', 'annotation-fills-beit-hanoun', hideBeforeTiles)
 
-        map.on('mouseout', 'annotation-fills', (error) => {
-            map.setPaintProperty("satellite-before-tiles", "raster-opacity", 0);
-        })
+        map.on('mouseover', 'annotation-fills-al-zahra', showBeforeTiles)
+        map.on('mouseout', 'annotation-fills-al-zahra', hideBeforeTiles)
+
+        map.on('mouseover', 'annotation-fills-khan-younis', showBeforeTiles)
+        map.on('mouseout', 'annotation-fills-khan-younis', hideBeforeTiles)
     });
 
     onDestroy(() => {
         if (map) map.remove();
         isReady = false;
     });
+
+    function showBeforeTiles() {
+        if (!showBeforeOnHover) return;
+        map.setPaintProperty("satellite-before-tiles", "raster-opacity", 1);
+    }
+
+    function hideBeforeTiles() {
+        map.setPaintProperty("satellite-before-tiles", "raster-opacity", 0);
+    }
 
     function setVisible(layerID, visible) {
         const visibility = visible ? 'visible' : 'none';
