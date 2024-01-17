@@ -26,9 +26,11 @@
 
     export let title = undefined;
     export let text = undefined;
-    export let textWidth = 200;
+    export let textWidth = 155;
     export let textPosition = TextPosition.center;
     export let letterSpacing = undefined;
+    export let fontStyle = 'normal'
+    export let textClass = 'normal'
 
     export let backgroundColor = undefined;
 
@@ -47,7 +49,7 @@
     </div>
 {/if}
 
-<div class="text line-{lineDirection} {textPosition}" style="--text-width: {$_textWidth}px; --text-radial-offset:{textRadialOffset}px; --line-length: {lineLength}px; --line-height: {lineHeight}px; background-color: {backgroundColor || 'transparent'}; padding: {backgroundColor ? '4px 8px' : 0}">
+<div class="text line-{lineDirection} {textPosition} {textClass}" style="--text-width: {$_textWidth}px; --font-style: {fontStyle}; --text-radial-offset:{textRadialOffset}px; --line-length: {lineLength}px; --line-height: {lineHeight}px; background-color: {backgroundColor || 'transparent'}; padding: {backgroundColor ? '4px 8px' : 0}">
     {#if title}
         <h5 style="letter-spacing: {letterSpacing || "normal"};">{title}</h5>
     {/if}
@@ -83,6 +85,7 @@
     .text {
         position: absolute;
         width: var(--text-width);
+        font-style: var(--font-style);
 
         top: 0;
         left: 0;
@@ -164,11 +167,11 @@
         font-family: 'Guardian Text Sans Web Medium', Arial, sans-serif;
         font-size: 18px;
         line-height: 21px;
-        font-weight: 700;
+        font-weight: 400;
         color: #FFF !important;
-        text-shadow: 0px 0px 2px #000000, 
+        text-shadow: 0px 0px 4px rgba(0,0,0,0.8), 
                      0px 0px 14px rgba(0,0,0,0.5),
-                     0px 0px 20px rgba(0,0,0,0.5);
+                     0px 0px 20px rgba(0,0,0,0.8);
     }
 
     h5 {
@@ -177,5 +180,10 @@
 
     p {
         margin: 0;
+    }
+
+    .text-alt p {
+        @include f-textSans();
+        font-size: 18px;
     }
 </style>

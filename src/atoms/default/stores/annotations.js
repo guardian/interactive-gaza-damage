@@ -28,11 +28,14 @@ export function annotationLabelsForIDs(annotationIDs, area) {
 const beitHanoun = [
   {
     id: 1,
-    location: [34.55, 31.54908],
+    location: [34.55129, 31.54814],
     config: {
       text: "Razed orchards and agricultural fields",
       textWidth: 158,
       lineLength: 20,
+    },
+    hint: {
+      location: [34.54885, 31.54575],
     },
   },
   {
@@ -233,7 +236,7 @@ const beitHanoun = [
   {
     id: 13,
     visibleForSteps: [6],
-    location: [34.53571, 31.54735      ],
+    location: [34.53571, 31.54735],
     config: {
       text: "Destroyed neighbourhood, with 40 buildings levelled",
       textWidth: 220,
@@ -241,6 +244,9 @@ const beitHanoun = [
       lineDirection: "up",
       textPosition: "center",
     },
+    hint: {
+      location: [34.53383, 31.54557],
+    }
   },
   {
     id: 17,
@@ -322,27 +328,29 @@ const alZahra = [
       textWidth: 160,
       lineLength: 20,
     },
+    hint: {
+      location: [34.42917, 31.48572]
+    }
   },
   {
     id: 3,
-    location: [34.41959, 31.48665],
+    location: [34.42161, 31.48623],
     config: {
       text: "Paths for armoured vehicles over farmland",
-      textWidth: 200,
+      textWidth: 186,
       lineLength: 20,
-      lineDirection: "left",
-      textPosition: "end",
     },
+    hint: {
+      location: [34.41977, 31.48367]
+    }
   },
   {
     id: 4,
-    location: [34.42796, 31.48176],
+    location: [34.42767, 31.48255],
     config: {
       text: "Destroyed agricultural land",
-      textWidth: 100,
+      textWidth: 134,
       lineLength: 20,
-      lineDirection: "right",
-      textPosition: "start",
     },
   },
   {

@@ -49,6 +49,16 @@
                 {...annotation.config}
             />
         </Annotation>
+        {#if annotation.hint}
+            <Annotation center={annotation.hint.location}>
+                <TextAnnotation
+                    text="Hover to see before"
+                    textRadialOffset={4}
+                    fontStyle='italic'
+                    textClass='text-alt'
+                />
+            </Annotation>
+        {/if}
     {/each}
     <div class="debug hidden"></div>
     <div class="debug2 hidden"></div>
