@@ -4,7 +4,7 @@
   import ScrollyForeground from "./ScrollyForeground.svelte"
   import BeitHanounIntro from "./BeitHanounIntro.svelte";
   import AlZahraIntro from "./AlZahraIntro.svelte";
-  import KhanYounis from "./KhanYounisIntro.svelte";
+  import KhanYounisIntro from "./KhanYounisIntro.svelte";
   import ScrollyBox from "./ScrollyBox.svelte"
   import { fetchAnnotationFeatures } from '../stores/annotations.js';
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
@@ -110,7 +110,7 @@
         <ScrollyForeground>
         </ScrollyForeground>
         <ScrollyForeground type="overlay">
-          <AlZahraIntro />
+          <KhanYounisIntro />
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>
