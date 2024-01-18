@@ -1,3 +1,10 @@
+<script>
+  import { isMobile } from "$lib/stores/devices";
+
+  $: poster = $isMobile ? "https://uploads.guim.co.uk/2024/01/10/Al_Zahra-short-mobile.jpg" : "https://uploads.guim.co.uk/2024/01/10/Al_Zahra_site.00_00_01_24.Still001.jpg";
+  $: src = $isMobile ? "https://uploads.guim.co.uk/2024/01/10/alZahraShortMobile.mp4" : "https://uploads.guim.co.uk/2024/01/10/Al_Zahra-short.mp4";
+</script>
+
 <div class="main-media">
   <video
     class="uit-video uit-desktop"
@@ -5,11 +12,9 @@
     autoplay
     muted
     loop
-    poster="https://uploads.guim.co.uk/2024/01/10/Al_Zahra_site.00_00_01_24.Still001.jpg"
+    {poster}
   >
-    <source
-      src="https://uploads.guim.co.uk/2024/01/10/Al_Zahra-short.mp4"
-    />
+    <source {src} />
   </video>
 </div>
 
