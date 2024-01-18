@@ -19,7 +19,7 @@
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
-        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-before/{z}/{x}/{y}.png"
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-high-res-before/{z}/{x}/{y}.png"
       ]
     },
     "annotations": {
@@ -65,7 +65,7 @@
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 14,
+      "minzoom": 10,
       "paint": {
         "line-color": "#000000",
         "line-width": [
@@ -90,12 +90,12 @@
       "source": "annotations",
       "source-layer": "beithanoun",
       "metadata": {
-        "interactive:steps": [3,4,5,6,7,8,9,10,11,12,13]
+        "interactive:steps": [1,2,3,4,5,6,7,8,9,10,11,12,13]
       },
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 14,
+      "minzoom": 10,
       "paint": {
         "line-color": "#FFE500",
         "line-width": [
@@ -121,7 +121,7 @@
       "metadata": {
         "interactive:steps": [3,4,5,6,7,8,9,10]
       },
-      "minzoom": 14,
+      "minzoom": 10,
       "paint": {
         "fill-color": "#FFE500",
         "fill-opacity": [
@@ -143,7 +143,7 @@
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 13,
+      "minzoom": 10,
       "paint": {
         "line-color": "#000000",
         "line-width": [
@@ -173,7 +173,7 @@
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 13,
+      "minzoom": 10,
       "paint": {
         "line-color": "#FFE500",
         "line-width": [
@@ -221,7 +221,7 @@
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 13,
+      "minzoom": 10,
       "paint": {
         "line-color": "#000000",
         "line-width": [
@@ -251,7 +251,7 @@
       "layout": {
         "line-join": "round"
       },
-      "minzoom": 13,
+      "minzoom": 10,
       "paint": {
         "line-color": "#FFE500",
         "line-width": [

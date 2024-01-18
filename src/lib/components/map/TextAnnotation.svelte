@@ -165,13 +165,18 @@
 
     h5, p {
         font-family: 'Guardian Text Sans Web Medium', Arial, sans-serif;
-        font-size: 18px;
-        line-height: 21px;
+        font-size: 14px;
+        line-height: 17px;
         font-weight: 400;
         color: #FFF !important;
         text-shadow: 0px 0px 4px rgba(0,0,0,0.8), 
                      0px 0px 14px rgba(0,0,0,0.5),
                      0px 0px 20px rgba(0,0,0,0.8);
+
+        @include mq($from: tablet) {
+            font-size: 18px;
+            line-height: 21px;
+        }
     }
 
     h5 {
@@ -184,6 +189,5 @@
 
     .text-alt p {
         @include f-textSans();
-        font-size: 18px;
     }
 </style>

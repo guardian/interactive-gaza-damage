@@ -1,5 +1,7 @@
-import { writable } from 'svelte/store';
+import { writable, derived } from 'svelte/store';
+import { isMobile } from '$lib/stores/devices';
 import { fetchJSON } from '$lib/helpers/fetchJSON.js';
+import { extend } from '$lib/helpers/util';
 
 export const annotationFeatures = writable(null);
 
@@ -17,12 +19,22 @@ export async function fetchAnnotationFeatures() {
   });
 }
 
-export function annotationLabelsForIDs(annotationIDs, area) {
-  const annotationsForArea = annotations[area];
-  return annotationsForArea.filter(d => {
-    return annotationIDs.includes(d.id)
-  }) 
-}
+export const annotationLabelsForIDs = derived([isMobile], ([$isMobile]) => {
+  return (annotationIDs, area) => {
+    const annotationsForArea = annotations[area];
+    const filtered = annotationsForArea.filter(d => {
+      return annotationIDs.includes(d.id)
+    }) 
+
+    return filtered.map((d) => {
+        if ($isMobile && d.mobile) {
+          return extend(d, d.mobile)
+        }
+
+        return d;
+    })
+  }
+})
 
 // IDs match those in spreadsheet
 const beitHanoun = [
@@ -37,6 +49,12 @@ const beitHanoun = [
     hint: {
       location: [34.54889, 31.54571],
     },
+    mobile: {
+      config: {
+        textWidth: 130,
+        textRadialOffset: 4,
+      }
+    }
   },
   {
     id: 2,

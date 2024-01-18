@@ -1,6 +1,7 @@
 <script>
     import { onMount, setContext } from 'svelte';
     import { annotationLabelsForIDs } from '../stores/annotations';
+    import { isMobile } from "$lib/stores/devices";
     import Annotation from "$lib/components/map/Annotation.svelte";
     import TextAnnotation from "$lib/components/map/TextAnnotation.svelte";
 
@@ -37,7 +38,7 @@
     })
 
 
-    $: annotationLabels = area && annotationsInFocus ? annotationLabelsForIDs(annotationsInFocus, area) : [];
+    $: annotationLabels = area && annotationsInFocus ? $annotationLabelsForIDs(annotationsInFocus, area) : [];
 </script>
 
 <svelte:window on:resize={updatePositions} />
@@ -52,7 +53,8 @@
         {#if annotation.hint}
             <Annotation center={annotation.hint.location}>
                 <TextAnnotation
-                    text="Hover to see before"
+                    text={$isMobile ? "Tap to see before" : "Hover to see before"}
+                    textWidth={$isMobile ? 110 : 155}
                     textRadialOffset={4}
                     fontStyle='italic'
                     textClass='text-alt'

@@ -4,6 +4,7 @@ import { annotationFeatures } from './annotations.js';
 import { scrollyConfigForStep } from './config.js';
 import { featureCollection, convex, centroid, transformRotate, bbox, bboxPolygon } from '@turf/turf';
 import { interpolateNumber, geoInterpolate, easeQuadInOut } from "d3";
+import { isMobile } from '$lib/stores/devices.js';
 
 export const map = writable(null);
 export const mapReady = writable(false);
@@ -12,15 +13,13 @@ export const mapHeight = writable(0);
 
 const BEARING = 40;
 const PADDING = 150;
+const PADDING_MOBILE = 10;
 
 const views = {
   gazaNorth: {
-    bounds: [
-      [34.38398563441592, 31.56650770452212],
-      [34.6359994043064, 31.513630553624836],
-    ],
+    bounds: [[34.44335174167617,31.556791157130164],[34.581539765863226,31.541116822731496]],
     // center: [34.51, 31.54],
-    // zoom: 12.5,
+    // zoom: 11.3,
     bearing: BEARING,
   },
   beitHanoun: {
@@ -69,11 +68,13 @@ export const annotationFeaturesForStep = derived([annotationFeatures], ([$annota
     }
 })
 
-export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, annotationFeaturesForStep], ([$map, $mapReady, $mapWidth, $mapHeight, $annotationFeaturesForStep]) => {
+export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, isMobile, scrollyConfigForStep, annotationFeaturesForStep], ([$map, $mapReady, $mapWidth, $mapHeight, $isMobile, $scrollyConfigForStep, $annotationFeaturesForStep]) => {
+    const defaultPadding = $isMobile ? PADDING_MOBILE : PADDING;
+    
     const cameraForStep = (step) => {
         if (!$map) return views.gazaNorth;
 
-        const config = scrollyConfigForStep(step);
+        const config = $scrollyConfigForStep(step);
         const annotationsInFocus = config.annotationsInFocus
         const annotationFeatures = $annotationFeaturesForStep(step)
         if (annotationsInFocus && annotationFeatures) {
@@ -82,7 +83,7 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, ann
             const cameraForAnnotations = {
                 bounds,
                 bearing: BEARING,
-                padding: config.padding || PADDING,
+                padding: config.padding || defaultPadding,
             }
             return transformCameraIfNeeded($map, cameraForAnnotations, config);
         }
@@ -142,8 +143,13 @@ function transformCameraIfNeeded(map, camera, config) {
 
 function boundsForAnnotations(annotationsInFocus, annotationFeatures) {
     // find map features matching these IDs
-    // const features = annotationFeatures
-    const features = annotationFeatures.filter(d => annotationsInFocus.includes(d.properties.id))
+    let features;
+    if (annotationsInFocus === 'all') {
+        features = annotationFeatures
+    } else {
+        features = annotationFeatures.filter(d => annotationsInFocus.includes(d.properties.id))
+    }
+
     if (!features.length) {
         throw "No features found"
     }

@@ -175,8 +175,8 @@
         map.on('mouseover', 'annotation-fills-khan-younis', showBeforeTiles)
         map.on('mouseout', 'annotation-fills-khan-younis', hideBeforeTiles)
 
-        // map.on('mousemove', (e) => {
-        //     console.log('long/lat', JSON.stringify(e.lngLat.wrap()))
+        // map.on('mouseup', (e) => {
+        //     console.log('long/lat', JSON.stringify(e.lngLat.toArray()))
         // });
     });
 
@@ -187,6 +187,7 @@
 
     function showBeforeTiles() {
         if (!showBeforeOnHover) return;
+        console.log('show before tiles')
         map.setPaintProperty("satellite-before-tiles", "raster-opacity", 1);
     }
 

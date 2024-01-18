@@ -1,4 +1,19 @@
-export function scrollyConfigForStep(step) {
+import { derived } from 'svelte/store';
+import { isMobile } from '$lib/stores/devices.js';
+import { extend } from '$lib/helpers/util';
+
+export const scrollyConfigForStep = derived([isMobile], ([$isMobile]) => {
+    return (step) => {
+        let config = _scrollyConfigForStep(step);
+        if ($isMobile && config.mobile) {
+          config = extend(config, config.mobile)
+        }
+
+        return config;
+    }
+})
+
+export function _scrollyConfigForStep(step) {
   switch (step) {
     case 0:
     case 1:
@@ -7,16 +22,24 @@ export function scrollyConfigForStep(step) {
           image: "northern-gaza.svg",
         }
       }
+    case 2:
+      return {
+        annotationsInFocus: 'all',
+      }
     case 3:
       return {
         inset: {
           image: "beit-hanoun.svg",
-        }
+        },
+        annotationsInFocus: 'all',
       }
     case 4:
       return {
         area: 'beit-hanoun',
-        annotationsInFocus: [1, 2, 3, 4, 35, 12],
+        annotationsInFocus: [1, 2, 3, 4, 12, 35],
+        mobile: {
+          annotationsInFocus: [1, 2, 3, 4, 12],
+        }
       };
     case 5:
       return {
@@ -33,6 +56,13 @@ export function scrollyConfigForStep(step) {
           src: "https://uploads.guim.co.uk/2023/12/22/unrwa-school-beit-hanoun.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_00_00.Still003.jpg",
+        },
+        mobile: {
+          video: {
+            src: "https://uploads.guim.co.uk/2023/12/22/unrwa-school-beit-hanoun.mp4",
+            posterImage:
+              "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_00_00.Still003.jpg",
+          },
         },
       };
     case 7:
