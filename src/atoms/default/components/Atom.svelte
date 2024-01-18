@@ -15,8 +15,14 @@
   let progress, offset;
   let scrollyReady = false;
 
-  $: step = progress > 0 ? index + 1 : index;
+  $: step = stepValue(index,progress);
   $: console.log('step', step);
+
+  function stepValue(index, progress) {
+    if (progress >= 1) return index + 2;
+    else if (progress > 0) return index + 1;
+    else return index;
+  }
 
   onMount(async () => {
     await fetchAnnotationFeatures();
@@ -46,7 +52,6 @@
           <BeitHanounIntro />
         </ScrollyForeground>
         <ScrollyForeground>
-          <InsetMap />
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>

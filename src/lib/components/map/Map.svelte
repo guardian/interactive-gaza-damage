@@ -174,6 +174,10 @@
 
         map.on('mouseover', 'annotation-fills-khan-younis', showBeforeTiles)
         map.on('mouseout', 'annotation-fills-khan-younis', hideBeforeTiles)
+
+        // map.on('mousemove', (e) => {
+        //     console.log('long/lat', JSON.stringify(e.lngLat.wrap()))
+        // });
     });
 
     onDestroy(() => {

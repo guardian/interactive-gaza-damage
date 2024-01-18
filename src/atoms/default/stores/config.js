@@ -1,5 +1,18 @@
 export function scrollyConfigForStep(step) {
   switch (step) {
+    case 0:
+    case 1:
+      return {
+        inset: {
+          image: "northern-gaza.svg",
+        }
+      }
+    case 3:
+      return {
+        inset: {
+          image: "beit-hanoun.svg",
+        }
+      }
     case 4:
       return {
         area: 'beit-hanoun',
@@ -195,7 +208,6 @@ export function scrollyConfigForStep(step) {
         },
       };
     case 38:
-    case 39:
       return {
         area: 'khan-younis',
         annotationsInFocus: [13,53],

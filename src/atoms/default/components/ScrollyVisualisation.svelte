@@ -1,10 +1,12 @@
 <script>
     import { fade } from "svelte/transition";
+    import { tweened } from "svelte/motion";
     import { getCameraForStep, map, mapReady, mapWidth, mapHeight, canInterpolateCamera, interpolateBetween } from "../stores/camera.js";
     import { scrollyConfigForStep } from '../stores/config.js';
     import Map from "$lib/components/map/Map.svelte";
     import AnnotationsLayer from "./AnnotationsLayer.svelte"
     import VideoOverlay from "$lib/components/VideoOverlay.svelte";
+    import InsetMap from "./InsetMap.svelte";
     import { onDestroy } from "svelte";
 
     export let step = 0;
@@ -14,6 +16,8 @@
     let cameraPosition;
 
     function updateCameraPosition(getCameraForStep, step, offset) {
+        if (step >= 39) return;
+
         const start = getCameraForStep(step);
         if (cameraPosition === undefined) {
             cameraPosition = start
@@ -66,6 +70,11 @@
             <AnnotationsLayer area={scrollyConfig.area} annotationsInFocus={scrollyConfigForNextStep.annotationsInFocus} project={$map.project} onMapMove={$map.onMove} />   
         </div>           
     {/if}
+    {#if scrollyConfigForNextStep.inset}
+        <div class="inset-map-layer" out:fade>
+            <InsetMap image={scrollyConfigForNextStep.inset.image} />
+        </div>
+    {/if}
     {#if scrollyConfig.video}
         <div class="map-cover" transition:fade={{delay: 0}}></div>
         <div class="media-layer" transition:fade={{delay: 0}}>
@@ -101,6 +110,12 @@
         width: 100%;
         height: 100%;
         z-index: 10;
+   }
+
+   .inset-map-layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
    }
 
    .map-cover {

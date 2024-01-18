@@ -1,9 +1,9 @@
 <script>
-
+    export let image;
 </script>
 
 <div class="inset-map">
-    <img src="__assetsPath__/locators/northern-gaza.svg" alt="Inset map" />
+    <img src="__assetsPath__/locators/{image}" alt="Inset map" />
 </div>
 
 <style>
@@ -13,6 +13,5 @@
         position: absolute;
         top: 0;
         right: 0;
-        /* background-color: aquamarine; */
     }
 </style>

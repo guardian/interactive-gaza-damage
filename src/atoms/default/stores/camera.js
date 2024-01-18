@@ -15,12 +15,12 @@ const PADDING = 150;
 
 const views = {
   gazaNorth: {
-    // bounds: [
-    //   [34.44475, 31.492539],
-    //   [34.579689, 31.602306],
-    // ],
-    center: [34.51, 31.54],
-    zoom: 12.5,
+    bounds: [
+      [34.38398563441592, 31.56650770452212],
+      [34.6359994043064, 31.513630553624836],
+    ],
+    // center: [34.51, 31.54],
+    // zoom: 12.5,
     bearing: BEARING,
   },
   beitHanoun: {
@@ -43,8 +43,9 @@ const views = {
     bearing: BEARING,
   },
   khanYounisRegion: {
-    center: [34.31575, 31.34870],
-    zoom: 12.5,
+    bounds: [[34.21003820321607, 31.37074345116784], [34.41691586322145, 31.327011850190047]],
+    // center: [34.31575, 31.34870],
+    // zoom: 12.5,
     bearing: BEARING,
   },
   khanYounis: {
@@ -102,6 +103,8 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, ann
             case 27:
                 return transformCameraIfNeeded($map, views.alZahraRegion2, config);
             case 28:
+            case 39:
+            case 40:
                 return transformCameraIfNeeded($map, views.khanYounisRegion, config);
             case 29:
             case 30:

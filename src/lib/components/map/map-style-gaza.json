@@ -216,7 +216,7 @@
       "source": "annotations",
       "source-layer": "khanyounis",
       "metadata": {
-        "interactive:steps": [30,31,32,33,34,35,36,37,38,39]
+        "interactive:steps": [30,31,32,33,34,35,36,37,38]
       },
       "layout": {
         "line-join": "round"
@@ -246,7 +246,7 @@
       "source": "annotations",
       "source-layer": "khanyounis",
       "metadata": {
-        "interactive:steps": [30,31,32,33,34,35,36,37,38,39]
+        "interactive:steps": [30,31,32,33,34,35,36,37,38]
       },
       "layout": {
         "line-join": "round"
@@ -275,7 +275,7 @@
       "source": "annotations",
       "source-layer": "khanyounis",
       "metadata": {
-        "interactive:steps": [30,31,32,33,34,35,36,37,38,39]
+        "interactive:steps": [30,31,32,33,34,35,36,37,38]
       },
       "minzoom": 14,
       "paint": {
