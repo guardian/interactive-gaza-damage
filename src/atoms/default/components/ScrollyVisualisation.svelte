@@ -16,7 +16,7 @@
     let cameraPosition;
 
     function updateCameraPosition(getCameraForStep, step, offset) {
-        if (step >= 39) return;
+        if (step >= 41) return;
 
         const start = getCameraForStep(step);
         if (cameraPosition === undefined) {
@@ -48,8 +48,6 @@
     $: blurAmount = scrollyConfig.video ? 5 : 0;
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
 
-    // $: console.log('config', scrollyConfig);
-
     onDestroy(() => {
         map.set(null)
     })
@@ -63,7 +61,7 @@
             {step} 
             {cameraPosition} 
             interactive={false}
-            showBeforeOnHover={step>=3 && step < 13} />
+            showBeforeOnHover={scrollyConfigForNextStep.annotationsInFocus !== undefined} />
     </div>
     {#if $map}
         <div class="annotations-layer">

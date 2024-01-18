@@ -198,6 +198,24 @@ export function scrollyConfigForStep(step) {
     case 37:
       return {
         area: 'khan-younis',
+        annotationsInFocus: [52],
+        highlighted: [52],
+        maxZoom: [16],
+        video: {
+          src: "https://uploads.guim.co.uk/2024/01/15/KhanYounis-StreetWalkthrough_3.mp4",
+          posterImage:
+            "https://uploads.guim.co.uk/2024/01/15/KhanYounis-StreetWalkthrough.00_00_00_00.Still003.png",
+        },
+      };
+    case 38:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [52],
+        maxZoom: [16],
+      };
+    case 39:
+      return {
+        area: 'khan-younis',
         annotationsInFocus: [13,53],
         highlighted: [53],
         maxZoom: [16],
@@ -207,13 +225,13 @@ export function scrollyConfigForStep(step) {
             "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosque.00_00_00_00.Still001.jpg",
         },
       };
-    case 38:
+    case 40:
       return {
         area: 'khan-younis',
         annotationsInFocus: [13,53],
         maxZoom: [16],
       };
-    default: 
+    default:
       return {}
   }
 }

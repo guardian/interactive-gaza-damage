@@ -135,6 +135,13 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
+            <p>A video from 23 December shows blown-out shop fronts and extensive damage along a narrow street in Khan Younis, leading on to al Jalal street where visible damage can be seen to apartments, bakeries and shops.</p>
+          </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
+          <ScrollyBox>
             <p>Video shows the moment Khaled bin Al-Walid mosque was destroyed on 8 November and the aftermath of the strike.</p>
           </ScrollyBox>
         </ScrollyForeground>

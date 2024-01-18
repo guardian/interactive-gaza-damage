@@ -103,8 +103,8 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, ann
             case 27:
                 return transformCameraIfNeeded($map, views.alZahraRegion2, config);
             case 28:
-            case 39:
-            case 40:
+            case 41:
+            case 42:
                 return transformCameraIfNeeded($map, views.khanYounisRegion, config);
             case 29:
             case 30:
