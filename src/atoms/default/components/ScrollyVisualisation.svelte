@@ -1,6 +1,5 @@
 <script>
     import { fade } from "svelte/transition";
-    import { tweened } from "svelte/motion";
     import { getCameraForStep, map, mapReady, mapWidth, mapHeight, canInterpolateCamera, interpolateBetween } from "../stores/camera.js";
     import { scrollyConfigForStep } from '../stores/config.js';
     import Map from "$lib/components/map/Map.svelte";
@@ -61,7 +60,7 @@
             {step} 
             {cameraPosition} 
             interactive={false}
-            showBeforeOnHover={scrollyConfigForNextStep.annotationsInFocus !== undefined} />
+            showBeforeOnHover={scrollyConfigForNextStep.annotationsInFocus instanceof Array} />
     </div>
     {#if $map}
         <div class="annotations-layer">

@@ -6,12 +6,20 @@
   "bearing": 40,
   "pitch": 0,
   "sources": {
-    "satellite-after": {
+    "satellite-med-res": {
+      "type": "raster",
+      "maxzoom": 15,
+      "tileSize": 256,
+      "tiles": [
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-med-res/{z}/{x}/{y}.jpg"
+      ]
+    },
+    "satellite-after-high-res": {
       "type": "raster",
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
-        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-after/{z}/{x}/{y}.png"
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-high-res-after/{z}/{x}/{y}.png"
       ]
     },
     "satellite-before": {
@@ -19,7 +27,7 @@
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
-        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-high-res-before/{z}/{x}/{y}.png"
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-high-res-before/{z}/{x}/{y}.jpg"
       ]
     },
     "annotations": {
@@ -35,11 +43,29 @@
   "glyphs": "https://interactive.guim.co.uk/maptiles/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "satellite-after-tiles",
+      "id": "med-res-tiles",
       "type": "raster",
-      "source": "satellite-after",
+      "source": "satellite-med-res",
       "minzoom": 9,
-      "maxzoom": 17
+      "maxzoom": 15
+    },
+    {
+      "id": "high-res-tiles",
+      "type": "raster",
+      "source": "satellite-after-high-res",
+      "minzoom": 13,
+      "maxzoom": 17,
+      "paint": {
+        "raster-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          13,
+          0,
+          14,
+          1.0
+        ]
+      }
     },
     {
       "id": "satellite-before-tiles",
