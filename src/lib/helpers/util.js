@@ -11,12 +11,13 @@ const selectorAppOrDCR = (toSelect) =>
 
 
 const extend = (dest, ...sources) => {
+  if (!dest) return;
     for (const src of sources) {
         for (const key in src) {
           const value = src[key];
           if (typeof value === "object" && !(value instanceof Array)) {
             dest[key] = extend(dest[key], value)
-          } else {
+          } else if (key in dest) {
             dest[key] = value;
           }
         }

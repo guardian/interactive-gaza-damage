@@ -15,14 +15,15 @@
 <script>
     import { tweened } from 'svelte/motion';
     import { quadInOut } from 'svelte/easing';
+    import { isMobile } from '$lib/stores/devices';
     import Line from "./LineConnector.svelte";
 
     export let lineDirection = LineDirection.up;
-    export let lineLength = 0;
+    export let lineLength = $isMobile ? 12 : 20;
     export let lineStroke = "#FFF";
 
     // spacing between line and text box
-    export let textRadialOffset = 8;
+    export let textRadialOffset = $isMobile ? 4 : 8;
 
     export let title = undefined;
     export let text = undefined;
@@ -131,7 +132,7 @@
 
             &.start {
                 top: calc(var(--line-height) / 2 * -1);
-                transform: none;
+                transform: translateX(-100%);
             }
 
             &.center {

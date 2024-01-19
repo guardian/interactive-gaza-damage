@@ -45,6 +45,9 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [5, 6, 7, 8],
+        mobile: {
+          annotationsInFocus: [5, 6, 7, 35],
+        }
       };
     case 6:
       return {
@@ -58,10 +61,12 @@ export function _scrollyConfigForStep(step) {
             "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_00_00.Still003.jpg",
         },
         mobile: {
+          annotationsInFocus: [6, 8],
           video: {
-            src: "https://uploads.guim.co.uk/2023/12/22/unrwa-school-beit-hanoun.mp4",
+            src: "https://uploads.guim.co.uk/2024/01/09/beitHanounVERT.mp4",
             posterImage:
-              "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_00_00.Still003.jpg",
+              "https://uploads.guim.co.uk/2024/01/09/beitHanounVERT.jpg",
+            orientation: 'portrait',
           },
         },
       };
@@ -70,18 +75,27 @@ export function _scrollyConfigForStep(step) {
         area: 'beit-hanoun',
         annotationsInFocus: [6],
         maxZoom: [16],
+        mobile: {
+          annotationsInFocus: [6, 8],
+        }
       };
     case 8:
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [9, 33, 34, 10, 11, 14, 15, 27],
         maxZoom: [16],
+        mobile: {
+          annotationsInFocus: [9, 33, 34, 10, 11, 15, 27],
+        }
       };
     case 9:
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [13],
         maxZoom: [16],
+        mobile: {
+          annotationsInFocus: [13,14],
+        }
       };
     case 10:
       return {
@@ -106,6 +120,13 @@ export function _scrollyConfigForStep(step) {
           posterImage:
             "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_19_03.Still005.jpg",
         },
+        mobile: {
+          video: {
+            src: "https://uploads.guim.co.uk/2023/12/22/beit-hanoun-walkthroughMOBILE_1.mp4",
+            posterImage: "https://uploads.guim.co.uk/2024/01/09/beitHanounVERT.00_00_29_04.Still003.jpg",
+            orientation: "portrait",
+          }
+        }
       };
     case 13:
       return {
@@ -260,6 +281,12 @@ export function _scrollyConfigForStep(step) {
         area: 'khan-younis',
         annotationsInFocus: [13,53],
         maxZoom: [16],
+      };
+    case 41:
+      return {
+        area: 'khan-younis',
+        annotationsInFocus: [13,53],
+        maxZoom: [12.5],
       };
     default:
       return {}

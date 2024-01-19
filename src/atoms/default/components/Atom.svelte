@@ -29,6 +29,11 @@
     scrollyReady = true;
 
     // setTimeout(() => {
+    //   const element = document.querySelector("#beit-hanoun-intro")
+    //   element.scrollIntoView()
+    // }, 1000);
+
+    // setTimeout(() => {
     //   const element = document.querySelector("#al-zahra-intro")
     //   element.scrollIntoView()
     // }, 1000);
@@ -59,7 +64,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video from early December showed Israeli forces blowing up a UNRWA school building in Beit Hanoun.</p>
+            <p>A video from early December showed Israeli forces blowing up a UNRWA school building in Beit Hanoun. Israel claimed the building was a Hamas outpost.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
@@ -74,7 +79,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>Video filmed from a car moving along a road in November showed flattened and damaged buildings in the west of Beit Hanoun.</p>
+            <p>A video filmed from a car moving along a road in November showed flattened and damaged buildings in the west of Beit Hanoun.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>

@@ -56,6 +56,7 @@
                     text={$isMobile ? "Tap to see before" : "Hover to see before"}
                     textWidth={$isMobile ? 110 : 155}
                     textRadialOffset={4}
+                    lineLength={0}
                     fontStyle='italic'
                     textClass='text-alt'
                 />

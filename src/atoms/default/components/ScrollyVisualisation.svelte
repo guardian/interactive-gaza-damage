@@ -47,6 +47,8 @@
     $: blurAmount = scrollyConfig.video ? 5 : 0;
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
 
+    $: console.log('video', scrollyConfig.video)
+
     onDestroy(() => {
         map.set(null)
     })
@@ -72,12 +74,10 @@
             <InsetMap image={scrollyConfigForNextStep.inset.image} />
         </div>
     {/if}
-    {#if scrollyConfig.video}
+    {#if scrollyConfig.video && scrollyConfig.video.src}
         <div class="map-cover" transition:fade={{delay: 0}}></div>
         <div class="media-layer" transition:fade={{delay: 0}}>
-            {#if scrollyConfig.video}
-                <VideoOverlay video={scrollyConfig.video} />
-            {/if}
+            <VideoOverlay video={scrollyConfig.video} />
         </div>
     {/if}
 </div>

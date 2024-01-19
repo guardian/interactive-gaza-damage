@@ -4,17 +4,18 @@
 
     export let video;
 
+    $: isPortrait = video.orientation && video.orientation === "portrait";
 </script>
 
 <div class="video-overlay">
     <div class="video-wrapper">
-        <AspectRatioBox aspectRatio=0.5625>
+        <AspectRatioBox aspectRatio={isPortrait ? 1.7792 : 0.5625 }>
             <VideoPlayer src={video.src} posterImage={video.posterImage} />
         </AspectRatioBox>
     </div>
 </div>
 
-<style>
+<style lang="scss">
     .video-overlay {
         height: 100%;
         display: flex;
@@ -24,8 +25,14 @@
     }
 
     .video-wrapper {
-        flex-basis: 80%;
+        flex-basis: 100%;
+        margin: 0 10px;
         max-width: 1024px;
         background-color: #FFF;
+
+        @include mq($from: tablet) {
+            flex-basis: 80%;
+            margin: 0;
+        }
     }
 </style>

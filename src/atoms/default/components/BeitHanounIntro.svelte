@@ -4,7 +4,7 @@
     import AspectRatioBox from "$lib/components/AspectRatioBox.svelte";
 </script>
 
-<div class="overlay">
+<div class="overlay" id="beit-hanoun-intro">
     <Grid>
         <div class="border border-header"></div>
         <h2 class="header" data-ignore="global-h2-styling">Beit Hanoun</h2>
