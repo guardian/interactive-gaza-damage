@@ -19,7 +19,7 @@ export function _scrollyConfigForStep(step) {
     case 1:
       return {
         inset: {
-          image: "northern-gaza.svg",
+          id: "northern-gaza",
         }
       }
     case 2:
@@ -29,7 +29,7 @@ export function _scrollyConfigForStep(step) {
     case 3:
       return {
         inset: {
-          image: "beit-hanoun.svg",
+          id: "beit-hanoun",
         },
         annotationsInFocus: 'all',
       }
@@ -134,6 +134,12 @@ export function _scrollyConfigForStep(step) {
         annotationsInFocus: [31],
         maxZoom: [16],
       };
+    case 17:     
+      return {
+        inset: {
+          id: "al-zahra",
+        }
+      }
     case 18:
       return {
         area: 'al-zahra',
@@ -210,6 +216,12 @@ export function _scrollyConfigForStep(step) {
         annotationsInFocus: [18,21],
         maxZoom: [16],
       };
+    case 30:     
+      return {
+        inset: {
+          id: "khan-younis",
+        }
+      }
     case 31:
       return {
         area: 'khan-younis',

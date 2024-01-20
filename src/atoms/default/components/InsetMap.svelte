@@ -1,5 +1,5 @@
 <script>
-  export let image;
+  export let id;
 </script>
 
 <div class="inset-map">
@@ -197,42 +197,47 @@
         <clipPath id="SVGID_2_">
           <use xlink:href="#SVGID_1_" style="overflow:visible;" />
         </clipPath>
-        <g class="st5">
-      
+        <g class="st5 {id !== "northern-gaza" && "hidden"}">
           <g>
             <polyline
               class="st6"
-              points="50.2,33 50.2,41.8 105.2,41.8 105.2,6.9 50.2,6.9 50.2,18.4 				"
+              points="50.2,33 50.2,41.8 105.2,41.8 105.2,6.9 50.2,6.9 50.2,18.4"
             />
           </g>
         </g>
         <g class="st5">
-          <g>
-            <text transform="matrix(1 0 0 1 6.8983 29.5285)" class="st7 st2 st8 drop-shadow-black"
+            <text transform="matrix(1 0 0 1 6.8983 29.5285)" class="st7 st2 st8 drop-shadow-black {id !== "northern-gaza" && "hidden"}"
               >Northern Gaza</text>
-          </g>
+			<text transform="matrix(1 0 0 1 9.6258 35.947)" class="st7 st2 st8 drop-shadow-black {id !== "beit-hanoun" && "hidden"}">Beit Hanoun</text>
         </g>
+        <text transform="matrix(1 0 0 1 6.8614 86.8134)" class="st7 st2 st8 drop-shadow-black {id !== "al-zahra" && "hidden"}">al-Zahra</text>
+        <text transform="matrix(1 0 0 1 60.8504 176.5238)" class="st7 st2 st8 drop-shadow-black {id !== "khan-younis" && "hidden"}">Khan Younis</text>
+
       </g>
       <circle class="st9" cx="78.2" cy="54.6" r="2.5" />
       <polyline
-        class="st6 drop-shadow-black"
+        class="st6 drop-shadow-black {id !== "northern-gaza" && "hidden"}"
         points="50.2,33 50.2,41.8 105.2,41.8 105.2,6.9 50.2,6.9 50.2,18.4 	"
       />
+      <rect x="80.3" y="13" class="st6 drop-shadow-black {id !== "beit-hanoun" && "hidden"}" width="16.3" height="11.1"/>
+      <polyline class="st6 drop-shadow-black {id !== "al-zahra" && "hidden"}" points="46.1,89.2 46.1,94.1 94.8,94.1 94.8,70.4 46.1,70.4 46.1,76.3"/>
+      <polyline class="st6 drop-shadow-black {id !== "khan-younis" && "hidden"}" points="103.2,164.2 103.2,156.6 50.9,156.6 50.9,182.2 103.2,182.2 103.2,179.2 	"/>
     </g>
     <g id="text">
       <text transform="matrix(1 0 0 1 83.9335 58.5053)" class="st9 st2 st8 drop-shadow-white"
         >Gaza City</text
       >
-      <text transform="matrix(1 0 0 1 66.9794 179.6095)"
+      <text transform="matrix(1 0 0 1 66.9794 179.6095)" class="{id === "khan-younis" && "hidden"}"
         ><tspan x="0" y="0" class="st9 st2 st8">Gaza </tspan><tspan
           x="0"
           y="17"
           class="st9 st2 st8">Strip</tspan
-        ></text
-      >
-      <text transform="matrix(1 0 0 1 6.8983 29.5285)" class="st7 st2 st8"
+        ></text>
+      <text transform="matrix(1 0 0 1 66.9794 103.2975)" class="drop-shadow-white {id !== "khan-younis" && "hidden"}"><tspan x="0" y="0" class="st9 st2 st8">Gaza </tspan><tspan x="0" y="17" class="st9 st2 st8">Strip</tspan></text>
+      <text transform="matrix(1 0 0 1 6.8983 29.5285)" class="st7 st2 st8 {id !== "northern-gaza" && "hidden"}"
         >Northern Gaza</text
       >
+    <text transform="matrix(1 0 0 1 9.6258 35.947)" class="st7 st2 st8 {id !== "beit-hanoun" && "hidden"}">Beit Hanoun</text>
     </g>
   </svg>
 </div>
@@ -302,5 +307,9 @@ svg {
 
   .drop-shadow-black {
         filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.6)) drop-shadow(0px 0px 10px rgba(0,0,0,0.3));
+  }
+
+  .hidden {
+    display: none;
   }
 </style>

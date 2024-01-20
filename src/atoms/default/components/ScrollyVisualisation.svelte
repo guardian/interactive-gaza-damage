@@ -71,7 +71,7 @@
     {/if}
     {#if scrollyConfigForNextStep.inset}
         <div class="inset-map-layer" out:fade>
-            <InsetMap image={scrollyConfigForNextStep.inset.image} />
+            <InsetMap id={scrollyConfigForNextStep.inset.id} />
         </div>
     {/if}
     {#if scrollyConfig.video && scrollyConfig.video.src}
