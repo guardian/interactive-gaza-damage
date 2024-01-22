@@ -59,9 +59,10 @@ export function _scrollyConfigForStep(step) {
         highlighted: [6],
         maxZoom: [16],
         video: {
-          src: "https://uploads.guim.co.uk/2023/12/22/unrwa-school-beit-hanoun.mp4",
+          src: "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_00_00.Still003.jpg",
+          orientation: "landscape",
         },
         mobile: {
           annotationsInFocus: [6, 8],
@@ -122,6 +123,7 @@ export function _scrollyConfigForStep(step) {
           src: "https://uploads.guim.co.uk/2023/12/22/beit-hanoun-walkthrough_SITE.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_19_03.Still005.jpg",
+          orientation: "landscape",
         },
         mobile: {
           video: {
@@ -200,7 +202,15 @@ export function _scrollyConfigForStep(step) {
           src: "https://uploads.guim.co.uk/2024/01/16/TurkishFriendshipHospitalSITE.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/16/TurkishFriendshipHospitalSITE.00_00_00_00.Still002.jpg",
+          orientation: "landscape",
         },
+        mobile: {
+          video: {
+            src: "https://uploads.guim.co.uk/2024/01/02/TurkishFriendshipHospitalVERTICAL_1.mp4",
+            posterImage: "https://uploads.guim.co.uk/2024/01/02/TurkishFriendshipHospitalVERTICAL.00_00_01_16.Still002.png",
+            orientation: "portrait",
+          }
+        }
       };
     case 23:
       return {
@@ -224,7 +234,15 @@ export function _scrollyConfigForStep(step) {
           src: "https://uploads.guim.co.uk/2024/01/17/Al_Zahra_site.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/17/Al_Zahra_site.00_00_11_17.Still004.jpg",
+          orientation: "landscape",
         },
+        mobile: {
+          video: {
+            src: "https://uploads.guim.co.uk/2024/01/10/Al_Zahra_BODY_mobile.mp4",
+            posterImage: "https://uploads.guim.co.uk/2024/01/10/al_zahra_mobile_body_still.jpg",
+            orientation: "portrait",
+          }
+        }
       };
     case 26:
       return {
@@ -294,10 +312,18 @@ export function _scrollyConfigForStep(step) {
         highlighted: [52],
         maxZoom: [16],
         video: {
-          src: "https://uploads.guim.co.uk/2024/01/15/KhanYounis-StreetWalkthrough_3.mp4",
+          src: "https://uploads.guim.co.uk/2024/01/19/KhanYounis-StreetWalkthrough_2.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/15/KhanYounis-StreetWalkthrough.00_00_00_00.Still003.png",
+          orientation: "landscape",
         },
+        mobile: {
+          video: {
+            src: "https://uploads.guim.co.uk/2024/01/19/240114_KhanYounisStreetWalkthroughMobile_2.mp4",
+            posterImage: "https://uploads.guim.co.uk/2024/01/15/240114_KhanYounisStreetWalkthroughMobile.00_00_00_00.Still002.png",
+            orientation: "portrait",
+          }
+        }
       };
     case 38:
       return {
@@ -312,10 +338,18 @@ export function _scrollyConfigForStep(step) {
         highlighted: [53],
         maxZoom: [16],
         video: {
-          src: "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosque.mp4",
+          src: "hhttps://uploads.guim.co.uk/2024/01/19/KhanYounisMosque_1.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosque.00_00_00_00.Still001.jpg",
+          orientation: "landscape",
         },
+        mobile: {
+          video: {
+            src: "https://uploads.guim.co.uk/2024/01/19/KhanYounisMosqueVertical_1.mp4",
+            posterImage: "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosqueVertical.00_00_00_00.Still001.jpg",
+            orientation: "portrait",
+          }
+        }
       };
     case 40:
       return {

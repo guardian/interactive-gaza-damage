@@ -18,18 +18,17 @@ const PADDING_MOBILE = 10;
 const views = {
   gazaNorth: {
     bounds: [[34.44335174167617,31.556791157130164],[34.581539765863226,31.541116822731496]],
-    // center: [34.51, 31.54],
-    // zoom: 11.3,
     bearing: BEARING,
   },
   beitHanoun: {
     bounds: [[34.51703,31.54613], [34.55906, 31.54258]],
     bearing: BEARING,
+    minZoom: 13,
   },
   alZahraRegion: {
-    center: [34.42048, 31.47848],
-    zoom: 12.5,
+    bounds: [[34.296206449006604,31.504841453386504], [34.545718107997715,31.45196524674172]],
     bearing: BEARING,
+    minZoom: 13,
   },
   alZahra: {
     bounds: [[34.40741104010476, 31.460389184069285], [34.434034824752985, 31.49279261026933]],
@@ -37,14 +36,13 @@ const views = {
     bearing: BEARING,
   },
   alZahraRegion2: {
-    center: [34.402363045152725, 31.47119556028592],
-    zoom: 12.5,
+    bounds: [[34.31433772234382,31.48956558085183], [34.49092491856595,31.452342287768985]],
+    minZoom: 13,
     bearing: BEARING,
   },
   khanYounisRegion: {
     bounds: [[34.21003820321607, 31.37074345116784], [34.41691586322145, 31.327011850190047]],
-    // center: [34.31575, 31.34870],
-    // zoom: 12.5,
+    minZoom: 13,
     bearing: BEARING,
   },
   khanYounis: {
@@ -126,6 +124,7 @@ function transformCameraIfNeeded(map, camera, config) {
         camera.bounds, {
             bearing: camera.bearing,
             padding: camera.padding || 0,
+            minZoom: config.minZoom || 9,
             maxZoom: config.maxZoom || 15,
         })
 

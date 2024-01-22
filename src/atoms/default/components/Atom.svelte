@@ -102,7 +102,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>Video from late October show fire and smoke rising from the courtyard of the Turkish-Palestinian Friendship hospital.</p>
+            <p>A video from late October showed fire and smoke rising from the courtyard of the Turkish-Palestinian Friendship hospital.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
@@ -111,7 +111,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>Video footage from October shows 25 apartment blocks in the al Zahra neighbourhood flattened by Israeli airstrikes. Hundreds of people were made homeless or displaced by the strike.</p>
+            <p>Video footage from October showed 25 apartment blocks in al-Zahra neighbourhood flattened by Israeli airstrike. Hundreds of people were displaced by the strike.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
@@ -139,14 +139,14 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video from 23 December shows blown-out shop fronts and extensive damage along a narrow street in Khan Younis, leading on to al Jalal street where visible damage can be seen to apartments, bakeries and shops.</p>
+            <p>A video from 23 December showed blown-out shopfronts and extensive damage along a narrow street in Khan Younis, leading on to Jalal street where visible damage could be seen to apartments, bakeries and shops.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>Video shows the moment Khaled bin Al-Walid mosque was destroyed on 8 November and the aftermath of the strike.</p>
+            <p>A video showed the moment Khaled bin al-Walid mosque was destroyed on 8 November and the aftermath of the strike.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>

@@ -44,7 +44,7 @@ const beitHanoun = [
     config: {
       text: "Razed orchards and agricultural fields",
       textWidth: 158,
-      lineLength: 12,
+      lineLength: 16,
     },
     hint: {
       location: [34.54889, 31.54571],
@@ -52,18 +52,18 @@ const beitHanoun = [
     mobile: {
       config: {
         textWidth: 130,
+        lineLength: 12,
       }
     }
   },
   {
     id: 2,
-    location: [34.54719, 31.54389],
+    location: [34.54693, 31.54459],
     config: {
       text: "Destroyed greenhouses",
-      textWidth: 220,
-      lineLength: 24,
-      lineDirection: "right",
-      textPosition: "end",
+      textWidth: 110,
+      lineLength: 16,
+      textPosition: "center",
     },
     mobile: {
       location: [34.54693, 31.54459],
@@ -94,13 +94,14 @@ const beitHanoun = [
     location: [34.54185, 31.54866],
     config: {
       text: "Destroyed greenhouses",
-      textWidth: 220,
-      lineLength: 12,
+      textWidth: 110,
+      lineLength: 16,
     },
     mobile: {
       config: {
+        lineLength: 12,
         textWidth: 30,
-        textPosition: "start"
+        textPosition: "start",
       }
     }
   },
@@ -113,6 +114,7 @@ const beitHanoun = [
       textWidth: 97,
       lineDirection: "up",
       textPosition: "center",
+      lineLength: 16,
     },
     mobile: {
       config: {
@@ -126,8 +128,8 @@ const beitHanoun = [
     location: [34.55014, 31.53942],
     config: {
       text: "More than 150 buildings flattened",
-      textWidth: 236,
-      lineLength: 32,
+      textWidth: 180,
+      lineLength: 20,
       textPosition: "start",
     },
     mobile: {
@@ -160,7 +162,7 @@ const beitHanoun = [
     location: [34.54533, 31.53639],
     config: {
       text: "Demolished UNRWA school",
-      textWidth: 200,
+      textWidth: 160,
       lineDirection: "right",
       textPosition: "start",
     },
@@ -197,7 +199,7 @@ const beitHanoun = [
     config: {
       text: "Damaged Beit Hanoun hospital",
       textWidth: 110,
-      lineLength: 60,
+      lineLength: 40,
       lineDirection: "right",
       textPosition: "end",
       textRadialOffset: 8,
@@ -219,6 +221,7 @@ const beitHanoun = [
     config: {
       text: "Damaged bakery",
       textWidth: 90,
+      lineLength: 28,
       lineDirection: "down",
       textPosition: "start",
     },
@@ -236,6 +239,7 @@ const beitHanoun = [
     config: {
       text: "Damaged library",
       textWidth: 90,
+      lineLength: 36,
       lineDirection: "up",
       textPosition: "center",
     },
@@ -305,22 +309,23 @@ const beitHanoun = [
   {
     id: 14,
     visibleForSteps: [],
-    location: [34.53325, 31.54200],
+    location: [34.53347, 31.54221],
     config: {
       text: "Damaged mosque",
-      textWidth: 100,
-      lineDirection: "down",
+      textWidth: 74,
+      lineLength: 16,
       textPosition: "center",
     },
   },
   {
     id: 15,
     visibleForSteps: [],
-    location: [34.53077, 31.53727],
+    location: [34.53179, 31.53837],
     config: {
       text: "Bulldozed and cratered football stadium",
-      textWidth: 200,
-      lineDirection: "down",
+      textWidth: 190,
+      lineLength: 16,
+      lineDirection: "up",
       textPosition: "center",
     },
     mobile: {
@@ -353,7 +358,7 @@ const beitHanoun = [
     location: [34.53571, 31.54735],
     config: {
       text: "More than 40 buildings levelled",
-      textWidth: 220,
+      textWidth: 150,
       lineDirection: "up",
       textPosition: "center",
     },
@@ -392,7 +397,7 @@ const beitHanoun = [
     location: [34.52503, 31.54904],
     config: {
       text: "Multiple buildings levelled",
-      textWidth: 220,
+      textWidth: 76,
       lineLength: 40,
       lineDirection: "up",
       textPosition: "end",
@@ -430,7 +435,7 @@ const beitHanoun = [
     location: [34.52031, 31.54641],
     config: {
       text: "Damaged school campus",
-      textWidth: 200,
+      textWidth: 120,
       lineLength: 40,
       lineDirection: "up",
       textPosition: "start",
@@ -447,7 +452,7 @@ const beitHanoun = [
     location: [34.51883, 31.54552],
     config: {
       text: "Destroyed tower blocks",
-      textWidth: 200,
+      textWidth: 120,
       lineLength: 40,
       lineDirection: "right",
       textPosition: "start",
@@ -494,8 +499,8 @@ const alZahra = [
     id: 3,
     location: [34.42161, 31.48623],
     config: {
-      text: "Paths for armoured vehicles over farmland",
-      textWidth: 186,
+      text: "Armoured vehicle paths over farmland",
+      textWidth: 166,
     },
     hint: {
       location: [34.41977, 31.48367]
@@ -522,7 +527,7 @@ const alZahra = [
     location: [34.42772, 31.47846],
     config: {
       text: "Damaged buildings in university compound",
-      textWidth: 96,
+      textWidth: 180,
     },
   },
   {
@@ -539,8 +544,8 @@ const alZahra = [
     id: 9,
     location: [34.43484, 31.47572],
     config: {
-      text: "Destroyed greenhouses and agricultural land",
-      textWidth: 190,
+      text: "Destroyed greenhouses",
+      textWidth: 100,
       lineDirection: "down",
     },
   },
@@ -549,7 +554,7 @@ const alZahra = [
     location: [34.43727, 31.48456],
     config: {
       text: "Damage reported at school",
-      textWidth: 200,
+      textWidth: 160,
       lineDirection: "right",
       textPosition: "center",
     },
@@ -558,16 +563,17 @@ const alZahra = [
     id: 22,
     location: [34.42810, 31.47148],
     config: {
-      text: "Destroyed greenhouses and agricultural land",
-      textWidth: 190,
+      text: "Destroyed greenhouses",
+      textWidth: 100,
     },
   },
   {
     id: 10,
     location: [34.42095, 31.46700],
     config: {
-      text: "Large crater where building stood",
-      textWidth: 160,
+      text: "Levelled building",
+      textWidth: 80,
+      lineLength: 16,
     },
   },
   {
@@ -584,8 +590,8 @@ const alZahra = [
     id: 12,
     location: [34.41690, 31.47059],
     config: {
-      text: "Reportedly damaged school",
-      textWidth: 140,
+      text: "Damaged school",
+      textWidth: 70,
       lineLength: 28,
       lineDirection: "down",
     },
@@ -596,6 +602,7 @@ const alZahra = [
     config: {
       text: "Damaged mosque",
       textWidth: 80,
+      lineLength: 16,
     },
   },
   {
@@ -611,7 +618,7 @@ const alZahra = [
     id: 13,
     location: [34.41724, 31.47857],
     config: {
-      text: "Craters and tire tracks around Turkish-Palestinian Friendship hospital",
+      text: "Craters and track marks around Turkish-Palestinian Friendship hospital",
       textWidth: 220,
     },
   },
@@ -620,7 +627,7 @@ const alZahra = [
     location: [34.41424, 31.47531],
     config: {
       text: "Buildings levelled",
-      textWidth: 150,
+      textWidth: 70,
       lineLength: 28,
       lineDirection: "down",
     },
@@ -629,7 +636,7 @@ const alZahra = [
     id: 16,
     location: [34.40367, 31.47673],
     config: {
-      text: "Damaged Palestine University",
+      text: "Craters around Palestine university",
       textWidth: 160,
       lineDirection: "left",
     },
@@ -638,8 +645,8 @@ const alZahra = [
     id: 23,
     location: [34.40822, 31.48216],
     config: {
-      text: "Damage at Israa University",
-      textWidth: 126,
+      text: "Israa university reportedly damaged, later destroyed",
+      textWidth: 170,
       lineDirection: "left",
     },
   },
@@ -656,8 +663,8 @@ const alZahra = [
     id: 18,
     location: [34.40204, 31.47165],
     config: {
-      text: "12 tower blocks levelled, others destroyed",
-      textWidth: 140,
+      text: "12 tower blocks levelled",
+      textWidth: 130,
       lineDirection: "left",
     },
   },
@@ -666,7 +673,8 @@ const alZahra = [
     location: [34.40004, 31.46933],
     config: {
       text: "Damaged mosque",
-      textWidth: 100,
+      textWidth: 80,
+      lineLength: 16,
       lineDirection: "down",
     },
   },
@@ -677,27 +685,26 @@ const khanYounis = [
     id: 1,
     location: [34.30606, 31.35816],
     config: {
-      text: "Six destroyed greenhouses",
-      textWidth: 110,
+      text: "Destroyed greenhouses",
+      textWidth: 104,
     },
   },
   {
     id: 3,
     location: [34.31057, 31.35252],
     config: {
-      text: "Damaged residential block",
+      text: "Destroyed residential buildings",
       textWidth: 120,
       lineDirection: "right",
     },
   },
   {
     id: 4,
-    location: [34.30620, 31.35168],
+    location: [34.30644, 31.35196],
     config: {
       text: "Destroyed Al-Katiba mosque",
-      textWidth: 168,
-      lineDirection: "down",
-      textPosition: "start",
+      textWidth: 120,
+      lineLength: 16,
     },
   },
   {
@@ -713,6 +720,7 @@ const khanYounis = [
     location: [34.32855, 31.34347],
     config: {
       text: "Destroyed mosque",
+      lineLength: 16,
       textWidth: 90,
     },
   },
@@ -720,8 +728,8 @@ const khanYounis = [
     id: 23,
     location: [34.32716, 31.34919],
     config: {
-      text: "Large craters and over 100 greenhouses destroyed",
-      textWidth: 220,
+      text: "Destroyed greenhouses",
+      textWidth: 100,
       lineLength: 28,
       lineDirection: "down",
       textPosition: "start",
@@ -729,19 +737,18 @@ const khanYounis = [
   },
   {
     id: 24,
-    location: [34.32383, 31.35283],
+    location: [34.32417, 31.35317],
     config: {
       text: "Destroyed Jaafar mosque",
-      textWidth: 136,
-      lineDirection: "down",
+      textWidth: 120,
     },
   },
   {
     id: 33,
     location: [34.31875, 31.35198],
     config: {
-      text: "Damaged residential buildings and agricultural fields",
-      textWidth: 244,
+      text: "Damaged residential buildings",
+      textWidth: 90,
     },
   },
   {
@@ -750,6 +757,7 @@ const khanYounis = [
     config: {
       text: "Destroyed supermarket",
       textWidth: 110,
+      lineLength: 16,
     },
   },
   {
@@ -758,6 +766,7 @@ const khanYounis = [
     config: {
       text: "Destroyed mosque",
       textWidth: 90,
+      lineLength: 16,
     },
   },
   {
@@ -766,6 +775,7 @@ const khanYounis = [
     config: {
       text: "Destroyed mosque",
       textWidth: 90,
+      lineLength: 16,
     },
   },
   {
@@ -774,6 +784,7 @@ const khanYounis = [
     config: {
       text: "Damaged pharmacy",
       textWidth: 100,
+      lineLength: 16,
       textPosition: "start",
     },
   },
@@ -783,6 +794,7 @@ const khanYounis = [
     config: {
       text: "Destroyed mosque",
       textWidth: 76,
+      lineLength: 16,
       lineDirection: "down",
       textPosition: "end",
     },
@@ -801,6 +813,7 @@ const khanYounis = [
     config: {
       text: "Damaged pharmacy",
       textWidth: 80,
+      lineLength: 16,
     },
   },
   {
@@ -823,7 +836,7 @@ const khanYounis = [
     id: 39,
     location: [34.31387, 31.34273],
     config: {
-      text: "Damaged Khaled al Hassan school",
+      text: "Damaged Khaled al-Hassan school",
       textWidth: 140,
       lineDirection: "right",
     },
@@ -849,7 +862,8 @@ const khanYounis = [
     location: [34.32301, 31.34428],
     config: {
       text: "Destroyed historical landmark",
-      textWidth: 154,
+      textWidth: 80,
+      lineLength: 16,
     },
   },
   {
@@ -857,7 +871,7 @@ const khanYounis = [
     location: [34.31992, 31.34338],
     config: {
       text: "Damaged medical centre",
-      textWidth: 143,
+      textWidth: 80,
       lineDirection: "down",
       textPosition: "end",
     },
@@ -867,7 +881,7 @@ const khanYounis = [
     location: [34.32135, 31.34234],
     config: {
       text: "Destroyed cemetery",
-      textWidth: 90,
+      textWidth: 80,
     },
   },
   {
@@ -876,6 +890,7 @@ const khanYounis = [
     config: {
       text: "Damage around Khalil Rahman mosque",
       textWidth: 140,
+      lineLength: 16,
     },
   },
   {
@@ -921,14 +936,14 @@ const khanYounis = [
     location: [34.31100, 31.34687],
     config: {
       text: "Destroyed park",
-      textWidth: 90,
+      textWidth: 80,
     },
   },
   {
     id: 9,
     location: [34.31088, 31.34523],
     config: {
-      text: "Cratered roads around Al Bandar Al Sharqi hospital",
+      text: "Destroyed roads around medical centre",
       textWidth: 160,
       textPosition: "start",
     },
@@ -938,7 +953,8 @@ const khanYounis = [
     location: [34.28773, 31.35088],
     config: {
       text: "Damaged refugee camp buildings",
-      textWidth: 90,
+      textWidth: 150,
+      lineLength: 16,
     },
   },
   {
@@ -946,8 +962,9 @@ const khanYounis = [
     location: [34.28744, 31.34852],
     config: {
       text: "Khaled bin Al-Walid Mosque",
-      textWidth: 90,
+      textWidth: 120,
       lineDirection: "down",
+      lineLength: 16,
     },
   },
 ]
