@@ -30,7 +30,7 @@
         "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-high-res-before/{z}/{x}/{y}.jpg"
       ]
     },
-    "annotations": {
+    "vector": {
       "type": "vector",
       "minzoom": 4,
       "maxzoom": 14,
@@ -81,9 +81,36 @@
       }
     },
     {
+      "id": "damage-fill",
+      "type": "fill",
+      "source": "vector",
+      "source-layer": "gazadamage",
+      "minzoom": 0,
+      "maxzoom": 18,
+      "paint": {
+        "fill-color": "#ad0006",
+                "fill-opacity": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  14,
+                  0.425,
+                  14.25,
+                  0
+                ],
+        "fill-opacity-transition": {
+          "duration": 300
+        }
+      }
+    },
+    {
       "id": "annotation-drop-shadows-beit-hanoun",
       "type": "line",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "beithanoun",
       "metadata": {
         "interactive:steps": [3,4,5,6,7,8,9,10,11,12,13]
@@ -113,7 +140,7 @@
     {
       "id": "annotation-outlines-beit-hanoun",
       "type": "line",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "beithanoun",
       "metadata": {
         "interactive:steps": [3,4,5,6,7,8,9,10,11,12,13]
@@ -142,7 +169,7 @@
     {
       "id": "annotation-fills-beit-hanoun",
       "type": "fill",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "beithanoun",
       "metadata": {
         "interactive:steps": [3,4,5,6,7,8,9,10]
@@ -161,7 +188,7 @@
     {
       "id": "annotation-drop-shadows-al-zahra",
       "type": "line",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "alzahra",
       "metadata": {
         "interactive:steps": [17,18,19,20,21,22,23,24,25,26,27]
@@ -191,7 +218,7 @@
     {
       "id": "annotation-outlines-al-zahra",
       "type": "line",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "alzahra",
       "metadata": {
         "interactive:steps": [17,18,19,20,21,22,23,24,25,26,27]
@@ -220,7 +247,7 @@
     {
       "id": "annotation-fills-al-zahra",
       "type": "fill",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "alzahra",
       "metadata": {
         "interactive:steps": [17,18,19,20,21,22,23,24,25,26,27]
@@ -239,7 +266,7 @@
     {
       "id": "annotation-drop-shadows-khan-younis",
       "type": "line",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "khanyounis",
       "metadata": {
         "interactive:steps": [30,31,32,33,34,35,36,37,38,39,40]
@@ -269,7 +296,7 @@
     {
       "id": "annotation-outlines-khan-younis",
       "type": "line",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "khanyounis",
       "metadata": {
         "interactive:steps": [30,31,32,33,34,35,36,37,38,30,40]
@@ -298,7 +325,7 @@
     {
       "id": "annotation-fills-khan-younis",
       "type": "fill",
-      "source": "annotations",
+      "source": "vector",
       "source-layer": "khanyounis",
       "metadata": {
         "interactive:steps": [30,31,32,33,34,35,36,37,38]
