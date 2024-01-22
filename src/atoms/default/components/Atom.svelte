@@ -6,7 +6,6 @@
   import AlZahraIntro from "./AlZahraIntro.svelte";
   import KhanYounisIntro from "./KhanYounisIntro.svelte";
   import ScrollyBox from "./ScrollyBox.svelte"
-  import InsetMap from "./InsetMap.svelte";
   import { fetchAnnotationFeatures } from '../stores/annotations.js';
   import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
   import { onMount } from "svelte";
