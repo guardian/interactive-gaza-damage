@@ -86,10 +86,22 @@
       "source": "vector",
       "source-layer": "gazadamage",
       "minzoom": 0,
-      "maxzoom": 14,
+      "maxzoom": 18,
       "paint": {
         "fill-color": "#ad0006",
-        "fill-opacity": 0.425,
+                "fill-opacity": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  14,
+                  0.425,
+                  14.25,
+                  0
+                ],
         "fill-opacity-transition": {
           "duration": 300
         }
