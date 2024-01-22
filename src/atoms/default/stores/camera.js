@@ -54,11 +54,11 @@ const views = {
 
 export const annotationFeaturesForStep = derived([annotationFeatures], ([$annotationFeatures]) => {
     return (step) => {
-        if (step <=13) {
+        if (step <=14) {
             return $annotationFeatures.beitHanoun
-        } else if (step > 13 && step < 27) {
+        } else if (step > 14 && step < 28) {
             return $annotationFeatures.alZahra;
-        } if (step >= 27) {
+        } if (step >= 28) {
             return $annotationFeatures.khanYounis
         }
 
@@ -89,24 +89,25 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, isM
         switch (step) {
             case 0:
             case 1:
-            case 14:
-                return transformCameraIfNeeded($map, views.gazaNorth, config);
             case 2:
-            case 3:
-                return transformCameraIfNeeded($map, views.beitHanoun, config);
             case 15:
-                return transformCameraIfNeeded($map, views.alZahraRegion, config);
+                return transformCameraIfNeeded($map, views.gazaNorth, config);
+            case 3:
+            case 4:
+                return transformCameraIfNeeded($map, views.beitHanoun, config);
             case 16:
+                return transformCameraIfNeeded($map, views.alZahraRegion, config);
             case 17:
+            case 18:
                 return transformCameraIfNeeded($map, views.alZahra, config);
-            case 27:
-                return transformCameraIfNeeded($map, views.alZahraRegion2, config);
             case 28:
-            case 41:
-            case 42:
-                return transformCameraIfNeeded($map, views.khanYounisRegion, config);
+                return transformCameraIfNeeded($map, views.alZahraRegion2, config);
             case 29:
+            case 42:
+            case 43:
+                return transformCameraIfNeeded($map, views.khanYounisRegion, config);
             case 30:
+            case 31:
                 return transformCameraIfNeeded($map, views.khanYounis, config);
             default:
                 throw `Camera undefined for ${step}`

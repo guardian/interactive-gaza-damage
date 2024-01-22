@@ -51,6 +51,14 @@
       </div>
       <div slot="foreground">
         <ScrollyForeground>
+          <ScrollyBox>
+            <p>As of 17 January, analysis of satellite data by Corey Scher of the City University of New York and Jamon van den Hoek of Oregon State University reveals that between 50% and 62% of all buildings in Gaza have likely been damaged or destroyed.</p>
+          </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
+          <ScrollyBox>
+            <p>This interactive scrolls through three such damaged areas of Gaza: Beit Hanoun, al-Zahra and Khan Younis. Specific instances of damage have been highlighted in the imagery. It has not been possible to provide a comprehensive account of all damage seen in the areas</p>
+          </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground type="overlay">
           <BeitHanounIntro />
