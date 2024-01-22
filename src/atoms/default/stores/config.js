@@ -286,31 +286,55 @@ export function _scrollyConfigForStep(step) {
         area: 'khan-younis',
         annotationsInFocus: [25,26,30],
         maxZoom: [16],
+        mobile: {
+          annotationsInFocus: [25,26],
+        }
       };
     case 34:
       return {
         area: 'khan-younis',
         annotationsInFocus: [21,22,29,31,41,42],
         maxZoom: [16],
+        mobile: {
+          annotationsInFocus: [29,42,30],
+          minZoom: 16,
+          maxZoom: 17,
+        }
       };
     case 35:
       return {
         area: 'khan-younis',
         annotationsInFocus: [16,17,18,19,20,39,50],
-        maxZoom: [16],
+        minZoom: 13,
+        maxZoom: 16,
+        padding: 50,
+        mobile: {
+          annotationsInFocus: [31,41,22,21,19,20,18,50],
+          padding: 0,
+          minZoom: 16,
+          minZoom: 17,
+        }
       };
     case 36:
       return {
         area: 'khan-younis',
         annotationsInFocus: [5,6,8,9,12,35,51],
-        maxZoom: [16],
+        minZoom: 13,
+        maxZoom: 16,
+        padding: 50,
+        mobile: {
+          annotationsInFocus: [16,17,39],
+          padding: 0,
+          minZoom: 16,
+          maxZoom: 16,
+        }
       };
     case 37:
       return {
         area: 'khan-younis',
         annotationsInFocus: [52],
         highlighted: [52],
-        maxZoom: [16],
+        maxZoom: 16,
         video: {
           src: "https://uploads.guim.co.uk/2024/01/19/KhanYounis-StreetWalkthrough_2.mp4",
           posterImage:
@@ -338,7 +362,7 @@ export function _scrollyConfigForStep(step) {
         highlighted: [53],
         maxZoom: [16],
         video: {
-          src: "hhttps://uploads.guim.co.uk/2024/01/19/KhanYounisMosque_1.mp4",
+          src: "https://uploads.guim.co.uk/2024/01/19/KhanYounisMosque_1.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosque.00_00_00_00.Still001.jpg",
           orientation: "landscape",
