@@ -9,7 +9,8 @@
 
   export let src;
   export let posterImage;
-  export let showControls = true;
+  export let showPlayButton = true;
+  export let showMuteButton = false;
   export let rewindOnPause = false;
 
   let video, currentTime, duration;
@@ -144,13 +145,13 @@
     <source src={src} />
   </video>
 
-  {#if showControls}
+  {#if showPlayButton}
     <button class="play-button" class:hidden={!paused} on:click={playPause}>
       <img alt="play video" src="__assetsPath__/icons/play-button.svg" />
     </button>
   {/if}
 
-  {#if showControls}
+  {#if showMuteButton}
     <button
       class="unmute-button"
       bind:this={unmuteButton}
