@@ -119,6 +119,12 @@
         height: 100%;
    }
 
+    .damage-key-layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+   }
+
    .map-cover {
         position: absolute;
         width: 100%;

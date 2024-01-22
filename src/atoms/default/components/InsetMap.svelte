@@ -261,11 +261,11 @@
     top: 0;
     right: 0;
 
-		@include mq(mobileLandscape) {
-			padding-top: 20px;
-			width: 154px;
-    	padding-right: 20px;
-		}
+	@include mq($from: mobileLandscape) {
+		padding-top: 20px;
+		width: 154px;
+		padding-right: 20px;
+	}
   }
 
 
