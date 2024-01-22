@@ -7,7 +7,7 @@
 <div class="overlay" id="al-zahra-intro">
     <Grid>
         <div class="border border-header"></div>
-        <h2 class="header" data-ignore="global-h2-styling">Al Zahra</h2>
+        <h2 class="header" data-ignore="global-h2-styling">Al-Zahra and al-Mughraqa</h2>
         <div class="media">
             <AspectRatioBox aspectRatio=0.5625>
                 <VideoPlayer src="https://uploads.guim.co.uk/2023/12/22/beit-hanoun-walkthrough_SITE.mp4" posterImage="https://uploads.guim.co.uk/2024/01/02/out.png" />
