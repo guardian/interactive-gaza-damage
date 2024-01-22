@@ -89,19 +89,20 @@
       "maxzoom": 18,
       "paint": {
         "fill-color": "#ad0006",
-                "fill-opacity": [
-                  "interpolate",
-                  [
-                    "linear"
-                  ],
-                  [
-                    "zoom"
-                  ],
-                  14,
-                  0.425,
-                  14.25,
-                  0
-                ],
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+        ],
+          14,
+          0.4,
+          14.25,
+          0
+        ],
+        "fill-outline-color": "#880105",
         "fill-opacity-transition": {
           "duration": 300
         }

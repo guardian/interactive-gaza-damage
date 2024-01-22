@@ -20,11 +20,13 @@ export function _scrollyConfigForStep(step) {
       return {
         inset: {
           id: "northern-gaza",
-        }
+        },
+        showDamageKey: true
       }
     case 2:
       return {
         annotationsInFocus: 'all',
+        showDamageKey: true
       }
     case 3:
       return {
@@ -32,6 +34,7 @@ export function _scrollyConfigForStep(step) {
           id: "beit-hanoun",
         },
         annotationsInFocus: 'all',
+        showDamageKey: true
       }
     case 4:
       return {
@@ -134,11 +137,24 @@ export function _scrollyConfigForStep(step) {
         annotationsInFocus: [31],
         maxZoom: [16],
       };
+    case 14:
+      return {
+        showDamageKey: true
+      };
+    case 15:
+      return {
+        showDamageKey: true
+      };
+    case 16:
+      return {
+        showDamageKey: true
+      };
     case 17:     
       return {
         inset: {
           id: "al-zahra",
-        }
+        },
+        showDamageKey: true
       }
     case 18:
       return {
@@ -216,11 +232,24 @@ export function _scrollyConfigForStep(step) {
         annotationsInFocus: [18,21],
         maxZoom: [16],
       };
+    case 27:
+      return {
+        showDamageKey: true
+      };
+    case 28:
+      return {
+        showDamageKey: true
+      };
+    case 29:
+      return {
+        showDamageKey: true
+      };
     case 30:     
       return {
         inset: {
           id: "khan-younis",
-        }
+        },
+        showDamageKey: true
       }
     case 31:
       return {
@@ -299,8 +328,14 @@ export function _scrollyConfigForStep(step) {
         area: 'khan-younis',
         annotationsInFocus: [13,53],
         maxZoom: [12.5],
+        showDamageKey: true
+      };
+    case 42:
+      return {
+        showDamageKey: true
       };
     default:
-      return {}
+      return {
+      }
   }
 }

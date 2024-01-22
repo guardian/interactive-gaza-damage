@@ -255,15 +255,18 @@
 
 <style lang="scss">
   .inset-map {
-    width: 154px;
+    width: 124px;
     height: 244px;
     position: absolute;
     top: 0;
     right: 0;
-    padding-top: 20px;
-    padding-right: 20px;
-  }
 
+		@include mq(mobileLandscape) {
+			padding-top: 20px;
+			width: 154px;
+    	padding-right: 20px;
+		}
+  }
 
 
   /* SVG styles */

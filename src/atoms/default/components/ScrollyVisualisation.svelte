@@ -6,6 +6,7 @@
     import AnnotationsLayer from "./AnnotationsLayer.svelte"
     import VideoOverlay from "$lib/components/VideoOverlay.svelte";
     import InsetMap from "./InsetMap.svelte";
+    import DamageKey from "./DamageKey.svelte";
     import { onDestroy } from "svelte";
 
     export let step = 0;
@@ -72,6 +73,11 @@
     {#if scrollyConfigForNextStep.inset}
         <div class="inset-map-layer" out:fade>
             <InsetMap id={scrollyConfigForNextStep.inset.id} />
+        </div>
+    {/if}
+    {#if scrollyConfigForNextStep.showDamageKey}
+        <div class="damage-key-layer" out:fade>
+            <DamageKey />
         </div>
     {/if}
     {#if scrollyConfig.video && scrollyConfig.video.src}
