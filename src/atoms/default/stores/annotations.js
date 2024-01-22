@@ -494,7 +494,7 @@ const alZahra = [
     id: 3,
     location: [34.42161, 31.48623],
     config: {
-      text: "Paths for armoured vehicles over farmland",
+      text: "Armoured vehicle paths over farmland",
       textWidth: 186,
     },
     hint: {
@@ -539,7 +539,7 @@ const alZahra = [
     id: 9,
     location: [34.43484, 31.47572],
     config: {
-      text: "Destroyed greenhouses and agricultural land",
+      text: "Destroyed greenhouses",
       textWidth: 190,
       lineDirection: "down",
     },
@@ -558,7 +558,7 @@ const alZahra = [
     id: 22,
     location: [34.42810, 31.47148],
     config: {
-      text: "Destroyed greenhouses and agricultural land",
+      text: "Destroyed greenhouses",
       textWidth: 190,
     },
   },
@@ -566,7 +566,7 @@ const alZahra = [
     id: 10,
     location: [34.42095, 31.46700],
     config: {
-      text: "Large crater where building stood",
+      text: "Levelled building",
       textWidth: 160,
     },
   },
@@ -584,7 +584,7 @@ const alZahra = [
     id: 12,
     location: [34.41690, 31.47059],
     config: {
-      text: "Reportedly damaged school",
+      text: "Damaged school",
       textWidth: 140,
       lineLength: 28,
       lineDirection: "down",
@@ -611,7 +611,7 @@ const alZahra = [
     id: 13,
     location: [34.41724, 31.47857],
     config: {
-      text: "Craters and tire tracks around Turkish-Palestinian Friendship hospital",
+      text: "Craters and track marks around Turkish-Palestinian Friendship hospital",
       textWidth: 220,
     },
   },
@@ -629,7 +629,7 @@ const alZahra = [
     id: 16,
     location: [34.40367, 31.47673],
     config: {
-      text: "Damaged Palestine University",
+      text: "Craters around Palestine university",
       textWidth: 160,
       lineDirection: "left",
     },
@@ -638,7 +638,7 @@ const alZahra = [
     id: 23,
     location: [34.40822, 31.48216],
     config: {
-      text: "Damage at Israa University",
+      text: "Israa university reportedly damaged, later destroyed",
       textWidth: 126,
       lineDirection: "left",
     },
@@ -656,7 +656,7 @@ const alZahra = [
     id: 18,
     location: [34.40204, 31.47165],
     config: {
-      text: "12 tower blocks levelled, others destroyed",
+      text: "12 tower blocks levelled",
       textWidth: 140,
       lineDirection: "left",
     },
@@ -677,7 +677,7 @@ const khanYounis = [
     id: 1,
     location: [34.30606, 31.35816],
     config: {
-      text: "Six destroyed greenhouses",
+      text: "Destroyed greenhouses",
       textWidth: 110,
     },
   },
@@ -685,7 +685,7 @@ const khanYounis = [
     id: 3,
     location: [34.31057, 31.35252],
     config: {
-      text: "Damaged residential block",
+      text: "Destroyed residential buildings",
       textWidth: 120,
       lineDirection: "right",
     },
@@ -720,7 +720,7 @@ const khanYounis = [
     id: 23,
     location: [34.32716, 31.34919],
     config: {
-      text: "Large craters and over 100 greenhouses destroyed",
+      text: "Destroyed greenhouses",
       textWidth: 220,
       lineLength: 28,
       lineDirection: "down",
@@ -740,7 +740,7 @@ const khanYounis = [
     id: 33,
     location: [34.31875, 31.35198],
     config: {
-      text: "Damaged residential buildings and agricultural fields",
+      text: "Damaged residential buildings",
       textWidth: 244,
     },
   },
@@ -823,7 +823,7 @@ const khanYounis = [
     id: 39,
     location: [34.31387, 31.34273],
     config: {
-      text: "Damaged Khaled al Hassan school",
+      text: "Damaged Khaled al-Hassan school",
       textWidth: 140,
       lineDirection: "right",
     },
@@ -928,7 +928,7 @@ const khanYounis = [
     id: 9,
     location: [34.31088, 31.34523],
     config: {
-      text: "Cratered roads around Al Bandar Al Sharqi hospital",
+      text: "Destroyed roads around medical centre",
       textWidth: 160,
       textPosition: "start",
     },
