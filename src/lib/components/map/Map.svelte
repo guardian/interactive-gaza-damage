@@ -162,8 +162,8 @@
         });
 
         // map.on('zoomend', () => {
-        //     // console.log('zoom level: ', map.getZoom())
-        //     console.log('map bounds', map.getBounds())
+        //     console.log('zoom level: ', map.getZoom())
+        //     // console.log('map bounds', map.getBounds())
         // })
 
         map.on('mouseover', 'annotation-fills-beit-hanoun', showBeforeTiles)
@@ -228,6 +228,7 @@
 
         const bearing = options && options.bearing || 0;
         options.padding = resolvePadding(options.padding)
+        options.minZoom = options.minZoom || map.minZoom;
         options.maxZoom = options.maxZoom || map.maxZoom;
         return _cameraForBoxAndBearing(bounds.getSouthWest(), bounds.getNorthEast(), bearing, options);
     }
@@ -264,7 +265,7 @@
         const currentZoomScale = Math.pow(2, map.getZoom())
         const newZoomScale = currentZoomScale * Math.min(scaleX, scaleY)
         const newZoom = Math.log(newZoomScale) / Math.LN2
-        const zoom = Math.min(newZoom, options.maxZoom)
+        const zoom = Math.max(Math.min(newZoom, options.maxZoom), 13)
         const actualZoomScale = Math.pow(2, zoom)
 
         const paddingOffsetX = (options.padding.left - options.padding.right) / 2;

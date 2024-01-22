@@ -47,8 +47,6 @@
     $: blurAmount = scrollyConfig.video ? 5 : 0;
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
 
-    $: console.log('video', scrollyConfig.video)
-
     onDestroy(() => {
         map.set(null)
     })
