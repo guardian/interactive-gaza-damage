@@ -43,7 +43,7 @@
     // };
 
     $: scrollyConfig = $scrollyConfigForStep(step)
-    $: scrollyConfigForNextStep = offset > 0.5 ? $scrollyConfigForStep(step+1) : scrollyConfig;
+    $: scrollyConfigForNextStep = offset > 0.4 ? $scrollyConfigForStep(step+1) : scrollyConfig;
     $: blurAmount = scrollyConfig.video ? 5 : 0;
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
 
