@@ -1,30 +1,35 @@
 <script>
     import Grid from "$lib/components/Grid.svelte";
-    import VideoPlayer from "$lib/components/VideoPlayer.svelte";
     import AspectRatioBox from "$lib/components/AspectRatioBox.svelte";
+    import GridImage from "$lib/components/GridImage.svelte";
 </script>
 
 <div class="overlay" id="al-zahra-intro">
     <Grid>
         <div class="border border-header"></div>
         <h2 class="header" data-ignore="global-h2-styling">Al-Zahra and al-Mughraqa</h2>
-        <div class="media">
-            <AspectRatioBox aspectRatio=0.5625>
-                <VideoPlayer src="https://uploads.guim.co.uk/2023/12/22/beit-hanoun-walkthrough_SITE.mp4" posterImage="https://uploads.guim.co.uk/2024/01/02/out.png" />
-            </AspectRatioBox>
-        </div>
         <div class="border border-body"></div>
         <div class="body">
-            <p>Al Zahra, one of the wealthiest neighbourhoods located in central Gaza, was home to iconic tower blocks, universities and around 5,000 people.</p>
-            <p>To the north is a large wastewater treatment plant surrounded by armoured vehicle tracks over flattened farmland. New paths and fortifications carved out by Israeli forces have emerged over an older network of roads no longer recognisable.</p>
-            <p>To the east, in the town of Al Mughraqa, a large crater is all that's left of one building. A large school is surrounded by signs of Israeli military vehicle activity and damaged buildings.</p>
-            <p>Cratered roads and tracks from Israeli armoured cars surround the Turkish-Palestinian Friendship hospital. The hospital reported blast damage to two rooms and its oxygen and water supply.</p>
-            <p>At the heart of Al Zahra sit multiple university buildings, mostly damaged and surrounded by craters. Amidst the destruction, the law school at one university has a quote referring to the Geneva Convention: “Wars Have Limits”.</p>
-            <p>The signature Al Zahra tower blocks, reportedly home to over 3,000 people, were flattened by Israeli bombing.</p>
-            <p>“Gaza’s destruction is far worse in terms of the scale, ferocity and impact when compared to Ukraine, Syria or other conflicts,” says Balakrishnan Rajagopal, the UN Special Rapporteur on the Right to Adequate Housing.</p>
-            <p>Between 2013 and 2016, UN data shows that 40% of Aleppo’s structures were damaged during the Syrian civil war. As of 5 November, in less than three months of conflict, Rajagopal said that 56% of all structures have been damaged or destroyed in Gaza and in Northern Gaza, with the damage as high as 82% in some areas.</p>
-            <p>Martin Coward, Professor of International Politics at Queen Mary University of London, Coward said: “It is somewhat different – the IDF has been targeting the subsurface infrastructure that Hamas has set up in Gaza and to do that it has to go through the built environment of the surface. They have attempt to be precise in that targeting – although there has been a lot of collateral damage on civilian buildings.”</p>
-            <p>Detailed satellite imagery from Planet, dated 31 December, reveals some of this damage.</p>
+            <p>Al-Zahra, one of the wealthiest neighbourhoods located in central Gaza, was home to tower blocks, universities and about 5,000 people before the war.</p>
+            <p>To the east, in the town of al-Mughraqa, a large crater is all that's left of one building, while a nearby school’s buildings have visible damage.</p>
+            <p>Cratered roads surround the Turkish-Palestinian Friendship hospital. The hospital reported blast damage to two rooms and its oxygen and water supply.</p>
+            <p>At the heart of al-Zahra sit three universities, mostly damaged and surrounded by craters. Of them, Israa university was blown up by Israeli forces this month, after being used as a military base. This happened after the satellite image was taken.</p>
+            <div class="image">
+                <AspectRatioBox aspectRatio=0.6>
+                    <GridImage 
+                        id="bc539f3967b9b8289a49e20c4bf84767f60ae6a5" 
+                        crop={"58_0_1800_1080"}
+                        name="1000.jpg" 
+                        altText="Screengrabs from from a video circulating on social media show the moment Israa University in al Zahra was partially demolished by the Israeli army"
+                        caption="Screengrabs from from a video circulating on social media show the moment Israa University in al Zahra was partially demolished by the Israeli army"
+                        />
+                </AspectRatioBox>
+            </div>
+            <p>The al-Zahra tower blocks, reportedly home to more than 3,000 people, were flattened by Israeli bombing.</p>
+            <p>“Gaza’s destruction is far worse in terms of the scale, ferocity and impact when compared to Ukraine, Syria or other conflicts,” Balakrishnan Rajagopal, the UN special rapporteur on the right to adequate housing, said.</p>
+            <p>Between 2013 and 2016, UN data shows that 40% of Aleppo’s structures were damaged during the Syrian civil war. As of 5 January, in less than three months of conflict, Rajagopal said that 60% of all structures have been damaged or destroyed in Gaza.</p>
+            <p>Martin Coward, professor of international politics at Queen Mary University of London, said: “It is somewhat different [to Syria] – the IDF has been targeting the subsurface infrastructure that Hamas has set up in Gaza and to do that it has to go through the built environment of the surface. They have attempted to be precise in that targeting – although there has been a lot of collateral damage on civilian buildings.”</p>
+            <p>Detailed satellite imagery from Planet, dated 31 December, reveals some of this damage. Hovering over particular areas of damage changes the view to satellite images from 20 and 30 May 2023.</p>
         </div>
         
     </Grid>
@@ -41,12 +46,6 @@
     .header {
         grid-area: header;
         margin-top: 4px;
-        margin-bottom: 40px;
-    }
-
-    .media {
-        grid-area: media;
-        display: none;
     }
 
     .border {
@@ -61,9 +60,14 @@
         grid-area: border-body; 
     }
 
+    .image {
+        width: 100%;
+        margin: 20px 0;
+    }
+
     .body {
         grid-area: body;
-        padding: 40px 0;
+        padding: 20px 0;
         max-width: 620px;
     }
 
