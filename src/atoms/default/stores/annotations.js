@@ -1022,7 +1022,7 @@ const khanYounis = [
     id: 50,
     location: [34.31783, 31.34108],
     config: {
-      text: "Destroyed cemetery",
+      text: "Damaged cemetery",
       textWidth: 90,
       lineLength: 20,
     },
@@ -1077,7 +1077,7 @@ const khanYounis = [
     id: 18,
     location: [34.32135, 31.34234],
     config: {
-      text: "Destroyed cemetery",
+      text: "Damaged cemetery",
       textWidth: 80,
     },
     mobile: {

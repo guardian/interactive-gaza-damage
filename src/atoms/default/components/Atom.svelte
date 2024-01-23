@@ -71,7 +71,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video from early December showed Israeli forces blowing up a UNRWA school building in Beit Hanoun. Israel claimed the building was a Hamas outpost.</p>
+            <p>A video from early December — after this satellite image was taken — showed Israeli forces blowing up a UNRWA school building in Beit Hanoun. Israel said the building was a Hamas outpost.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>

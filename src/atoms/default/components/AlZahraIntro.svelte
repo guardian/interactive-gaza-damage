@@ -20,8 +20,8 @@
                         id="bc539f3967b9b8289a49e20c4bf84767f60ae6a5" 
                         crop={"58_0_1800_1080"}
                         name="1000.jpg" 
-                        altText="Screengrabs from from a video circulating on social media show the moment Israa University in al Zahra was partially demolished by the Israeli army"
-                        caption="Screengrabs from from a video circulating on social media show the moment Israa University in al Zahra was partially demolished by the Israeli army"
+                        altText="Screengrabs from a video circulating on social media show the moment Israa University in al Zahra was partially demolished by the Israeli army"
+                        caption="Screengrabs from a video circulating on social media show the moment Israa University in al Zahra was partially demolished by the Israeli army"
                         />
                 </AspectRatioBox>
             </div>

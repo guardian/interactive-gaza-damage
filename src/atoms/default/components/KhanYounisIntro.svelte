@@ -27,7 +27,7 @@
                 </AspectRatioBox>
             </div>
             <p>Azzouz said: "One of the most pressing questions to emerge now … how to give people a sense of home and belonging after enduring loss? How to remember the killed? And how to imagine a future where [...] Gaza is rebuilt again?"</p>
-            <p>Panning through the satellite imagery below, taken on 5 January 2024, reveals how wide swathes of northern Khan Younis have been left destroyed. Hovering over particular areas of damage changes the view to a satellite image from 16 May 2023.</p>
+            <p>Panning through the satellite imagery below, taken on 5 January 2024, reveals how wide swathes of northern Khan Younis have been destroyed. Hovering over particular areas of damage changes the view to a satellite image from 16 May 2023.</p>
         </div>
         
     </Grid>
