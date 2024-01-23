@@ -1093,7 +1093,16 @@ const khanYounis = [
       text: "Damage around Khalil Rahman mosque",
       textWidth: 140,
       lineLength: 16,
+      textPosition: "center",
     },
+    mobile: {
+      location: [34.30635, 31.34787],
+      config: {
+        textWidth: 100,
+        lineLength: 12,
+        textPosition: "start",
+      }
+    }
   },
   {
     id: 6,
@@ -1102,7 +1111,13 @@ const khanYounis = [
       text: "Residential buildings destroyed",
       textWidth: 60,
       textPosition: "end",
+      lineLength: 20,
     },
+    mobile: {
+      config: {
+        lineLength: 20,
+      }
+    }
   },
   {
     id: 5,
@@ -1112,6 +1127,11 @@ const khanYounis = [
       textWidth: 140,
       lineDirection: "down",
     },
+    mobile: {
+      config: {
+        textWidth: 110,
+      }
+    }
   },
   {
     id: 35,
@@ -1123,6 +1143,12 @@ const khanYounis = [
       lineDirection: "down",
       textPosition: "start",
     },
+    mobile: {
+      location: [34.30954, 31.34515],
+      config: {
+        textWidth: 100,
+      }
+    }
   },
   {
     id: 51,
@@ -1132,6 +1158,11 @@ const khanYounis = [
       textWidth: 90,
       textPosition: "end",
     },
+    mobile: {
+      config: {
+        textWidth: 66,
+      }
+    }
   },
   {
     id: 8,
@@ -1139,7 +1170,14 @@ const khanYounis = [
     config: {
       text: "Destroyed park",
       textWidth: 80,
+      lineLength: 20,
     },
+    mobile: {
+      config: {
+        textWidth: 70,
+        lineLength: 16,
+      }
+    }
   },
   {
     id: 9,
@@ -1149,6 +1187,12 @@ const khanYounis = [
       textWidth: 160,
       textPosition: "start",
     },
+    mobile: {
+      location: [34.31051, 31.34551],
+      config: {
+        textWidth: 90,
+      }
+    }
   },
   {
     id: 13,
@@ -1158,6 +1202,11 @@ const khanYounis = [
       textWidth: 150,
       lineLength: 16,
     },
+    mobile: {
+      config: {
+        textWidth: 116,
+      }
+    }
   },
   {
     id: 53,
@@ -1168,6 +1217,11 @@ const khanYounis = [
       lineDirection: "down",
       lineLength: 16,
     },
+    mobile: {
+      config: {
+        textWidth: 90,
+      }
+    }
   },
 ]
 

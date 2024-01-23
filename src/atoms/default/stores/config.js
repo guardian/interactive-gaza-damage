@@ -343,6 +343,7 @@ export function _scrollyConfigForStep(step) {
           orientation: "landscape",
         },
         mobile: {
+          annotationsInFocus: [5,6,8,9,12,35,51],
           video: {
             src: "https://uploads.guim.co.uk/2024/01/19/240114_KhanYounisStreetWalkthroughMobile_2.mp4",
             posterImage: "https://uploads.guim.co.uk/2024/01/15/240114_KhanYounisStreetWalkthroughMobile.00_00_00_00.Still002.png",
@@ -355,6 +356,9 @@ export function _scrollyConfigForStep(step) {
         area: 'khan-younis',
         annotationsInFocus: [52],
         maxZoom: 16,
+        mobile: {
+          annotationsInFocus: [5,6,8,9,12,35,51],
+        }
       };
     case 40:
       return {
