@@ -50,7 +50,7 @@
                 {...annotation.config}
             />
         </Annotation>
-        {#if annotation.hint}
+        <!-- {#if annotation.hint}
             <Annotation center={annotation.hint.location}>
                 <TextAnnotation
                     text={$isMobile ? "Tap to see before" : "Hover to see before"}
@@ -61,7 +61,7 @@
                     textClass='text-alt'
                 />
             </Annotation>
-        {/if}
+        {/if} -->
     {/each}
     <div class="debug hidden"></div>
     <div class="debug2 hidden"></div>
