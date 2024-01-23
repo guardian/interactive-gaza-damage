@@ -21,11 +21,16 @@
 <style lang="scss">
   .main-media {
     width: 100%;
-    height: 100vh;
+    height: calc(80vh - 48px);
     overflow: hidden;
+    position: relative;
+
+    @include mq($from: mobileLandscape) {
+      height: calc(100vh - 48px);
+    }
   }
 
-  .uit-video {
+  video {
     position: absolute;
     object-fit: cover;
     width: 100%;
