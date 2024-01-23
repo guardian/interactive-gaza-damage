@@ -354,14 +354,14 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'khan-younis',
         annotationsInFocus: [52],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 40:
       return {
         area: 'khan-younis',
         annotationsInFocus: [13,53],
         highlighted: [53],
-        maxZoom: [16],
+        maxZoom: 16,
         video: {
           src: "https://uploads.guim.co.uk/2024/01/19/KhanYounisMosque_1.mp4",
           posterImage:
@@ -380,13 +380,13 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'khan-younis',
         annotationsInFocus: [13,53],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 42:
       return {
         area: 'khan-younis',
         annotationsInFocus: [13,53],
-        maxZoom: [12.5],
+        maxZoom: 12.5,
         showDamageKey: true
       };
     case 43:

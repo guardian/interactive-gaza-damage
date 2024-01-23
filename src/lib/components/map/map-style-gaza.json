@@ -270,7 +270,7 @@
       "source": "vector",
       "source-layer": "khanyounis",
       "metadata": {
-        "interactive:steps": [30,31,32,33,34,35,36,37,38,39,40]
+        "interactive:steps": [30,31,32,33,34,35,36,37,38,39,40,41]
       },
       "layout": {
         "line-join": "round"
@@ -300,7 +300,7 @@
       "source": "vector",
       "source-layer": "khanyounis",
       "metadata": {
-        "interactive:steps": [30,31,32,33,34,35,36,37,38,30,40]
+        "interactive:steps": [30,31,32,33,34,35,36,37,38,39,40,41]
       },
       "layout": {
         "line-join": "round"
@@ -329,7 +329,7 @@
       "source": "vector",
       "source-layer": "khanyounis",
       "metadata": {
-        "interactive:steps": [30,31,32,33,34,35,36,37,38]
+        "interactive:steps": [30,31,32,33,34,35,36,37,38,39,40,41]
       },
       "minzoom": 14,
       "paint": {
