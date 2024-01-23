@@ -7,6 +7,7 @@
     import VideoOverlay from "$lib/components/VideoOverlay.svelte";
     import InsetMap from "./InsetMap.svelte";
     import DamageKey from "./DamageKey.svelte";
+    import BeforeAfterHint from "./BeforeAfterHint.svelte";
     import { onDestroy } from "svelte";
 
     export let step = 0;
@@ -48,6 +49,9 @@
     $: blurAmount = scrollyConfig.video ? 5 : 0;
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
 
+    let isShowingBefore;
+    $: showBeforeOnHover = scrollyConfigForNextStep.annotationsInFocus instanceof Array;
+
     onDestroy(() => {
         map.set(null)
     })
@@ -58,10 +62,12 @@
         <Map 
             bind:this={$map} 
             bind:isReady={$mapReady} 
+            bind:isShowingBefore
             {step} 
             {cameraPosition} 
             interactive={false}
-            showBeforeOnHover={scrollyConfigForNextStep.annotationsInFocus instanceof Array} />
+            {showBeforeOnHover}
+            />
     </div>
     {#if $map}
         <div class="annotations-layer">
@@ -69,13 +75,18 @@
         </div>           
     {/if}
     {#if scrollyConfigForNextStep.inset}
-        <div class="inset-map-layer" out:fade>
+        <div class="map-overlay" out:fade>
             <InsetMap id={scrollyConfigForNextStep.inset.id} />
         </div>
     {/if}
     {#if scrollyConfigForNextStep.showDamageKey}
-        <div class="damage-key-layer" out:fade>
+        <div class="map-overlay" out:fade>
             <DamageKey />
+        </div>
+    {/if}
+    {#if showBeforeOnHover && !scrollyConfig.video}
+        <div class="map-overlay">
+            <BeforeAfterHint {isShowingBefore} />
         </div>
     {/if}
     {#if scrollyConfig.video && scrollyConfig.video.src}
@@ -107,22 +118,17 @@
     .annotations-layer {
         position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         z-index: 10;
    }
 
-   .inset-map-layer {
+   .map-overlay {
         position: absolute;
         width: 100%;
         height: 100%;
-   }
-
-    .damage-key-layer {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+        z-index: 11;
    }
 
    .map-cover {

@@ -14,6 +14,7 @@
     export let pitch = 0;
     export let bounds = undefined;
     export let showBeforeOnHover;
+    export let isShowingBefore = false;
 
     let map, mapContainer, mapContainerWidth, mapContainerHeight;
 
@@ -185,13 +186,21 @@
         isReady = false;
     });
 
+    let beforeTilesTimeoutID;
+
     function showBeforeTiles() {
         if (!showBeforeOnHover) return;
-        console.log('show before tiles')
-        map.setPaintProperty("satellite-before-tiles", "raster-opacity", 1);
+        if (beforeTilesTimeoutID) clearTimeout(beforeTilesTimeoutID);
+
+        beforeTilesTimeoutID = setTimeout(() => {
+            isShowingBefore = true;
+            map.setPaintProperty("satellite-before-tiles", "raster-opacity", 1);
+        }, 200)
     }
 
     function hideBeforeTiles() {
+        if (beforeTilesTimeoutID) clearTimeout(beforeTilesTimeoutID);
+        isShowingBefore = false;
         map.setPaintProperty("satellite-before-tiles", "raster-opacity", 0);
     }
 
