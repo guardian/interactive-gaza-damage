@@ -50,7 +50,7 @@
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
 
     let isShowingBefore;
-    $: showBeforeOnHover = scrollyConfigForNextStep.annotationsInFocus instanceof Array;
+    $: showBeforeOnHover = (scrollyConfig.annotationsInFocus instanceof Array) && scrollyConfig.area;
 
     onDestroy(() => {
         map.set(null)
@@ -86,7 +86,7 @@
     {/if}
     {#if showBeforeOnHover && !scrollyConfig.video}
         <div class="map-overlay">
-            <BeforeAfterHint {isShowingBefore} />
+            <BeforeAfterHint {isShowingBefore} area={scrollyConfig.area} />
         </div>
     {/if}
     {#if scrollyConfig.video && scrollyConfig.video.src}
