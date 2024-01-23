@@ -102,6 +102,7 @@
         position: relative;
         width: 100%;
         @include dynamic-viewport-height;
+        pointer-events: none;
    }
 
    .map-container {
@@ -109,7 +110,7 @@
         width: 100%;
         height: 100%;
         z-index: 0;
-
+        pointer-events: none;
 
         filter: blur(var(--blur-amount));
         transition: 0.5s 0.5s filter linear;
@@ -122,6 +123,7 @@
         width: 100%;
         height: 100%;
         z-index: 10;
+        pointer-events: none;
    }
 
    .map-overlay {
@@ -146,6 +148,4 @@
         height: 100%;
         z-index: 30;
    }
-
-
 </style>

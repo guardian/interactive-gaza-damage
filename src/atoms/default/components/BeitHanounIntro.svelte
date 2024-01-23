@@ -35,7 +35,6 @@
 
 <style lang="scss">
     .overlay {
-        pointer-events: all;
         border-top: 4px solid #121212;
         border-bottom: 4px solid #121212;
         background-color: rgb(255, 255, 255);
@@ -67,6 +66,7 @@
         grid-area: body;
         padding: 20px 0;
         max-width: 620px;
+        pointer-events: all;
     }
 
     h2 {

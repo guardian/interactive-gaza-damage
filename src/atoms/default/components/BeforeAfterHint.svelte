@@ -1,5 +1,6 @@
 <script>
     import { fly } from "svelte/transition";
+    import { isMobile } from "$lib/stores/devices";
 
     export let isShowingBefore;
 </script>
@@ -7,8 +8,10 @@
 <div class="hint" transition:fly={{y: -100}}>
     {#if isShowingBefore}
         <p>Situation on [date]</p>
+    {:else if $isMobile }
+        <p>Tap and hold screen to see before</p>
     {:else}
-        <p>Hover to see before</p>
+        <p>Hover over highlighted areas to see before</p>
     {/if}
 </div>
 

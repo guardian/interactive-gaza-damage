@@ -2,6 +2,7 @@
     import { onMount, onDestroy, setContext } from 'svelte'
     import { Map, LngLat, LngLatBounds, Point } from "maplibre-gl";
     import { resolvePadding } from '$lib/helpers/util';
+    import { isMobile } from '$lib/stores/devices';
     import style from './map-style-gaza';
     import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -162,19 +163,13 @@
             console.log('Map error', error);
         });
 
+        // createListeners(map);
+
+        // STUFF FOR DEBUGGING
         // map.on('zoomend', () => {
         //     console.log('zoom level: ', map.getZoom())
         //     // console.log('map bounds', map.getBounds())
         // })
-
-        map.on('mouseover', 'annotation-fills-beit-hanoun', showBeforeTiles)
-        map.on('mouseout', 'annotation-fills-beit-hanoun', hideBeforeTiles)
-
-        map.on('mouseover', 'annotation-fills-al-zahra', showBeforeTiles)
-        map.on('mouseout', 'annotation-fills-al-zahra', hideBeforeTiles)
-
-        map.on('mouseover', 'annotation-fills-khan-younis', showBeforeTiles)
-        map.on('mouseout', 'annotation-fills-khan-younis', hideBeforeTiles)
 
         // map.on('mouseup', (e) => {
         //     console.log('long/lat', JSON.stringify(e.lngLat.toArray()))
@@ -187,19 +182,44 @@
     });
 
     let beforeTilesTimeoutID;
+    $: isReady && createListeners(map, $isMobile);
 
-    function showBeforeTiles() {
-        if (!showBeforeOnHover) return;
-        if (beforeTilesTimeoutID) clearTimeout(beforeTilesTimeoutID);
+    function clearBeforeTilesTimeout() {
+        if (beforeTilesTimeoutID) {
+            clearTimeout(beforeTilesTimeoutID)
+        }
+    }
 
-        beforeTilesTimeoutID = setTimeout(() => {
-            isShowingBefore = true;
-            map.setPaintProperty("satellite-before-tiles", "raster-opacity", 1);
-        }, 200)
+    function createListeners(map, isMobile) {
+        const layers = ['annotation-fills-beit-hanoun', 'annotation-fills-al-zahra', 'annotation-fills-khan-younis']
+        if (isMobile) {
+            map.on('touchstart', showBeforeTiles(true));
+            map.on('touchend', hideBeforeTiles);
+            map.on('touchcancel', hideBeforeTiles);
+        } else {
+            for (const layer of layers) {
+                map.on('mouseover', layer, showBeforeTiles(false))
+                map.on('mouseout', layer, hideBeforeTiles)
+            }
+        }
+    }
+
+    function showBeforeTiles(isTouch) {
+        const delay = isTouch ? 500 : 200;
+
+        return (e) => {
+            if (!showBeforeOnHover) return;
+            clearBeforeTilesTimeout();
+
+            beforeTilesTimeoutID = setTimeout(() => {
+                isShowingBefore = true;
+                map.setPaintProperty("satellite-before-tiles", "raster-opacity", 1);
+            }, delay)
+        }
     }
 
     function hideBeforeTiles() {
-        if (beforeTilesTimeoutID) clearTimeout(beforeTilesTimeoutID);
+        clearBeforeTilesTimeout();
         isShowingBefore = false;
         map.setPaintProperty("satellite-before-tiles", "raster-opacity", 0);
     }

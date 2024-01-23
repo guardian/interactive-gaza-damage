@@ -20,6 +20,12 @@ body {
   --top-inset: 0px;
 }
 
+canvas {
+  // Prevent default iOS behaviour from interfering with long press on map
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
 body.android {
   --top-inset: 58px;
 }

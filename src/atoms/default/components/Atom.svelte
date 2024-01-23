@@ -189,6 +189,7 @@
     font-weight: 400;
     margin-bottom: 14px;
     color: #121212;
+    pointer-events: all;
   }
 
   p:last-child {
