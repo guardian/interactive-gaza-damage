@@ -57,7 +57,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>This interactive scrolls through three such damaged areas of Gaza: Beit Hanoun, al-Zahra and Khan Younis. Specific instances of damage have been highlighted in the imagery. It has not been possible to provide a comprehensive account of all damage seen in the areas</p>
+            <p>This interactive scrolls through three such damaged areas of Gaza: Beit Hanoun, al-Zahra and Khan Younis. Specific instances of damage have been highlighted in the imagery. It has not been possible to provide a comprehensive account of all instances of damage seen in the areas.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground type="overlay">
@@ -71,7 +71,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video from early December — after this satellite image was taken — showed Israeli forces blowing up a UNRWA school building in Beit Hanoun. Israel said the building was a Hamas outpost.</p>
+            <p>A video released on 12 December  — after this satellite image was taken — showed Israeli forces blowing up a school building run by the UNRWA (United Nations Relief and Works Agency for Palestine Refugees). Israel said the building was a Hamas outpost.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
@@ -86,7 +86,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video filmed from a car moving along a road in November showed flattened and damaged buildings in the west of Beit Hanoun.</p>
+            <p>A video filmed from a car moving along a road on 25 November showed flattened and damaged buildings in the west of Beit Hanoun.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
@@ -110,7 +110,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video from late October showed fire and smoke rising from the courtyard of the Turkish-Palestinian Friendship hospital.</p>
+            <p>A video from 30 October showed fire and smoke rising from the courtyard of the Turkish-Palestinian Friendship hospital.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
@@ -119,7 +119,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>Video footage from October showed 25 apartment blocks in al-Zahra neighbourhood flattened by Israeli airstrike. Hundreds of people were displaced by the strike.</p>
+            <p>Video footage from 21 October showed 25 apartment blocks in al-Zahra neighbourhood flattened by Israeli airstrike. Hundreds of people were displaced by the strike.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
@@ -154,7 +154,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video showed the moment Khaled bin al-Walid mosque was destroyed on 8 November and the aftermath of the strike.</p>
+            <p>A video showed the moment Khaled bin al-Walid mosque was destroyed on 8 November and the aftermath of the strike on 9 November.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>

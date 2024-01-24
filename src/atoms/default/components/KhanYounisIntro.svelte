@@ -10,7 +10,7 @@
         <h2 class="header" data-ignore="global-h2-styling">Khan Younis</h2>
         <div class="border border-body"></div>
         <div class="body">
-            <p>Khan Younis, in southern Gaza, sits at the edge of northern Gaza’s former evacuation line. Initially considered a safe zone, it took in fleeing and injured civilians when the war’s focus was in the north, but now has been relentlessly bombarded in December after the IDF expanded its campaign.</p>
+            <p>Khan Younis, in southern Gaza, sits at the edge of northern Gaza’s former evacuation line. Initially considered a safe zone, the city took in fleeing and injured civilians when the war’s focus was in the north, but has been relentlessly bombarded since December after the IDF expanded its campaign.</p>
             <p>The Guardian’s analysis found multiple mosques destroyed beyond recognition, alongside destroyed greenhouses and residential blocks.</p>
             <p>Another sports ground has been destroyed, alongside an entire residential area with residential buildings and agricultural fields. Large craters and rubble remain where more than 100 greenhouses once stood.</p>
             <p>Pharmacies, supermarkets, schools and a kindergarten show signs of damage. Cratered roads surround al-Bandar al-Sharqi hospital.</p>

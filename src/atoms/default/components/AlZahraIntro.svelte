@@ -13,7 +13,8 @@
             <p>Al-Zahra, one of the wealthiest neighbourhoods located in central Gaza, was home to tower blocks, universities and about 5,000 people before the war.</p>
             <p>To the east, in the town of al-Mughraqa, a large crater is all that's left of one building, while a nearby school’s buildings have visible damage.</p>
             <p>Cratered roads surround the Turkish-Palestinian Friendship hospital. The hospital reported blast damage to two rooms and its oxygen and water supply.</p>
-            <p>At the heart of al-Zahra sit three universities, mostly damaged and surrounded by craters. Of them, Israa university was blown up by Israeli forces this month, after being used as a military base. This happened after the satellite image was taken.</p>
+            <p>At the heart of al-Zahra sit three universities, mostly damaged and surrounded by craters.</p>
+            <p>Of them, Israa university was blown up by Israeli forces this month, after being used as a military base. After footage of the explosion prompted the Biden administration to ask the IDF for clarification, they announced a probe into its circumstances. This occurred after the satellite image was taken.</p>
             <div class="image">
                 <AspectRatioBox aspectRatio=0.6>
                     <GridImage 

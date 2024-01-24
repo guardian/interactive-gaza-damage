@@ -42,7 +42,7 @@ const beitHanoun = [
     id: 1,
     location: [34.55129, 31.54814],
     config: {
-      text: "Razed orchards and agricultural fields",
+      text: "Destroyed orchards and agricultural fields",
       textWidth: 158,
       lineLength: 16,
     },
@@ -110,7 +110,7 @@ const beitHanoun = [
     visibleForSteps: [],
     location: [34.55122, 31.53580],
     config: {
-      text: "Razed fields",
+      text: "Flattened fields",
       textWidth: 97,
       lineDirection: "up",
       textPosition: "center",
