@@ -9,7 +9,7 @@
 
   export let src;
   export let posterImage;
-  export let showPlayButton = true;
+  export let showPlayButton = false;
   export let showMuteButton = false;
   export let rewindOnPause = false;
 
@@ -103,13 +103,13 @@
   /// onMount
   ////////////////////////////
 
-  onMount(() => {
-    paused = false;
+  // onMount(() => {
+  //   paused = false;
 
-    return () => {
-      paused = true;
-    }
-  });
+  //   return () => {
+  //     paused = true;
+  //   }
+  // });
 </script>
 
 <div
@@ -132,12 +132,13 @@
     on:pause={onPause}
     on:volumechange={onVolumeChange}
     on:click={playPause}
-    bind:paused
     bind:muted
     bind:currentTime
     bind:duration
+    autobuffer
+    autoplay
     class="video"
-    preload="none"
+    preload="metadata"
     poster={posterImage}
     playsinline="true"
     loop="true"
@@ -183,7 +184,8 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    pointer-events: all;
+    // pointer-events: all;
+    background-color: #121212;
   }
 
   .poster {
@@ -252,6 +254,7 @@
     height: 100%;
     object-fit: cover;
     border: none;
+    pointer-events: none;
   }
 
   .progress-wrapper {
