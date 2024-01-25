@@ -6,10 +6,13 @@ import MainMedia from './components/MainMedia.svelte';
 // create scrollbar width CSS variable
 import '$lib/helpers/scrollbarWidth';
 
-const headerContainer = document.querySelector(selectorAppOrDCR("header"));
+let mainMediaContainer = document.querySelector("article.content--interactive");
+if (!mainMediaContainer) {
+	mainMediaContainer = document.querySelector(selectorAppOrDCR("media"));
+}
 const mainMedia = document.createElement("div");
 mainMedia.classList.add("drone-footage");
-headerContainer.prepend(mainMedia);
+mainMediaContainer.prepend(mainMedia);
 
 const headerImage = new MainMedia({
   target: mainMedia,
