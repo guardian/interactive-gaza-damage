@@ -184,7 +184,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    // pointer-events: all;
+    pointer-events: all;
     background-color: #121212;
   }
 
@@ -254,7 +254,6 @@
     height: 100%;
     object-fit: cover;
     border: none;
-    pointer-events: none;
   }
 
   .progress-wrapper {
