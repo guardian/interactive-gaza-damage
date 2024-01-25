@@ -137,7 +137,7 @@
     bind:currentTime
     bind:duration
     class="video"
-    preload="auto"
+    preload="none"
     poster={posterImage}
     playsinline="true"
     loop="true"

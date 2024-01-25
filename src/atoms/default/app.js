@@ -8,6 +8,7 @@ import '$lib/helpers/scrollbarWidth';
 
 let mainMediaContainer = document.querySelector("article.content--interactive");
 if (!mainMediaContainer) {
+	// This means we are on the app
 	mainMediaContainer = document.querySelector(selectorAppOrDCR("media"));
 }
 const mainMedia = document.createElement("div");
