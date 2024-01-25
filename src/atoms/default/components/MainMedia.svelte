@@ -12,6 +12,7 @@
     autoplay
     muted
     loop
+    preload="none"
     {poster}
   >
     <source {src} />
