@@ -14,6 +14,12 @@
 </svg>
 
 <style>
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
     line {
         filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1)) drop-shadow(0px 0px 14px rgba(0, 0, 0, 1));
     }
