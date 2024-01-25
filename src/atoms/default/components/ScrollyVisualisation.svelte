@@ -136,10 +136,6 @@
         bottom: 0;
    }
 
-   .top-inset {
-        padding-top: var(--top-inset);
-   }
-
    .map-cover {
         position: absolute;
         width: 100%;
