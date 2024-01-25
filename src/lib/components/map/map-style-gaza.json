@@ -14,12 +14,20 @@
         "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-med-res/{z}/{x}/{y}.jpg"
       ]
     },
-    "satellite-after-high-res": {
+    "satellite-after-high-res-png": {
       "type": "raster",
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
         "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-high-res-after/{z}/{x}/{y}.png"
+      ]
+    },
+    "satellite-after-high-res-jpg": {
+      "type": "raster",
+      "maxzoom": 17,
+      "tileSize": 256,
+      "tiles": [
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-high-res-after_jpeg/{z}/{x}/{y}.jpg"
       ]
     },
     "satellite-before": {
@@ -48,24 +56,6 @@
       "source": "satellite-med-res",
       "minzoom": 9,
       "maxzoom": 15
-    },
-    {
-      "id": "high-res-tiles",
-      "type": "raster",
-      "source": "satellite-after-high-res",
-      "minzoom": 13,
-      "maxzoom": 17,
-      "paint": {
-        "raster-opacity": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          13,
-          0,
-          14,
-          1.0
-        ]
-      }
     },
     {
       "id": "satellite-before-tiles",

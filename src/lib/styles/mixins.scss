@@ -8,7 +8,7 @@
     height: calc(100dvh - var(--top-inset));
   }
 
-  @supports (-webkit-touch-callout: none) {
-    min-height: -webkit-fill-available;
-  }
+  // @supports (-webkit-touch-callout: none) {
+  //   min-height: -webkit-fill-available;
+  // }
 }

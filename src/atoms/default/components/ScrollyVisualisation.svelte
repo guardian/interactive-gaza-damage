@@ -9,6 +9,7 @@
     import DamageKey from "./DamageKey.svelte";
     import BeforeAfterHint from "./BeforeAfterHint.svelte";
     import { onDestroy } from "svelte";
+  import RasterLayer from "$lib/components/map/map-layers/RasterLayer.svelte";
 
     export let step = 0;
     export let offset = 0;
@@ -67,7 +68,9 @@
             {cameraPosition} 
             interactive={false}
             {showBeforeOnHover}
-            />
+            >
+            <RasterLayer layerName="raster-after" beforeId="satellite-before-tiles" />
+        </Map>
     </div>
     {#if $map}
         <div class="annotations-layer">
@@ -107,6 +110,10 @@
 
    .map-container {
         position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
         height: 100%;
         z-index: 0;

@@ -18,6 +18,8 @@
     export let isShowingBefore = false;
 
     let map, mapContainer, mapContainerWidth, mapContainerHeight;
+    let layersToAdd = [];
+    let layers = [];
 
     export function project(coordinates) {
 		return map.project(coordinates);
@@ -205,7 +207,7 @@
     }
 
     function showBeforeTiles(isTouch) {
-        const delay = isTouch ? 500 : 200;
+        const delay = isTouch ? 200 : 200;
 
         return (e) => {
             if (!showBeforeOnHover) return;
@@ -316,11 +318,41 @@
         }
     }
 
+    function addLayer(layer, zIndex = 0, beforeId) {
+        layersToAdd.push({layer, zIndex, beforeId});
+
+        if (isReady) {
+            flushLayersToAdd();
+        }
+    }
+
+    function removeLayer(layerID) {
+        if (isReady) {
+            if (map.getLayer(layerID)) {
+                map.removeLayer(layerID);
+                layers = layers.filter(({layer}) => layer.id !== layerID);
+            }
+        } else {
+            layersToAdd = layersToAdd.filter(({layer}) => layer.id !== layerID);
+        }
+    }
+
+    function flushLayersToAdd() {
+        layersToAdd.forEach(({layer, zIndex, beforeId}) => {
+            layers.push({layer, zIndex, beforeId});
+            map.addLayer(layer, beforeId);
+            map.setLayoutProperty(layer.id, 'visibility', layerVisibility[layer.id]);
+        });
+        layersToAdd = [];
+    }
+
     $: setContext('map', {
         setVisible,
         setPaintProperty,
         setLayoutProperty,
         setFilter,
+        addLayer,
+        removeLayer,
     });
 </script>
   
@@ -334,7 +366,6 @@
 
 <style lang="scss">
     .map-container {
-        position: absolute;
         width: 100%;
         height: 100%;
         pointer-events: all;

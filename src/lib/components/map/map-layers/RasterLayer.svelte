@@ -1,33 +1,43 @@
 <script>
     import { onMount, getContext } from "svelte";
+    import { isMobile } from "$lib/stores/devices";
 
     export let layerName;
-    export let opacity = 0;
     export let beforeId = undefined;
 
-    const { addLayer, removeLayer, setPaintProperty } = getContext('map');
+    const { addLayer, removeLayer } = getContext('map');
 
     let isReady = false;
 
-    const imageLayer = {
+    $: imageLayer = {
         id: layerName,
-        source: "raster-tiles",
+        source: $isMobile ? "satellite-after-high-res-jpg" : "satellite-after-high-res-png",
         type: "raster",
+        minzoom: 13,
+        maxzoom: 17,
         paint: {
-            "raster-opacity": 0,
+        "raster-opacity": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            13,
+            0,
+            14,
+            1.0
+            ]
         }
     };
 
-    $: if(isReady) {
-        const delay = opacity === 1 ? 800 : 0;
-        setPaintProperty(imageLayer.id, "raster-opacity-transition", { duration: 500, delay: delay });
-        setPaintProperty(imageLayer.id, "raster-opacity", opacity);
+    function removeAndAdd(layer) {
+        if (!isReady) return;
+        removeLayer(layer.id);
+        addLayer(layer, 0, beforeId);
     }
+    $: removeAndAdd(imageLayer)
 
     onMount(() => {
-        addLayer(imageLayer, 0, beforeId);
-
-        isReady = true
+        isReady = true;
+        removeAndAdd(imageLayer);
 
         return () => {
             if (imageLayer) removeLayer(imageLayer.id);
