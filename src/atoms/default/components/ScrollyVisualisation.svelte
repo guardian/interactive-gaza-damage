@@ -80,18 +80,18 @@
         </div>
     {/if}
     {#if scrollyConfigForNextStep.showDamageKey}
-        <div class="map-overlay" out:fade>
+        <div class="map-overlay top-inset" out:fade>
             <DamageKey />
         </div>
     {/if}
     {#if showBeforeOnHover && !scrollyConfig.video}
-        <div class="map-overlay">
+        <div class="map-overlay top-inset">
             <BeforeAfterHint {isShowingBefore} area={scrollyConfig.area} />
         </div>
     {/if}
     {#if scrollyConfig.video && scrollyConfig.video.src}
         <div class="map-cover" transition:fade={{delay: 0}}></div>
-        <div class="media-layer" transition:fade={{delay: 0}}>
+        <div class="media-layer top-inset" transition:fade={{delay: 0}}>
             <VideoOverlay video={scrollyConfig.video} />
         </div>
     {/if}
@@ -131,6 +131,13 @@
         width: 100%;
         height: 100%;
         z-index: 11;
+        top: 20px;
+        left: 0;
+        bottom: 0;
+   }
+
+   .top-inset {
+        padding-top: var(--top-inset);
    }
 
    .map-cover {

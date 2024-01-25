@@ -7,7 +7,7 @@
   import KhanYounisIntro from "./KhanYounisIntro.svelte";
   import ScrollyBox from "./ScrollyBox.svelte"
   import { fetchAnnotationFeatures } from '../stores/annotations.js';
-  import { windowInnerWidth, windowInnerHeight } from '$lib/stores/dimensions.js';
+  import { windowInnerWidth, windowInnerHeight, relativeScrollyInsets } from '$lib/stores/dimensions.js';
   import { onMount } from "svelte";
 
   let index = 0
@@ -43,7 +43,7 @@
 
 <div class="atom">
     {#if scrollyReady}
-    <Scroller top="{0}" bottom="{1}" threshold="{0.8}" query=".scrolly-foreground-element" bind:index bind:progress bind:offset>
+    <Scroller top={$relativeScrollyInsets.top} bottom={$relativeScrollyInsets.bottom} threshold="{0.8}" query=".scrolly-foreground-element" bind:index bind:progress bind:offset>
       <div slot="background">
         {#if typeof document !== "undefined"}
           <ScrollyVisualisation {step} offset={Math.max(0, offset)} />

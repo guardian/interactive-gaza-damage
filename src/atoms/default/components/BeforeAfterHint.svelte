@@ -33,7 +33,6 @@
     .hint {
         display: flex;
         justify-content: center;
-        padding-top: 20px;
     }
 
     p {
