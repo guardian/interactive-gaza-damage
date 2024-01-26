@@ -11,9 +11,9 @@
         <div class="border border-body"></div>
         <div class="body">
             <p>Beit Hanoun, a city in north-east Gaza surrounded by agricultural land, was home to about 50,000 people in 2017. The Israel Defense Forces announced full control of the area in December. The area was depopulated and several neighbourhoods reduced to rubble.</p>
-            <p>Swathes of agricultural land have been erased, visible in satellite imagery from Planet Labs taken on 30 November. Most of the agricultural greenhouses have been destroyed and new paths from armoured vehicles are now strewn across the growing area. An <a href="https://unosat.org/products/3772">analysis by Unosat</a> in December found that 39% of agricultural land in north Gaza had been damaged.</p>
+            <p>Swathes of agricultural land have been erased, visible in satellite imagery from Planet Labs taken on 30 November. Most of the agricultural greenhouses have been destroyed and new paths from armoured vehicles are now strewn across the growing area. An analysis by UNOSAT in December found that 39% of agricultural land in north Gaza had been damaged.</p>
             <p>An entire residential neighbourhood of more than 150 buildings has been flattened. Also destroyed were schools, including one run by the UN that was blown up by Israeli forces in mid-December.</p>
-            <p>The Beit Hanoun hospital has been severely damaged, and the Balsam hospital destroyed. Under international humanitarian law, both schools and hospitals are protected civilian objects, and therefore the principle of proportionality must be taken into consideration when targeting.</p>
+            <p>The Beit Hanoun hospital has been severely damaged, and the Balsam hospital destroyed. Under international humanitarian law, schools and hospitals are protected civilian objects, and the principles of distinction and proportionality apply when targeting them.</p>
             <div class="image">
                 <AspectRatioBox aspectRatio=0.6>
                     <GridImage 
@@ -25,7 +25,7 @@
                         />
                 </AspectRatioBox>
             </div>
-            <p>The analysis found a cemetery bulldozed and mosques damaged or destroyed. Among them is the Umm al-Nasr mosque, parts of which date back to 1239, which is damaged.</p>
+            <p>The Guardian analysis found a cemetery bulldozed and mosques damaged or destroyed. Among them is the Umm al-Nasr mosque, parts of which date back to 1239, which is damaged.</p>
             <p>Ammar Azzouz, a research fellow at the University of Oxford and author of a book on domicide, whose own city Homs in Syria was severely damaged in 2012, said: “Domicide’s impact unfolds with time. Its pain spreads not only across those who lost their homes in Gaza, but also for those whose homes remain intact as their wider infrastructure has been targeted.”</p>
             <p>By zooming into Beit Hanoun further, the scale of the damage becomes clear to see. Hovering over particular areas of damage changes the view to a satellite image from 20 May 2023. Many of the fields have evidence of damage from Israeli military activity, but some visible differences in colour can be attributed to seasonal variations of crop growth.</p>
         </div>

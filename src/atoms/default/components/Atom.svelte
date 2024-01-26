@@ -57,7 +57,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>This interactive scrolls through three such damaged areas of Gaza: Beit Hanoun, al-Zahra and Khan Younis. Specific instances of damage have been highlighted in the imagery. It has not been possible to provide a comprehensive account of all instances of damage seen in the areas.</p>
+            <p>The Guardian’s interactive scrolls through three such damaged areas of Gaza: Beit Hanoun, al-Zahra and Khan Younis. Where possible, specific instances of damage have been highlighted in yellow in the imagery that follows.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground type="overlay">
@@ -160,11 +160,11 @@
         <ScrollyForeground>
         </ScrollyForeground>
         <ScrollyForeground>
+        </ScrollyForeground>
+        <ScrollyForeground>
           <ScrollyBox>
             <p>The Guardian has documented the destruction of hundreds of examples of civilian infrastructure critical to the lives of future returnees in the three areas of Gaza it analysed. These are not comprehensive analyses of the entire Gaza Strip, where more damage exists.</p>
           </ScrollyBox>
-        </ScrollyForeground>
-        <ScrollyForeground>
         </ScrollyForeground>
       </div>
     </Scroller>

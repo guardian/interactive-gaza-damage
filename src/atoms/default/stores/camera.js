@@ -23,7 +23,7 @@ const views = {
     bearing: BEARING,
     // minZoom: 0,
     // maxZoom: 10
-    zoom: 11,
+    zoom: 10.2,
     center: [34.4, 31.4]
   },
   gazaNorth: {

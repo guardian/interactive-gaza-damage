@@ -122,14 +122,14 @@ export function _scrollyConfigForStep(step) {
         highlighted: [31],
         maxZoom: [16],
         video: {
-          src: "https://uploads.guim.co.uk/2023/12/22/beit-hanoun-walkthrough_SITE.mp4",
+          src: "https://uploads.guim.co.uk/2024/01/25/BeitHanoun_1.mp4",
           posterImage:
             "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_19_03.Still005.jpg",
           orientation: "landscape",
         },
         mobile: {
           video: {
-            src: "https://uploads.guim.co.uk/2023/12/22/beit-hanoun-walkthroughMOBILE_1.mp4",
+            src: "https://uploads.guim.co.uk/2024/01/25/beitHanounVERT_2.mp4",
             posterImage: "https://uploads.guim.co.uk/2024/01/09/beitHanounVERT.00_00_29_04.Still003.jpg",
             orientation: "portrait",
           }
