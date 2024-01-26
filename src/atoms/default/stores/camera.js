@@ -16,6 +16,16 @@ const PADDING = 150;
 const PADDING_MOBILE = 10;
 
 const views = {
+  gazaStrip: {
+    bounds: [[33.965178, 31.700193], [34.800138, 31.102398]],
+    // bounds: [[34.182388, 31.615550], [34.590256, 31.184192]],
+    padding: 0,
+    bearing: BEARING,
+    // minZoom: 0,
+    // maxZoom: 10
+    zoom: 11,
+    center: [34.4, 31.4]
+  },
   gazaNorth: {
     bounds: [[34.44335174167617,31.556791157130164],[34.581539765863226,31.541116822731496]],
     bearing: BEARING,
@@ -61,7 +71,6 @@ export const annotationFeaturesForStep = derived([annotationFeatures], ([$annota
         } if (step >= 28) {
             return $annotationFeatures.khanYounis
         }
-
         throw "Undefined region"
     }
 })
@@ -104,8 +113,11 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, isM
                 return transformCameraIfNeeded($map, views.alZahraRegion2, config);
             case 29:
             case 42:
+                return transformCameraIfNeeded($map, views.khanYounis, config);
             case 43:
-                return transformCameraIfNeeded($map, views.khanYounisRegion, config);
+                return transformCameraIfNeeded($map, views.gazaStrip, config);
+            case 44:
+                return transformCameraIfNeeded($map, views.gazaStrip, config);
             case 30:
             case 31:
                 return transformCameraIfNeeded($map, views.khanYounis, config);

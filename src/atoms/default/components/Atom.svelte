@@ -159,6 +159,13 @@
         </ScrollyForeground>
         <ScrollyForeground>
         </ScrollyForeground>
+        <ScrollyForeground>
+          <ScrollyBox>
+            <p>The Guardian has documented the destruction of hundreds of examples of civilian infrastructure critical to the lives of future returnees in the three areas of Gaza it analysed. These are not comprehensive analyses of the entire Gaza Strip, where more damage exists.</p>
+          </ScrollyBox>
+        </ScrollyForeground>
+        <ScrollyForeground>
+        </ScrollyForeground>
       </div>
     </Scroller>
     {/if}
