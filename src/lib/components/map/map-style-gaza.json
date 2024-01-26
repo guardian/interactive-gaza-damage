@@ -8,7 +8,7 @@
   "sources": {
     "satellite-med-wide": {
       "type": "raster",
-      "minzoom": 0,
+      "minzoom": 9,
       "maxzoom": 12,
       "tileSize": 256,
       "tiles": [
@@ -17,7 +17,7 @@
     },
     "satellite-med-res": {
       "type": "raster",
-      "minzoom": 13,
+      "minzoom": 9,
       "maxzoom": 15,
       "tileSize": 256,
       "tiles": [
@@ -26,6 +26,7 @@
     },
     "satellite-after-high-res-png": {
       "type": "raster",
+      "minzoom": 13,
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
@@ -34,6 +35,7 @@
     },
     "satellite-after-high-res-jpg": {
       "type": "raster",
+      "minzoom": 13,
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
@@ -42,6 +44,7 @@
     },
     "satellite-before": {
       "type": "raster",
+      "minzoom": 13,
       "maxzoom": 17,
       "tileSize": 256,
       "tiles": [
@@ -64,21 +67,20 @@
       "id": "med-wide-tiles",
       "type": "raster",
       "source": "satellite-med-wide",
-      "minzoom": 0,
-      "maxzoom": 12
+      "minzoom": 9,
+      "maxzoom": 12.5
     },
     {
       "id": "med-res-tiles",
       "type": "raster",
       "source": "satellite-med-res",
-      "minzoom": 9,
-      "maxzoom": 15
+      "minzoom": 11.5
     },
     {
       "id": "satellite-before-tiles",
       "type": "raster",
       "source": "satellite-before",
-      "minzoom": 9,
+      "minzoom": 13,
       "maxzoom": 17,
       "paint": {
         "raster-opacity": 0,
@@ -111,6 +113,34 @@
         ],
         "fill-outline-color": "#880105",
         "fill-opacity-transition": {
+          "duration": 300
+        }
+      }
+    },
+    {
+      "id": "damage-line",
+      "type": "line",
+      "source": "vector",
+      "source-layer": "gazadamage",
+      "minzoom": 0,
+      "maxzoom": 18,
+      "paint": {
+        "line-color": "#880105",
+        "line-width": 1,
+        "line-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          14,
+          0.4,
+          14.25,
+          0
+        ],
+        "line-opacity-transition": {
           "duration": 300
         }
       }
