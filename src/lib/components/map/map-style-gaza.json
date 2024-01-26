@@ -6,8 +6,18 @@
   "bearing": 40,
   "pitch": 0,
   "sources": {
+    "satellite-med-wide": {
+      "type": "raster",
+      "minzoom": 0,
+      "maxzoom": 12,
+      "tileSize": 256,
+      "tiles": [
+        "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-med-wide-low/{z}/{x}/{y}.jpg"
+      ]
+    },
     "satellite-med-res": {
       "type": "raster",
+      "minzoom": 13,
       "maxzoom": 15,
       "tileSize": 256,
       "tiles": [
@@ -50,6 +60,13 @@
   "sprite": "",
   "glyphs": "https://interactive.guim.co.uk/maptiles/fonts/{fontstack}/{range}.pbf",
   "layers": [
+    {
+      "id": "med-wide-tiles",
+      "type": "raster",
+      "source": "satellite-med-wide",
+      "minzoom": 0,
+      "maxzoom": 12
+    },
     {
       "id": "med-res-tiles",
       "type": "raster",

@@ -385,19 +385,23 @@ export function _scrollyConfigForStep(step) {
       };
     case 41:
       return {
-        area: 'khan-younis',
+        // area: 'khan-younis',
         annotationsInFocus: [13,53],
         maxZoom: 16,
       };
     case 42:
       return {
-        area: 'khan-younis',
-        annotationsInFocus: [13,53],
-        maxZoom: 12.5,
+        maxZoom: 11,
         showDamageKey: true
       };
     case 43:
       return {
+        maxZoom: 11,
+        showDamageKey: true
+      };
+    case 44:
+      return {
+        maxZoom: 11,
         showDamageKey: true
       };
     default:

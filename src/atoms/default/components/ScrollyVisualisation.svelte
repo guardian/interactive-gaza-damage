@@ -18,7 +18,7 @@
     let cameraPosition;
 
     function updateCameraPosition(getCameraForStep, step, offset) {
-        if (step >= 42) return;
+        if (step >= 43) return;
 
         const start = getCameraForStep(step);
         if (cameraPosition === undefined) {
