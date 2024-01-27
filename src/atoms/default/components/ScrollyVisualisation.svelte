@@ -52,6 +52,7 @@
 
     let isShowingBefore;
     $: showBeforeOnHover = (scrollyConfig.annotationsInFocus instanceof Array) && scrollyConfig.area;
+    $: showImageDate = scrollyConfigForNextStep.inset && scrollyConfigForNextStep.area;
 
     onDestroy(() => {
         map.set(null)
@@ -83,18 +84,23 @@
         </div>
     {/if}
     {#if scrollyConfigForNextStep.showDamageKey}
-        <div class="map-overlay top-inset" out:fade>
+        <div class="map-overlay" out:fade>
             <DamageKey />
         </div>
     {/if}
-    {#if showBeforeOnHover && !scrollyConfig.video}
-        <div class="map-overlay top-inset">
-            <BeforeAfterHint {isShowingBefore} area={scrollyConfig.area} />
+    {#if (showBeforeOnHover || showImageDate) && !scrollyConfig.video}
+    {@const area = showImageDate ? scrollyConfigForNextStep.area : scrollyConfig.area }
+        <div class="map-overlay">
+            <BeforeAfterHint 
+                isShowingInset={scrollyConfigForNextStep.inset} 
+                {isShowingBefore} 
+                {area}
+                />
         </div>
     {/if}
     {#if scrollyConfig.video && scrollyConfig.video.src}
         <div class="map-cover" transition:fade={{delay: 0}}></div>
-        <div class="media-layer top-inset" transition:fade={{delay: 0}}>
+        <div class="media-layer" transition:fade={{delay: 0}}>
             <VideoOverlay video={scrollyConfig.video} />
         </div>
     {/if}
@@ -136,11 +142,10 @@
    .map-overlay {
         position: absolute;
         width: 100%;
-        height: 100%;
-        z-index: 11;
+        z-index: 10;
         top: 20px;
         left: 0;
-        bottom: 0;
+        bottom: 20px;
    }
 
    .map-cover {

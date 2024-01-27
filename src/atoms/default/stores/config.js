@@ -31,6 +31,7 @@ export function _scrollyConfigForStep(step) {
       }
     case 4:
       return {
+        area: 'beit-hanoun',
         inset: {
           id: "beit-hanoun",
         },
@@ -154,6 +155,7 @@ export function _scrollyConfigForStep(step) {
       };
     case 18:     
       return {
+        area: 'al-zahra',
         inset: {
           id: "al-zahra",
         },
@@ -265,6 +267,7 @@ export function _scrollyConfigForStep(step) {
       };
     case 31:     
       return {
+        area: 'khan-younis',
         inset: {
           id: "khan-younis",
         },

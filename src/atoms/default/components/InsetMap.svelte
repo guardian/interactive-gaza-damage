@@ -257,11 +257,13 @@
   .inset-map {
     width: 124px;
     position: absolute;
-    top: var(--top-inset);
     right: 0;
+	bottom: 0;
 	margin-top: -5px;
 
-	@include mq($from: mobileLandscape) {
+	@include mq($from: tablet) {
+		top: 0px;
+		bottom: auto;
 		width: 154px;
 		margin-right: 20px;
 	}

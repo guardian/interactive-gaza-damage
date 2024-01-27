@@ -2,17 +2,24 @@
   import TextColumn from "$lib/components/TextColumn.svelte";
 </script>
 
-<TextColumn>
+<!-- <TextColumn> -->
   <div class="damage-key">
     <div class="damage-sq"></div>
-    <div class="damage-text">Damage since 7 October 2023</div>
+    <div class="damage-text">Damaged buildings since 7 October 2023</div>
   </div>
-</TextColumn>
+<!-- </TextColumn> -->
 
 <style lang="scss">
   .damage-key {
+    position: absolute;
+    bottom: 0px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    margin-left: 20px;
+
+    @include mq($from: tablet) {
+      top: 0px;
+    }
   }
 
   .damage-text {
@@ -23,9 +30,13 @@
       0px 0px 4px rgba(0, 0, 0, 0.8),
       0px 0px 14px rgba(0, 0, 0, 0.7),
       0px 0px 20px rgba(0, 0, 0, 0.8);
+    max-width: 140px;
+    margin-top: -3px;
 
-    @include mq($from: mobileLandscape) {
+    @include mq($from: tablet) {
       font-size: 15px;
+      max-width: 620px;
+      margin-top: 0;
     }
   }
 
