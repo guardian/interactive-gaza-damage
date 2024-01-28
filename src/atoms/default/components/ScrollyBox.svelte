@@ -22,6 +22,10 @@
         border-top: 4px solid #121212;
 
         @include mq($from: tablet) {
+            margin: 0;
+        }
+
+        @include mq($from: leftCol) {
             margin: 0 -20px 0 -20px;
         }
     }

@@ -30,11 +30,11 @@
       padding: 0 10px;
     }
 
-    @include mq($from: mobileLandscape, $until: tablet) {
+    @include mq($from: mobileLandscape, $until: desktop) {
       padding: 0 20px;
     }
 
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
       padding: 0 1px;
     }
   }

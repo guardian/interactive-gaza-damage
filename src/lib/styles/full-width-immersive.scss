@@ -11,7 +11,7 @@ div#maincontent:focus {
     margin-right: calc(-50vw + var(--half-scrollbar-width)) !important;
 
     @include mq($from: desktop) {
-        margin-left: calc(-50vw + 160px + var(--half-scrollbar-width)) !important;
+        margin-left: calc(-50vw + 180px + var(--half-scrollbar-width)) !important;
     }
 
     @include mq($from: leftCol) {
