@@ -45,7 +45,7 @@
         position: relative;
         flex-basis: 100%;
         margin: 10px;
-        max-width: 100%;
+        max-width: 1024px;
 
         @include mq($from: tablet) {
             flex-basis: 80%;
