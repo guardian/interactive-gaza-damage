@@ -174,7 +174,6 @@
 <style lang="scss">
   .atom {
     border-top: 12px solid #121212;
-    border-bottom: 12px solid #121212;
     overflow: hidden;
     background-color: #FFF;
     pointer-events: none;
