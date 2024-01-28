@@ -9,7 +9,7 @@
     import DamageKey from "./DamageKey.svelte";
     import BeforeAfterHint from "./BeforeAfterHint.svelte";
     import { onDestroy } from "svelte";
-  import RasterLayer from "$lib/components/map/map-layers/RasterLayer.svelte";
+    import RasterLayer from "$lib/components/map/map-layers/RasterLayer.svelte";
 
     export let step = 0;
     export let offset = 0;
@@ -48,6 +48,7 @@
     $: scrollyConfig = $scrollyConfigForStep(step)
     $: scrollyConfigForNextStep = offset > 0.4 ? $scrollyConfigForStep(step+1) : scrollyConfig;
     $: blurAmount = scrollyConfig.video ? 5 : 0;
+    $: $map && $map.showAnnotations(scrollyConfigForNextStep.hideAnnotations !== true)
     $: $map && $map.updateHighlightedAnnotations(scrollyConfigForNextStep.highlighted)
 
     let isShowingBefore;
@@ -65,7 +66,6 @@
             bind:this={$map} 
             bind:isReady={$mapReady} 
             bind:isShowingBefore
-            {step} 
             {cameraPosition} 
             interactive={false}
             {showBeforeOnHover}

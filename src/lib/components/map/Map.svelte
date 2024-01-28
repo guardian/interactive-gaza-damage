@@ -20,6 +20,7 @@
     let map, mapContainer, mapContainerWidth, mapContainerHeight;
     let layersToAdd = [];
     let layers = [];
+    const layerVisibility = {};
 
     export function project(coordinates) {
 		return map.project(coordinates);
@@ -29,25 +30,19 @@
         map.on('move', callback);
     }
 
-    export let step = 0;
-    const layerVisibility = {};
-
-    function updateLayerVisibility(step) {
+    export function showAnnotations(show) {
         if (!isReady) return;
         const orderedLayerIds = map.getLayersOrder();
         for (const layerID of orderedLayerIds) {
-            const layer = map.getLayer(layerID);
-            const metadata = layer.metadata;
-            if (metadata && "interactive:steps" in metadata) {
-                const visibleSteps = metadata["interactive:steps"]
+            if (layerID.startsWith("annotation")) {
+                const layer = map.getLayer(layerID);
                 if (layer.type === "line") {
-                    const opacity = visibleSteps.includes(step) ? 1 : 0;
+                    const opacity = show ? 1 : 0;
                     setPaintProperty(layerID, "line-opacity", opacity);
                 }
             }
         }
     }
-    $: isReady && updateLayerVisibility(step)
 
    export let isReady = false;
 
@@ -170,7 +165,6 @@
         // STUFF FOR DEBUGGING
         // map.on('zoomend', () => {
         //     console.log('zoom level: ', map.getZoom())
-        //     // console.log('map bounds', map.getBounds())
         // })
 
         // map.on('mouseup', (e) => {
@@ -180,6 +174,7 @@
 
     onDestroy(() => {
         if (map) map.remove();
+        map = null;
         isReady = false;
     });
 

@@ -22,12 +22,14 @@ export function _scrollyConfigForStep(step) {
         inset: {
           id: "northern-gaza",
         },
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       }
     case 3:
       return {
         annotationsInFocus: 'all',
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       }
     case 4:
       return {
@@ -36,6 +38,7 @@ export function _scrollyConfigForStep(step) {
           id: "beit-hanoun",
         },
         annotationsInFocus: 'all',
+        hideAnnotations: true,
         showDamageKey: true
       }
     case 5:
@@ -59,7 +62,7 @@ export function _scrollyConfigForStep(step) {
         area: 'beit-hanoun',
         annotationsInFocus: [6],
         highlighted: [6],
-        maxZoom: [16],
+        maxZoom: 16,
         video: {
           src: "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.mp4",
           posterImage:
@@ -80,7 +83,7 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [6],
-        maxZoom: [16],
+        maxZoom: 16,
         mobile: {
           annotationsInFocus: [6, 8],
         }
@@ -89,7 +92,7 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [9, 33, 34, 10, 11, 14, 15, 27],
-        maxZoom: [16],
+        maxZoom: 16,
         mobile: {
           annotationsInFocus: [9, 33, 34, 10, 11, 15, 27],
         }
@@ -98,7 +101,7 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [13],
-        maxZoom: [16],
+        maxZoom: 16,
         mobile: {
           annotationsInFocus: [13,14],
         }
@@ -107,20 +110,20 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [17, 18],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 12:
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [19, 20, 21, 22],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 13:
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [31],
         highlighted: [31],
-        maxZoom: [16],
+        maxZoom: 16,
         video: {
           src: "https://uploads.guim.co.uk/2024/01/25/BeitHanoun_1.mp4",
           posterImage:
@@ -139,18 +142,21 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'beit-hanoun',
         annotationsInFocus: [31],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 15:
       return {
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       };
     case 16:
       return {
+        hideAnnotations: true,
         showDamageKey: true
       };
     case 17:
       return {
+        hideAnnotations: true,
         showDamageKey: true
       };
     case 18:     
@@ -159,7 +165,8 @@ export function _scrollyConfigForStep(step) {
         inset: {
           id: "al-zahra",
         },
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       }
     case 19:
       return {
@@ -193,14 +200,14 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'al-zahra',
         annotationsInFocus: [10,11,12,20,24],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 23:
       return {
         area: 'al-zahra',
         annotationsInFocus: [13, 15],
         highlighted: [13],
-        maxZoom: [16],
+        maxZoom: 16,
         video: {
           src: "https://uploads.guim.co.uk/2024/01/16/TurkishFriendshipHospitalSITE.mp4",
           posterImage:
@@ -219,20 +226,20 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'al-zahra',
         annotationsInFocus: [13, 15],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 25:
       return {
         area: 'al-zahra',
         annotationsInFocus: [16,23,25],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 26:
       return {
         area: 'al-zahra',
         annotationsInFocus: [18,21],
         highlighted: [18],
-        maxZoom: [16],
+        maxZoom: 16,
         video: {
           src: "https://uploads.guim.co.uk/2024/01/17/Al_Zahra_site.mp4",
           posterImage:
@@ -251,19 +258,22 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'al-zahra',
         annotationsInFocus: [18,21],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 28:
       return {
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       };
     case 29:
       return {
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       };
     case 30:
       return {
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       };
     case 31:     
       return {
@@ -271,25 +281,26 @@ export function _scrollyConfigForStep(step) {
         inset: {
           id: "khan-younis",
         },
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       }
     case 32:
       return {
         area: 'khan-younis',
         annotationsInFocus: [1,3,4,36],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 33:
       return {
         area: 'khan-younis',
         annotationsInFocus: [23,24,33],
-        maxZoom: [16],
+        maxZoom: 16,
       };
     case 34:
       return {
         area: 'khan-younis',
         annotationsInFocus: [25,26,30],
-        maxZoom: [16],
+        maxZoom: 16,
         mobile: {
           annotationsInFocus: [25,26],
         }
@@ -298,7 +309,7 @@ export function _scrollyConfigForStep(step) {
       return {
         area: 'khan-younis',
         annotationsInFocus: [21,22,29,31,41,42],
-        maxZoom: [16],
+        maxZoom: 16,
         mobile: {
           annotationsInFocus: [29,42,30],
           minZoom: 16,
@@ -385,25 +396,33 @@ export function _scrollyConfigForStep(step) {
       };
     case 41:
       return {
-        // area: 'khan-younis',
+        area: 'khan-younis',
         annotationsInFocus: [13,53],
         maxZoom: 16,
       };
     case 42:
       return {
         maxZoom: 11,
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       };
     case 43:
       return {
         maxZoom: 11,
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       };
     case 44:
       return {
         maxZoom: 11,
-        showDamageKey: true
+        showDamageKey: true,
+        hideAnnotations: true,
       };
+    case 45:
+      return {
+        showDamageKey: true,
+        hideAnnotations: true,
+      }
     default:
       return {
       }

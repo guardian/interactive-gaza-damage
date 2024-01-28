@@ -150,9 +150,6 @@
       "type": "line",
       "source": "vector",
       "source-layer": "beithanoun",
-      "metadata": {
-        "interactive:steps": [4,5,6,7,8,9,10,11,12,13]
-      },
       "layout": {
         "line-join": "round"
       },
@@ -180,9 +177,6 @@
       "type": "line",
       "source": "vector",
       "source-layer": "beithanoun",
-      "metadata": {
-        "interactive:steps": [4,5,6,7,8,9,10,11,12,13]
-      },
       "layout": {
         "line-join": "round"
       },
@@ -209,9 +203,6 @@
       "type": "fill",
       "source": "vector",
       "source-layer": "beithanoun",
-      "metadata": {
-        "interactive:steps": [4,5,6,7,8,9,10]
-      },
       "minzoom": 10,
       "paint": {
         "fill-color": "#FFE500",
@@ -228,9 +219,6 @@
       "type": "line",
       "source": "vector",
       "source-layer": "alzahra",
-      "metadata": {
-        "interactive:steps": [18,19,20,21,22,23,24,25,26,27]
-      },
       "layout": {
         "line-join": "round"
       },
@@ -258,9 +246,6 @@
       "type": "line",
       "source": "vector",
       "source-layer": "alzahra",
-      "metadata": {
-        "interactive:steps": [18,19,20,21,22,23,24,25,26,27]
-      },
       "layout": {
         "line-join": "round"
       },
@@ -287,9 +272,6 @@
       "type": "fill",
       "source": "vector",
       "source-layer": "alzahra",
-      "metadata": {
-        "interactive:steps": [17,18,19,20,21,22,23,24,25,26,27]
-      },
       "minzoom": 14,
       "paint": {
         "fill-color": "#FFE500",
@@ -306,9 +288,6 @@
       "type": "line",
       "source": "vector",
       "source-layer": "khanyounis",
-      "metadata": {
-        "interactive:steps": [31,32,33,34,35,36,37,38,39,40,41]
-      },
       "layout": {
         "line-join": "round"
       },
@@ -336,9 +315,6 @@
       "type": "line",
       "source": "vector",
       "source-layer": "khanyounis",
-      "metadata": {
-        "interactive:steps": [31,32,33,34,35,36,37,38,39,40,41]
-      },
       "layout": {
         "line-join": "round"
       },
@@ -365,9 +341,6 @@
       "type": "fill",
       "source": "vector",
       "source-layer": "khanyounis",
-      "metadata": {
-        "interactive:steps": [31,32,33,34,35,36,37,38,39,40,41]
-      },
       "minzoom": 14,
       "paint": {
         "fill-color": "#FFE500",
