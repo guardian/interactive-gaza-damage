@@ -154,7 +154,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video showed the moment Khaled bin al-Walid mosque was destroyed on 8 November and the aftermath of the strike on 9 November.</p>
+            <p>A video from 9 November showed the aftermath of a strike on the Khaled bin al-Walid mosque.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>

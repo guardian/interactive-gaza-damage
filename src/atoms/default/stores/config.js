@@ -66,7 +66,7 @@ export function _scrollyConfigForStep(step) {
         video: {
           src: "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.mp4",
           posterImage:
-            "https://uploads.guim.co.uk/2024/01/09/BeitHanoun.00_00_00_00.Still003.jpg",
+            "https://uploads.guim.co.uk/2024/01/25/BeitHanoun.00_00_00_00.Still011.jpg",
           orientation: "landscape",
         },
         mobile: {
@@ -249,7 +249,7 @@ export function _scrollyConfigForStep(step) {
         mobile: {
           video: {
             src: "https://uploads.guim.co.uk/2024/01/10/Al_Zahra_BODY_mobile.mp4",
-            posterImage: "https://uploads.guim.co.uk/2024/01/10/al_zahra_mobile_body_still.jpg",
+            posterImage: "https://uploads.guim.co.uk/2024/01/25/Al_Zahra_mobile.00_00_14_17.Still004.jpg",
             orientation: "portrait",
           }
         }
@@ -353,7 +353,7 @@ export function _scrollyConfigForStep(step) {
         video: {
           src: "https://uploads.guim.co.uk/2024/01/19/KhanYounis-StreetWalkthrough_2.mp4",
           posterImage:
-            "https://uploads.guim.co.uk/2024/01/15/KhanYounis-StreetWalkthrough.00_00_00_00.Still003.png",
+            "https://uploads.guim.co.uk/2024/01/25/KhanYounis-StreetWalkthrough.00_00_00_00.Still006.jpg",
           orientation: "landscape",
         },
         mobile: {
@@ -381,15 +381,15 @@ export function _scrollyConfigForStep(step) {
         highlighted: [53],
         maxZoom: 16,
         video: {
-          src: "https://uploads.guim.co.uk/2024/01/19/KhanYounisMosque_1.mp4",
+          src: "https://uploads.guim.co.uk/2024/01/25/KhanYounisMosque_2.mp4",
           posterImage:
-            "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosque.00_00_00_00.Still001.jpg",
+            "https://uploads.guim.co.uk/2024/01/25/KhanYounisMosque.00_00_00_00.Still003.jpg",
           orientation: "landscape",
         },
         mobile: {
           video: {
-            src: "https://uploads.guim.co.uk/2024/01/19/KhanYounisMosqueVertical_1.mp4",
-            posterImage: "https://uploads.guim.co.uk/2024/01/16/KhanYounisMosqueVertical.00_00_00_00.Still001.jpg",
+            src: "https://uploads.guim.co.uk/2024/01/25/KhanYounisMosqueVertical_2.mp4",
+            posterImage: "https://uploads.guim.co.uk/2024/01/25/KhanYounisMosqueVertical.00_00_00_00.Still002.jpg",
             orientation: "portrait",
           }
         }

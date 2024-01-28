@@ -21,8 +21,8 @@
                         id="3009e261d808a12445a0fb2d46c2a1547305aa60" 
                         crop={"0_224_3376_2026"}
                         name="2000.jpg" 
-                        altText="Screengrabs from from a video circulating on social media show the moment Israa University in al Zahra was partially demolished by the Israeli army"
-                        caption="Screengrabs from from a video circulating on social media show the moment Israa University in al Zahra was partially demolished by the Israeli army"
+                        altText="Palestinians cook among the houses destroyed in Israeli strikes, at Khan Younis refugee camp, on 29 November 2023. Reuters/Mohammed Salem"
+                        caption="Palestinians cook among the houses destroyed in Israeli strikes, at Khan Younis refugee camp, on 29 November 2023. Reuters/Mohammed Salem"
                         />
                 </AspectRatioBox>
             </div>
