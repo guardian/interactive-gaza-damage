@@ -74,7 +74,7 @@
       "id": "med-res-tiles",
       "type": "raster",
       "source": "satellite-med-res",
-      "minzoom": 11.5
+      "minzoom": 11
     },
     {
       "id": "satellite-before-tiles",

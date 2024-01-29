@@ -294,7 +294,7 @@
         const currentZoomScale = Math.pow(2, map.getZoom())
         const newZoomScale = currentZoomScale * Math.min(scaleX, scaleY)
         const newZoom = Math.log(newZoomScale) / Math.LN2
-        const zoom = Math.max(Math.min(newZoom, options.maxZoom), 13)
+        const zoom = Math.max(Math.min(newZoom, options.maxZoom), options.minZoom)
         const actualZoomScale = Math.pow(2, zoom)
 
         const paddingOffsetX = (options.padding.left - options.padding.right) / 2;
