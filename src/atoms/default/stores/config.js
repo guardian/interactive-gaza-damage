@@ -312,8 +312,8 @@ export function _scrollyConfigForStep(step) {
         maxZoom: 16,
         mobile: {
           annotationsInFocus: [29,42,30],
-          minZoom: 16,
-          maxZoom: 17,
+          minZoom: 15.5,
+          maxZoom: 16,
         }
       };
     case 36:
@@ -326,8 +326,8 @@ export function _scrollyConfigForStep(step) {
         mobile: {
           annotationsInFocus: [31,41,22,21,19,20,18,50],
           padding: 0,
-          minZoom: 16,
-          minZoom: 17,
+          minZoom: 15.5,
+          maxZoom: 16,
         }
       };
     case 37:
@@ -338,9 +338,9 @@ export function _scrollyConfigForStep(step) {
         maxZoom: 16,
         padding: 50,
         mobile: {
-          annotationsInFocus: [16,17,39],
+          annotationsInFocus: [16,17,18,39],
           padding: 0,
-          minZoom: 16,
+          minZoom: 15.5,
           maxZoom: 16,
         }
       };

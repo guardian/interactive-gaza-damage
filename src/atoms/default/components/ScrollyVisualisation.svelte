@@ -39,6 +39,18 @@
     // uncomment for scroll animations
     $: $mapReady && updateCameraPosition($getCameraForStep, step, offset)
 
+    // function debugCameraPosition(getCameraForStep, step) {
+    //     console.log('step', step);
+
+    //     const start = getCameraForStep(step);
+    //     const end = getCameraForStep(step + 1);
+
+    //     console.log(`animating from ${step}`, start);
+    //     console.log(`to camera ${step+1}`, end);
+    // }
+    // $: $mapReady && debugCameraPosition($getCameraForStep, step)
+
+
     // uncomment for smooth animations
     // $: cameraPosition = $mapReady && {
     //     ...$getCameraForStep(step),
