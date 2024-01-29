@@ -6,16 +6,11 @@ import { extend } from '$lib/helpers/util';
 export const annotationFeatures = writable(null);
 
 export async function fetchAnnotationFeatures() {
-  const fetchBeitHanoun = fetchJSON("__assetsPath__/geojson/beit-hanoun-annotations-simplified.geojson")
-  const fetchAlZahra = await fetchJSON("__assetsPath__/geojson/al-zahra-annotations-simplified.geojson")
-  const fetchKhanYounis = await fetchJSON("__assetsPath__/geojson/khan-younis-annotations-simplified.geojson")
-
-  Promise.all([fetchBeitHanoun, fetchAlZahra, fetchKhanYounis]).then(([beitHanoun, alZahra, khanYounis]) => {
-      annotationFeatures.set({
-        beitHanoun: beitHanoun.features,
-        alZahra: alZahra.features,
-        khanYounis: khanYounis.features,
-      });
+  const geoJson = await fetchJSON("__assetsPath__/geojson/annotations.geojson")
+  annotationFeatures.set({
+    beitHanoun: geoJson.features.filter(f => f.properties.area === "beit-hanoun"),
+    alZahra: geoJson.features.filter(f => f.properties.area === "al-zahra"),
+    khanYounis: geoJson.features.filter(f => f.properties.area === "khan-younis"),
   });
 }
 
