@@ -34,7 +34,11 @@
     margin-top: -3px;
 
     @include mq($from: tablet) {
+      max-width: 180px;
       font-size: 15px;
+    }
+
+    @include mq($from: desktop) {
       max-width: 620px;
       margin-top: 0;
     }
