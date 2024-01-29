@@ -133,6 +133,9 @@
             pitch,
             minZoom: 3,
             maxZoom: 22,
+            maxTileCacheSize: 1500,
+            maxTileCacheZoomLevels: 10,
+            refreshExpiredTiles: false,
             ...mapPosition,
         });
 
