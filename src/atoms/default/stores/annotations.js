@@ -252,7 +252,7 @@ const beitHanoun = [
     visibleForSteps: [5, 6],
     location: [34.53641, 31.54063],
     config: {
-      text: "Bulldozed cemetery",
+      text: "Flattened cemetery",
       textWidth: 70,
       lineDirection: "down",
       textPosition: "center",

@@ -71,7 +71,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video released on 12 December  — after this satellite image was taken — showed Israeli forces blowing up a school building run by the UNRWA (United Nations Relief and Works Agency for Palestine Refugees). Israel said the building was a Hamas outpost.</p>
+            <p>A video released on 12 December  — after this satellite image was taken — showed Israeli forces blowing up a school building run by the UNRWA (United Nations Relief and Works Agency for Palestine Refugees). Israel said the building was a Hamas outpost. UNRWA has recently fired members of staff and has launched an investigation into staff suspected of a role in the 7 October attack.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>

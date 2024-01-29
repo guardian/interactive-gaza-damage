@@ -74,7 +74,7 @@ export function _scrollyConfigForStep(step) {
           video: {
             src: "https://uploads.guim.co.uk/2024/01/09/beitHanounVERT.mp4",
             posterImage:
-              "https://uploads.guim.co.uk/2024/01/09/beitHanounVERT.jpg",
+              "https://uploads.guim.co.uk/2024/01/29/beitHanounVERT.00_00_00_00.Still004.jpg",
             orientation: 'portrait',
           },
         },
