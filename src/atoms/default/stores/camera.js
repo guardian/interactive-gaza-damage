@@ -86,6 +86,8 @@ export const getCameraForStep = derived([map, mapReady, mapWidth, mapHeight, isM
                 bounds,
                 bearing: BEARING,
                 padding: config.padding || defaultPadding,
+                minZoom: config.minZoom || 9,
+                maxZoom: config.maxZoom || 15,
             }
             return transformCameraIfNeeded($map, cameraForAnnotations, config);
         }
@@ -132,8 +134,8 @@ function transformCameraIfNeeded(map, camera, config) {
         camera.bounds, {
             bearing: camera.bearing,
             padding: camera.padding || 0,
-            minZoom: config.minZoom || 9,
-            maxZoom: config.maxZoom || 15,
+            minZoom: camera.minZoom || 9,
+            maxZoom: camera.maxZoom || 15,
         })
 
     if (!derivedCamera) {
