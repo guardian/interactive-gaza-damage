@@ -135,7 +135,7 @@
             maxZoom: 22,
             maxTileCacheSize: 1500,
             maxTileCacheZoomLevels: 10,
-            refreshExpiredTiles: false,
+            // refreshExpiredTiles: false,
             ...mapPosition,
         });
 

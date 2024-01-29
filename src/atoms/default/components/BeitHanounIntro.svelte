@@ -11,7 +11,7 @@
         <div class="border border-body"></div>
         <div class="body">
             <p>Beit Hanoun, a city in north-east Gaza surrounded by agricultural land, was home to about 50,000 people in 2017. The Israel Defense Forces announced full control of the area in December. The area was depopulated and several neighbourhoods reduced to rubble.</p>
-            <p>Swathes of agricultural land have been erased, visible in satellite imagery from Planet Labs taken on 30 November. Most of the agricultural greenhouses have been destroyed and new paths from armoured vehicles are now strewn across the growing area. An analysis by UNOSAT in December found that 39% of agricultural land in north Gaza had been damaged.</p>
+            <p>Swathes of agricultural land have been erased, visible in satellite imagery from Planet Labs taken on 30 November. Most of the agricultural greenhouses have been destroyed and new paths from armoured vehicles are now strewn across the growing area. An <a href="https://unosat.org/products/3772">analysis by UNOSAT</a> in December found that 39% of agricultural land in north Gaza had been damaged.</p>
             <p>An entire residential neighbourhood of more than 150 buildings has been flattened. Also destroyed were schools, including one run by the UN that was blown up by Israeli forces in mid-December.</p>
             <p>The Beit Hanoun hospital has been severely damaged, and the Balsam hospital destroyed. Under international humanitarian law, schools and hospitals are protected civilian objects, and the principles of distinction and proportionality apply when targeting them.</p>
             <div class="image">
