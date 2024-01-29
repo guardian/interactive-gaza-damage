@@ -5,7 +5,7 @@
   let video;
  
   $: poster = $isMobile ? "https://uploads.guim.co.uk/2024/01/10/Al_Zahra-short-mobile.jpg" : "https://uploads.guim.co.uk/2024/01/10/Al_Zahra_site.00_00_01_24.Still001.jpg";
-  $: src = $isMobile ? "https://uploads.guim.co.uk/2024/01/10/alZahraShortMobile.mp4" : "https://uploads.guim.co.uk/2024/01/10/Al_Zahra-short.mp4";
+  $: src = $isMobile ? "https://gdn-cdn.s3.amazonaws.com/2023/12/gaza-banner-videos/alZahraShortMobile.mp4" : "https://gdn-cdn.s3.amazonaws.com/2023/12/gaza-banner-videos/Al_Zahra-short6mb.mp4";
 
   onMount(() => {
     let observer = new IntersectionObserver((entries) => {
