@@ -142,6 +142,25 @@
         map.on("style.load", () => {
             isReady = true;
 
+            const aspectRatio = window.innerWidth / window.innerHeight;
+            
+            if (aspectRatio < 1 && window.innerWidth <= 480) {
+                const layer = map.getLayer('med-res-tiles')
+                map.removeLayer('med-res-tiles')
+                map.removeSource('satellite-med-res');
+                map.addSource('satellite-med-res', {
+                "type": "raster",
+                "minzoom": 9,
+                "maxzoom": 15,
+                "tileSize": 256,
+                "tiles": [
+                    "https://interactive.guim.co.uk/maptiles/2023/12/gaza/satellite-med-res-test/{z}/{x}/{y}.jpg"
+                    ]
+                });
+                map.addLayer(layer);
+                map.setStyle(map.getStyle());
+            }
+
             if (cameraPosition) {
                 moveTo({
                     ...cameraPosition,
