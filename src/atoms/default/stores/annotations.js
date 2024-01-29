@@ -414,7 +414,7 @@ const beitHanoun = [
     visibleForSteps: [6],
     location: [34.51907, 31.54814],
     config: {
-      text: "Destroyed Balsam Hospital",
+      text: "Destroyed Balsam hospital",
       textWidth: 130,
       lineDirection: "left",
       textPosition: "end",
@@ -706,7 +706,7 @@ const alZahra = [
     id: 16,
     location: [34.40367, 31.47673],
     config: {
-      text: "Craters around Palestine university",
+      text: "Craters around Palestine University",
       textWidth: 160,
       lineDirection: "left",
     },
@@ -720,7 +720,7 @@ const alZahra = [
     id: 23,
     location: [34.40822, 31.48216],
     config: {
-      text: "Israa university reportedly damaged, later destroyed",
+      text: "Israa University reportedly damaged, later destroyed",
       textWidth: 170,
       lineDirection: "left",
     },
@@ -1207,7 +1207,7 @@ const khanYounis = [
     id: 53,
     location: [34.28744, 31.34852],
     config: {
-      text: "Khaled bin Al-Walid Mosque",
+      text: "Khaled bin al-Walid Mosque",
       textWidth: 120,
       lineDirection: "down",
       lineLength: 16,

@@ -15,7 +15,7 @@
             <p>To the east, in the town of al-Mughraqa, a large crater is all that's left of one building, while a nearby school’s buildings have visible damage.</p>
             <p>Cratered roads surround the Turkish-Palestinian Friendship hospital. The hospital reported blast damage to two rooms and its oxygen and water supply.</p>
             <p>At the heart of al-Zahra sit three universities, mostly damaged and surrounded by craters.</p>
-            <p>Of them, Israa university was blown up by Israeli forces this month, after being used as a military base. After footage of the explosion prompted the Biden administration to ask the IDF for clarification, they announced a probe into its circumstances. This occurred after the satellite image was taken.</p>
+            <p>Of them, Israa University was blown up by Israeli forces this month, after being used as a military base. After footage of the explosion prompted the Biden administration to ask the IDF for clarification, they announced a probe into its circumstances. This occurred after the satellite image was taken.</p>
             <div class="image">
                 <AspectRatioBox aspectRatio=0.6>
                     <GridImage 
@@ -28,7 +28,7 @@
                 </AspectRatioBox>
             </div>
             <p>The al-Zahra tower blocks, reportedly home to more than 3,000 people, were flattened by Israeli bombing.</p>
-            <p>“Gaza’s destruction is far worse in terms of the scale, ferocity and impact when compared to Ukraine, Syria or other conflicts,” said Balakrishnan Rajagopal, the UN special rapporteur on the right to adequate housing. Rajagopal called for domicide to be recognised as a crime under international law at the UN General Assembly in 2022.</p>
+            <p>“Gaza’s destruction is far worse in terms of the scale, ferocity and impact when compared to Ukraine, Syria or other conflicts,” said Balakrishnan Rajagopal, the UN special rapporteur on the right to adequate housing. Rajagopal called for domicide to be recognised as a crime under international law at the UN general assembly in 2022.</p>
             <p>Between 2013 and 2016, UN data shows that 40% of Aleppo’s structures were damaged during the Syrian civil war. As of 5 January, in less than three months of conflict, Rajagopal said that 60% of all structures have been damaged or destroyed in Gaza.</p>
             <p>Martin Coward, professor of international politics at Queen Mary University of London, said: “It is somewhat different [to Syria] – the IDF has been targeting the subsurface infrastructure that Hamas has set up in Gaza and to do that it has to go through the built environment of the surface. They have attempted to be precise in that targeting – although there has been a lot of collateral damage on civilian buildings.”</p>
             <p>Detailed satellite imagery from Planet, dated 31 December, reveals some of this damage. Hovering over particular areas of damage changes the view to satellite images from 20 and 30 May 2023.</p>

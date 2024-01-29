@@ -52,7 +52,7 @@
       <div slot="foreground">
         <ScrollyForeground>
           <ScrollyBox>
-            <p>As of 17 January, analysis of satellite data by Corey Scher of the City University of New York and Jamon van den Hoek of Oregon State University reveals that between 50% and 62% of all buildings in Gaza have likely been damaged or destroyed.</p>
+            <p>As of 17 January, analysis of satellite data by Corey Scher of the City University of New York and Jamon Van Den Hoek of Oregon State University reveals that between 50% and 62% of all buildings in Gaza have likely been damaged or destroyed.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
@@ -71,7 +71,7 @@
         </ScrollyForeground>
         <ScrollyForeground>
           <ScrollyBox>
-            <p>A video released on 12 December  — after this satellite image was taken — showed Israeli forces blowing up a school building run by the UNRWA (United Nations Relief and Works Agency for Palestine Refugees). Israel said the building was a Hamas outpost. UNRWA has recently fired members of staff and has launched an investigation into staff suspected of a role in the 7 October attack.</p>
+            <p>A video released on 12 December  — after this satellite image was taken — showed Israeli forces blowing up a school building run by the UNRWA (United Nations Relief and Works Agency for Palestine Refugees). Israel said the building was a Hamas outpost. UNRWA has recently fired members of staff and has launched an <a href="https://www.theguardian.com/world/2024/jan/26/unrwa-investigation-staff-7-october-attack-israel">investigation</a> into staff suspected of having had a role in the 7 October attack.</p>
           </ScrollyBox>
         </ScrollyForeground>
         <ScrollyForeground>
