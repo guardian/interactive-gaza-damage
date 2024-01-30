@@ -25,12 +25,10 @@
 
   onMount(async () => {
     await fetchAnnotationFeatures();
-    scrollyReady = true;
 
-    // setTimeout(() => {
-    //   const element = document.querySelector("#beit-hanoun-intro")
-    //   element.scrollIntoView()
-    // }, 1000);
+    setTimeout(() => {
+      scrollyReady = true;
+    }, 500);
 
     // setTimeout(() => {
     //   const element = document.querySelector("#al-zahra-intro")

@@ -20,6 +20,10 @@
         { threshold: 0.2 }
     );
     observer.observe(video);
+
+    setTimeout(() => {
+      video.play();
+    }, 200);
   })
 </script>
 
